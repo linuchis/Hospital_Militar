@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Inicio\Icon fa-solid-user-plus.png" />
+    <None Remove="Resources\Inicio\Iconcore-view-module.png" />
+    <None Remove="Resources\Inicio\iconocasa.png" />
+    <None Remove="Resources\Inicio\iconodebuscar.png" />
+    <None Remove="Resources\Inicio\iconodesalir.png" />
+    <None Remove="Resources\Inicio\iconopciente.png" />
+    <None Remove="Resources\Inicio\iconosdoctor.png" />
+    <None Remove="Resources\Inicio\logohospilatmilitar.png" />
+    <None Remove="Resources\Inicio\logo_blanco_soracost_1.png" />
+    <None Remove="Resources\Inicio\logo_poxter.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\Elipse 6.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\Icon fa-solid-pencil.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\Icon ion-close-round.png" />
+    <None Remove="Resources\Login\escudo hospital.png" />
+    <None Remove="Resources\Login\icono contraseña.png" />
+    <None Remove="Resources\Login\icono usuario.png" />
+    <None Remove="Resources\Login\logo ssoftco.png" />
+    <None Remove="Resources\Login\PoxterLogin.png" />
+    <None Remove="Resources\Login\user_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Inicio\Iconcore-view-module.png" />
+    <Resource Include="Resources\Inicio\Icon fa-solid-user-plus.png" />
+    <Resource Include="Resources\Inicio\iconodebuscar.png" />
+    <Resource Include="Resources\Inicio\iconodesalir.png" />
+    <Resource Include="Resources\Inicio\iconocasa.png" />
+    <Resource Include="Resources\Inicio\iconopciente.png" />
+    <Resource Include="Resources\Inicio\iconosdoctor.png" />
+    <Resource Include="Resources\Inicio\logohospilatmilitar.png" />
+    <Resource Include="Resources\Inicio\logo_blanco_soracost_1.png" />
+    <Resource Include="Resources\Inicio\logo_poxter.png" />
+    <Resource Include="Resources\Inicio\Pacientes_List\Elipse 6.png" />
+    <Resource Include="Resources\Inicio\Pacientes_List\Icon fa-solid-pencil.png" />
+    <Resource Include="Resources\Inicio\Pacientes_List\Icon ion-close-round.png" />
+    <Resource Include="Resources\Login\escudo hospital.png" />
+    <Resource Include="Resources\Login\icono contraseña.png" />
+    <Resource Include="Resources\Login\logo ssoftco.png" />
+    <Resource Include="Resources\Login\PoxterLogin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Login\user_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
