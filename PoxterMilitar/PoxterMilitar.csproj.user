@@ -7,10 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\ejemplostackpanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\InicioPacientes.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Page1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,10 +24,16 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ejemplostackpanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\InicioPacientes.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Page1.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
