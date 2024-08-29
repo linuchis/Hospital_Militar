@@ -23,11 +23,39 @@ namespace PoxterMilitar.Views
         public Login()
         {
             InitializeComponent();
+            // Suscribe al evento SizeChanged de la ventana
+            this.Loaded += Login_Loaded;
+        }
+
+        private void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null)
+            {
+                parentWindow.SizeChanged += Window_SizeChanged;
+            }
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            const double aspectRatio = 16.0 / 9.0;
+
+            // Determina si la altura o el ancho es el que está cambiando más
+            if (e.WidthChanged)
+            {
+                // Ajusta la altura en función del nuevo ancho para mantener la relación 16:9
+                ((Window)sender).Height = ((Window)sender).Width / aspectRatio;
+            }
+            else if (e.HeightChanged)
+            {
+                // Ajusta el ancho en función de la nueva altura para mantener la relación 16:9
+                ((Window)sender).Width = ((Window)sender).Height * aspectRatio;
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            // Aquí puedes manejar el evento TextChanged si es necesario
         }
     }
 }

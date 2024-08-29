@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PoxterMilitar.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="1000" d:DesignWidth="1920"
       Title="Login" Background="White">
 
     <Grid>
@@ -16,76 +16,131 @@
         </Grid.ColumnDefinitions>
 
         <!-- Imagen de fondo -->
-        <StackPanel>
-            <!-- Imagen de fondo -->
-            <Image Source="/Resources/Login/PoxterLogin.png" Stretch="Fill"/>
+        <StackPanel Grid.Column="0">
+            <Image Source="/Resources/Login/PoxterLogin.png" Stretch="Fill" Height="1000" Width="960"/>
         </StackPanel>
 
-        <!-- Formulario de inicio de sesión -->
-        <Grid Grid.Column="1" Grid.ColumnSpan="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
-
-            <StackPanel Grid.Row="0" >
-                <Label Content="Inicio de sesión"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top" 
-                   FontFamily="Verdana" 
-                   FontSize="25" 
-                   Foreground="#FF707070" Margin="0,166,0,0" />
-            </StackPanel>
-
-            <Grid Grid.Row="1" Grid.RowSpan="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-
-                </Grid.ColumnDefinitions>
-
+        <Grid Grid.Column="1">
+            <!-- Formulario de inicio de sesión -->
+            <Grid>
+                <StackPanel Grid.Row="0" >
+                    <Label Content="Inicio de sesión"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top" 
+                    FontFamily="Verdana" 
+                    FontSize="25" 
+                    Foreground="#FF707070" 
+                    Margin="0,166,0,0" />
+                </StackPanel>
             </Grid>
 
-            <StackPanel Grid.Row="1"  Height="470" Width="426">
+            <Grid Grid.Row="1" Grid.RowSpan="1">
+                <Image 
+                    Width="26" 
+                    Height="27" 
+                    Source="/Resources/Login/user_icon.png"
+                    HorizontalAlignment="Left"
+                    Margin="238,354,0,619" RenderTransformOrigin="-1.538,0.722"/>
 
-                <TextBox Text="Usuario" Width="397" Height="48" FontSize="20" FontFamily="Verdana" 
-                         VerticalContentAlignment="Center" Foreground="#FF707070" />
-                <Image Width="26" Height="27" Source="/Resources/Login/user_icon.png" />
+                <TextBox 
+                    HorizontalAlignment="Left" 
+                    Margin="288,350,0,0" 
+                    TextWrapping="Wrap" 
+                    Text="Usuario" 
+                    VerticalAlignment="Top" 
+                    Width="447" 
+                    Height="48" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    FontSize="20" 
+                    FontFamily="Verdana" 
+                    VerticalContentAlignment="Center" 
+                    TextChanged="TextBox_TextChanged" 
+                    Foreground="#FF707070"/>
 
-                <Image Width="26.61" Height="26.61" Source="/Resources/Login/icono contraseña.png" Margin="0,20,0,0"/>
-                <TextBox Text="Contraseña" Width="397" Height="48" FontSize="20" FontFamily="Verdana" 
-                         VerticalContentAlignment="Center" Foreground="#FF707070" Margin="0,10,0,0"/>
-                <Button Content="¿Olvidaste tu contraseña?" FontSize="20" FontFamily="Verdana" 
-                        Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                <TextBox 
+                    x:Name="TBContra" 
+                    HorizontalAlignment="Left" 
+                    Margin="288,461,0,0" 
+                    TextWrapping="Wrap" 
+                    Text="Contraseña" 
+                    VerticalAlignment="Top" 
+                    Width="448" 
+                    Height="48" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    FontSize="20" 
+                    FontFamily="Verdana" 
+                    VerticalContentAlignment="Center" 
+                    Foreground="#FF707070"/>
 
-                <CheckBox Content="Recuérdame" FontSize="20" FontFamily="Verdana" FontWeight="Light" Margin="0,20,0,0"/>
-                <Button Content="Iniciar sesión" Width="418" Height="69" Background="Black" Foreground="White" 
-                        FontSize="20" FontFamily="Verdana" Margin="0,20,0,0" />
-            </StackPanel>
+                <Image 
+                    Width="27" 
+                    Height="26.61" 
+                    Source="/Resources/Login/icono contraseña.png" 
+                    HorizontalAlignment="Left" 
+                    Margin="238,464,0,509"/>
+                <Button 
+                    Content="¿Olvidaste tu contraseña?" 
+                    FontSize="20"
+                    FontFamily="Verdana" 
+                    Margin="496,585,0,0"
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top"/>
 
-            <StackPanel Grid.Row="2"  Height="360" Margin="0,0,0,0">
-                <Image Source="/Resources/Login/escudo hospital.png" Height="72" Width="150" RenderTransformOrigin="0.5,0.625" />
-                <Image Source="/Resources/Login/logo ssoftco.png" Height="57" Width="316" />
-            </StackPanel> 
+                <CheckBox 
+                    Content="Recuérdame" 
+                    HorizontalAlignment="Left" 
+                    Margin="246,585,0,0" 
+                    VerticalAlignment="Top" 
+                    VerticalContentAlignment="Center" 
+                    FontSize="20" 
+                    FontFamily="Verdana" 
+                    FontWeight="Light"/>
+                <Button 
+                    Content="Iniciar sesión" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,680,0,0" 
+                    Background="Black" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="White" 
+                    FontFamily="Verdana" 
+                    FontSize="20" 
+                    Width="514" 
+                    Height="69" 
+                    VerticalAlignment="Top" 
+                    BorderThickness="2,2,2,0" 
+                    RenderTransformOrigin="0,0" 
+                    SnapsToDevicePixels="True" 
+                    Style="{StaticResource RoundedButtonStyle}"/>
 
 
+                <TextBlock HorizontalAlignment="Left" Margin="213,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Width="576" FontWeight="Bold" Foreground="#FF707070"><Run Text="___________________________________________"/><Run Text="______"/><Run Text="__"/></TextBlock>
+
+                <TextBlock HorizontalAlignment="Left" Margin="213,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Width="576" FontWeight="Bold" Foreground="#FF707070"><Run Text="___________________________________________"/><Run Text="______"/><Run Text="__"/></TextBlock>
+
+
+                <Image 
+                    Source="/Resources/Login/escudo hospital.png" 
+                    Height="50" 
+                    Width="50" 
+                    RenderTransformOrigin="0.5,0.625" Margin="497,898,313,45" />
+                <Image 
+                    Source="/Resources/Login/logo ssoftco.png" 
+                    Height="50" 
+                    Width="187"
+                    Margin="283,906,425,50" />
+
+
+                <Grid Grid.Row="1" Grid.RowSpan="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="53*"/>
+                        <RowDefinition Height="90*"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
