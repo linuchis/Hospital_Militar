@@ -29,7 +29,6 @@ namespace PoxterMilitar.Views
                 // Agrega más pacientes según sea necesario
             };
 
-                DataPacientes.ItemsSource = pacientes;
 
         }
 
@@ -42,20 +41,25 @@ namespace PoxterMilitar.Views
         {
 
         }
-    }
 
-        public class Paciente
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            public string? Foto { get; set; }
-            public string? Nombre { get; set; }
-            public string? Apellido { get; set; }
-            public string? Genero { get; set; }
-            public string? Altura { get; set; }
-            public string? Peso { get; set; }
-            public string? Correo { get; set; }
-            public string? Telefono { get; set; } 
+
         }
-
-        //Agregar informacion en los datos
-
     }
+
+    public class Paciente
+    {
+        public string? Foto { get; set; }
+        public string? Nombre { get; set; }
+        public string? Apellido { get; set; }
+        public string? Genero { get; set; }
+        public string? Altura { get; set; }
+        public string? Peso { get; set; }
+        public string? Correo { get; set; }
+        public string? Telefono { get; set; }
+    }
+
+    //Agregar informacion en los datos
+
+}
