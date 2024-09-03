@@ -1,4 +1,4 @@
-﻿<Page x:Class="PoxterMilitar.Views.Page1"
+﻿<Page x:Class="PoxterMilitar.Views.Page_Patients"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,41 +6,431 @@
       xmlns:local="clr-namespace:PoxterMilitar.Views"
       mc:Ignorable="d" 
       d:DesignHeight="1000" d:DesignWidth="1920"
-      Title="Page1">
+      Title="Page_Patients"
+      >
 
-    <Grid Margin="175,91,10,0" Background="White">
-        
-        
+    <Page.Resources>
+        <!-- <local:BoolToImageConverter x:Key="BoolToImageConverter"/> Esto es para que cambie de color el botoón rojo o verde-->
+
+        <!-- Diseño para el buton de Vistas-->
+        <Style x:Key="ButtonStream" TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="15"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Iconcore-view-module.png" Width="18.75" Height="40"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="18.75,0,21,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Diseño para el buton de Nuevo Paciente-->
+        <Style x:Key="ButtonNewPacient" TargetType="Button">
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="15"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Icon fa-solid-user-plus.png" Width="19.65" Height="15.72"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Diseño para el buton de barra lateral-->
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FF707070"/>
+            <Setter Property="Width" Value="110"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+        </Style>
+
+        <!-- Diseño para TextBlock de buscar -->
+        <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Path x:Name="path" 
+                                  Data="M 0 0 H 180 A 20 20 0 0 1 200 20 A 20 20 0 0 1 180 40 H 0 Z"
+                                  Fill="White"
+                                  Stroke="#0078D7"
+                                  StrokeThickness="1"
+                                  Stretch="Fill"
+                                  Width="Auto"
+                                  Height="Auto" 
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                            <TextBox x:Name="PART_TextBox"
+                                     Text="{TemplateBinding Text}"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     Padding="10,0"
+                                     VerticalContentAlignment="Center"
+                                     Foreground="LightGray"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="path" Property="Stroke" Value="#0078D7"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="False">
+                                <Setter Property="Foreground" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Diseño para boton de buscar -->
+        <Style x:Key="CapsuleButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Path x:Name="path" 
+                                  Data="M 0 20 A 20 20 0 0 1 20 0 H 80 V 40 H 20 A 20 20 0 0 1 0 20 Z"
+                                  Fill="#0078D7" 
+                                  Stretch="Fill" 
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="path" Property="Fill" Value="LightBlue"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="path" Property="Fill" Value="DarkBlue"/>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="path"
+                                                             Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                             To="0.9" Duration="0:0:0.1" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetName="path"
+                                                             Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                             To="0.9" Duration="0:0:0.1" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Estilo para los encabezados de columna -->
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0,0,1,2"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+        </Style>
+
+        <!-- Estilo para las filas -->
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+
+        <!-- Diseño para el DataGrid dentro del Border -->
+        <Style x:Key="StyledDataGrid" TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#F5F5F5"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Padding" Value="10,5"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                        <Setter Property="BorderBrush" Value="Gray"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RowStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="40"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Otros estilos y recursos -->
+
+
+
+    </Page.Resources>
+
+
+    <Grid Margin="175,91,10,0" Background="WhiteSmoke">
+
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            
         </Grid.ColumnDefinitions>
-        <Label 
+        
+        
+        
+
+
+        <Grid Grid.Row="0" Margin="10,0,0,0">
+            
+            <Label 
             Content="PACIENTES" 
             HorizontalAlignment="Left" 
-            Margin="106,78,0,0" 
+            Margin="65,80,0,0" 
             VerticalAlignment="Top"
             FontSize="30" 
             FontWeight="Bold" 
             FontFamily="Verdana"
             />
-        <Button 
-            Content="Nuevo Paciente" 
-            HorizontalAlignment="Left" 
-            Margin="1458,81,0,0" 
-            VerticalAlignment="Top"
-            FontSize="25" 
-            FontWeight="Bold" 
-            FontFamily="Verdana"/>
-        <Button 
-            Content="Ver Streams" 
-            HorizontalAlignment="Left" 
-            Margin="1252,78,0,0" 
-            VerticalAlignment="Top"
-            FontSize="25" 
-            FontWeight="Bold" 
-            FontFamily="Verdana"/>
+            
+            
 
+            <DockPanel LastChildFill="True" Margin="906,69,41,760" Grid.Column="1">
+                <StackPanel DockPanel.Dock="Right" 
+                            Orientation="Horizontal" 
+                            Height="82" 
+                            Width="688">
+                    <Grid 
+                        Width="319" 
+                        Height="39">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" Style="{StaticResource CapsuleButtonStyle}" Margin="0,0,101,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Image 
+                                    Source="\Resources\Inicio\iconodebuscar.png" 
+                                    Width="20" 
+                                    Height="20"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Grid Grid.Column="1">
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150*"/>
+                                    <ColumnDefinition Width="89*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox 
+                                    Style="{StaticResource SearchTextBoxStyle}" 
+                                    Text="Buscar" 
+                                    FontFamily="Verdana" 
+                                    FontSize="16" 
+                                    Margin="-102,0,10,0" 
+                                    TextChanged="TextBox_TextChanged" 
+                                    Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </Grid>
+
+
+                    </Grid>
+                    <StackPanel Orientation="Horizontal">
+
+                        <Grid 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                            <Button 
+                                Content="Ver streams" 
+                                Style="{StaticResource ButtonStream}" 
+                                Margin="8,0,4,0"/>
+                        </Grid>
+
+
+                    </StackPanel>
+
+                    <StackPanel 
+                        Orientation="Horizontal">
+                        <Grid 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                            <Button 
+                                x:Name="NewPaciente" 
+                                Content="Nuevo Paciente" 
+                                Style="{StaticResource ButtonNewPacient}" 
+                                Margin="4,0,-15,0" 
+                                Click="Btn_NewPaciente"/>
+                        </Grid>
+
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </DockPanel>
+
+
+
+            <DockPanel Background="#FFFFFF" Margin="152,164,152,164">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="8*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                    <Label Content="Lista de pacientes" FontSize="25" FontFamily="Verdana" FontWeight="Bold" />
+                </StackPanel>
+                
+
+                <DataGrid Grid.Row ="1" Background="#FF711D1D" Height="182" Width="1383"> Style="{StaticResource StyledDataGrid}" ItemsSource="{Binding ListaPacientes}">
+                        <!-- Define las columnas del DataGrid según tu necesidad -->
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Foto" Width="50">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding Foto}" Width="40" Height="40"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                        <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" Width="*"/>
+                        <DataGridTextColumn Header="Género" Binding="{Binding Genero}" Width="*"/>
+                        <DataGridTextColumn Header="Altura" Binding="{Binding Altura}" Width="*"/>
+                        <DataGridTextColumn Header="Peso" Binding="{Binding Peso}" Width="*"/>
+                        <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" Width="*"/>
+                        <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="*"/>
+                        <DataGridTextColumn Header="Opciones" Binding="{Binding Opciones}" Width="*"/>
+                        <!-- NUEVA COLUMNA: Columna para los botones de opciones -->
+                        <DataGridTemplateColumn Header="Opciones" Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Botón de Editar -->
+                                        <Button Width="20" Height="20" Margin="5,0">
+                                            <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" 
+                                                Width="16" 
+                                                Height="16"/>
+                                        </Button>
+                                        <!-- Botón de Activar/Desactivar -->
+                                        <Button Width="20" Height="20" Margin="5,0">
+                                            <Image Source="/Resources/Inicio/Pacientes_List/close.png" 
+                                                Width="16" 
+                                                Height="16"/>
+                                        </Button>
+
+                                        <!-- {Binding IsActive, Converter={StaticResource BoolToImageConverter}} -->
+
+                                        <!-- Botón de Eliminar -->
+                                        <Button Width="20" Height="20" Margin="5,0">
+                                            <Image Source="/Resources/Inicio/Pacientes_List/close.png" 
+                                                Width="16" 
+                                                Height="16"/>
+                                        </Button>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Agrega más columnas según sea necesario -->
+                    </DataGrid.Columns>
+                </DataGrid>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </Grid>
+
+                
+                
+            </DockPanel>
+
+        </Grid>
 
     </Grid>
+
 </Page>

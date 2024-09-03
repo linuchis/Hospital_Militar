@@ -25,8 +25,7 @@ namespace PoxterMilitar.Views
             InitializeComponent();
             List<Paciente> pacientes = new List<Paciente>
             {
-                new Paciente { Foto = "/Resources/Inicio/logo_blanco_soracost_1.png", Nombre = "Nombre", Apellido = "Apellido", Genero = "Genero", Altura = "Altura", Peso = "Peso", Correo = "Correo", Telefono = "Telefono" },
-                // Agrega más pacientes según sea necesario
+               
             };
 
 
@@ -42,7 +41,7 @@ namespace PoxterMilitar.Views
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TextBox_TextChanged()
         {
 
         }
