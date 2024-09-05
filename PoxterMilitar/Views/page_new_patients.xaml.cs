@@ -1,5 +1,7 @@
-﻿using System;
+﻿using PoxterMilitar.classe;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +17,13 @@ using System.Windows.Shapes;
 
 namespace PoxterMilitar.Views
 {
-    /// <summary>
-    /// Lógica de interacción para Page1.xaml
-    /// </summary>
-    public partial class Page1 : Page
+    public partial class Page_New_Patients : Page
     {
-        public Page1()
+        public Page_New_Patients()
         {
             InitializeComponent();
         }
     }
+
+   
 }

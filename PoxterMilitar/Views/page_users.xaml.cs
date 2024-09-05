@@ -54,7 +54,6 @@ namespace PoxterMilitar.Views
         private void Btn_NewUser(object sender, RoutedEventArgs e)
         {
             // Lógica para agregar un nuevo paciente o abrir una ventana de creación de paciente
-            MessageBox.Show("Botón 'Nuevo Usuario' fue clicado.");
         }
     }
 }
