@@ -1,22 +1,23 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
 using System.Collections.ObjectModel;
+using PoxterMilitar.classe;
 
 namespace PoxterMilitar.Views
 {
     public partial class Page_Patients : Page
     {
         // Colección observable que estará vinculada al DataGrid
-        public ObservableCollection<Paciente> ListaPacientes { get; set; }
+        public ObservableCollection<dato_paciente> ListaPacientes { get; set; }
 
         public Page_Patients()
         {
             InitializeComponent();
 
             // Inicializar la colección de pacientes
-            ListaPacientes = new ObservableCollection<Paciente>
+            ListaPacientes = new ObservableCollection<dato_paciente>
             {
-                new Paciente
+                new dato_paciente
                 {
                     Foto = "/Resources/Inicio/Pacientes_List/lina.png",
                     Nombre = "Lina",

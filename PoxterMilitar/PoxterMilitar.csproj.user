@@ -7,13 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\ejemplostackpanel.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\InicioPacientes.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\page_new_patients.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\page_patients.xaml.cs">
@@ -27,13 +27,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\ejemplostackpanel.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\InicioPacientes.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\page_new_patients.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\page_patients.xaml">

@@ -1,12 +1,14 @@
 ﻿<Window x:Class="PoxterMilitar.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PoxterMilitar"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920">
+        xmlns:local="clr-namespace:PoxterMilitar.Views"
+        Title="Main Window" Height="1000" Width="1920">
     <Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+       
+        <!-- Primer Frame para la página InicioPacientes -->
+        <Frame Name="FrameInicioPacientes" NavigationUIVisibility="Hidden"/>
+
+        <!-- Segundo Frame para la página Page_Patients -->
+        <Frame Name="FramePagePatients"  NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

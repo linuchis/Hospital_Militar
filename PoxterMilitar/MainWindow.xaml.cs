@@ -20,7 +20,12 @@ namespace PoxterMilitar
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new InicioPacientes());
+
+            // Cargar la primera página en el primer Frame
+            FrameInicioPacientes.Navigate(new InicioPacientes());
+
+            // Cargar la segunda página en el segundo Frame
+            FramePagePatients.Navigate(new Page_Users());
         }
     }
 }
