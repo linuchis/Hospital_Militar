@@ -26,7 +26,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                                CornerRadius="15"
+                                CornerRadius="10"
                                 BorderThickness="1"
                                 Padding="{TemplateBinding Padding}">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -63,7 +63,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                                CornerRadius="15"
+                                CornerRadius="10"
                                 BorderThickness="1"
                                 Padding="{TemplateBinding Padding}">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -92,7 +92,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#FF707070"/>
+            <Setter Property="Foreground" Value="#FF000000"/>
             <Setter Property="Width" Value="110"/>
             <Setter Property="Height" Value="70"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -111,7 +111,7 @@
                                   Data="M 0 0 H 180 A 20 20 0 0 1 200 20 A 20 20 0 0 1 180 40 H 0 Z"
                                   Fill="White"
                                   Stroke="#0078D7"
-                                  StrokeThickness="1"
+                                  StrokeThickness="2"
                                   Stretch="Fill"
                                   Width="Auto"
                                   Height="Auto" 
@@ -187,13 +187,13 @@
             <Setter Property="Background" Value="White"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="BorderThickness" Value="0,0,1,2"/>
-            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderBrush" Value="White"/>
         </Style>
 
         <!-- Estilo para las filas -->
         <Style TargetType="{x:Type DataGridRow}">
             <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="BorderThickness" Value="0,0,0,1"/>
             <Setter Property="Height" Value="40"/>
         </Style>
@@ -202,22 +202,33 @@
         <Style x:Key="StyledDataGrid" TargetType="DataGrid">
             <Setter Property="Background" Value="White"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>
-            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="True"/>
             <Setter Property="HeadersVisibility" Value="Column"/>
             <Setter Property="IsReadOnly" Value="True"/>
-            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Margin" Value="0"/>
+
+
+            <!-- Evitar problemas con los bordes -->
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+
+            <!-- Estilo de encabezado de columnas -->
             <Setter Property="ColumnHeaderStyle">
                 <Setter.Value>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#F5F5F5"/>
+                        <Setter Property="Background" Value="#FFD01C1C"/>
                         <Setter Property="FontWeight" Value="Bold"/>
                         <Setter Property="Padding" Value="10,5"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         <Setter Property="BorderThickness" Value="0,0,0,1"/>
-                        <Setter Property="BorderBrush" Value="Gray"/>
+                        <Setter Property="BorderBrush" Value="#FF00FF27"/>
+                        <!-- Color del borde inferior -->
                     </Style>
                 </Setter.Value>
             </Setter>
+
+            <!-- Estilo de las filas -->
             <Setter Property="RowStyle">
                 <Setter.Value>
                     <Style TargetType="DataGridRow">
@@ -227,39 +238,46 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <!-- Otros estilos y recursos -->
+        
+        
+        <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
+        <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
+        <Style x:Key="SimpleDockPanelBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <!-- Fondo del Border -->
+            <Setter Property="Margin" Value="152,164,80,164"/>
+            <!-- Márgenes -->
+            <Setter Property="BorderBrush" Value="#FFCECECE"/>
+            <!-- Color del borde -->
+            <Setter Property="BorderThickness" Value="2"/>
+            <!-- Grosor del borde -->
+            <Setter Property="CornerRadius" Value="20"/>
+            <!-- Bordes redondeados de 20px -->
+        </Style>
 
 
 
     </Page.Resources>
 
-
     <Grid Margin="175,91,10,0" Background="WhiteSmoke">
-
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        
-        
-
 
         <Grid Grid.Row="0" Margin="10,0,0,0">
-            
+
             <Label 
             Content="PACIENTES" 
             HorizontalAlignment="Left" 
-            Margin="65,80,0,0" 
+            Margin="114,69,0,0" 
             VerticalAlignment="Top"
             FontSize="30" 
             FontWeight="Bold" 
             FontFamily="Verdana"
             />
-            
-            
 
-            <DockPanel LastChildFill="True" Margin="906,69,41,760" Grid.Column="1">
+            <DockPanel LastChildFill="True" Margin="831,69,116,760">
                 <StackPanel DockPanel.Dock="Right" 
                             Orientation="Horizontal" 
                             Height="82" 
@@ -272,12 +290,12 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" Style="{StaticResource CapsuleButtonStyle}" Margin="0,0,101,0">
+                        <Button Grid.Column="0" Style="{StaticResource CapsuleButtonStyle}" Margin="0,0,86,0">
                             <StackPanel Orientation="Horizontal">
                                 <Image 
                                     Source="\Resources\Inicio\iconodebuscar.png" 
-                                    Width="20" 
-                                    Height="20"/>
+                                    Width="27" 
+                                    Height="24"/>
                             </StackPanel>
                         </Button>
 
@@ -292,7 +310,7 @@
                                     Text="Buscar" 
                                     FontFamily="Verdana" 
                                     FontSize="16" 
-                                    Margin="-102,0,10,0" 
+                                    Margin="-87,0,10,0" 
                                     TextChanged="TextBox_TextChanged" 
                                     Grid.ColumnSpan="2"/>
                             </Grid>
@@ -334,100 +352,150 @@
 
             </DockPanel>
 
-
-
-            <DockPanel Background="#FFFFFF" Margin="152,164,152,164">
+            <Border Style="{StaticResource SimpleDockPanelBorderStyle}">
+                <DockPanel>
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="488*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel>
-                    <Label Content="Lista de pacientes" FontSize="25" FontFamily="Verdana" FontWeight="Bold" />
-                </StackPanel>
-                
 
-                <DataGrid Grid.Row ="1" Background="#FF711D1D" Height="182" Width="1383"> Style="{StaticResource StyledDataGrid}" ItemsSource="{Binding ListaPacientes}">
-                        <!-- Define las columnas del DataGrid según tu necesidad -->
+                    <StackPanel Margin="0,10,0,0">
+                        <Label Content="Listado de pacientes" FontSize="24" FontFamily="Verdana" FontWeight="Bold" Width="1305" Height="45" />
+                    </StackPanel>
+
+                    <DataGrid 
+                                Grid.Row="1" 
+                                Margin="50,16,10,258"
+                                Style="{StaticResource StyledDataGrid}" 
+                                ItemsSource="{Binding ListaPacientes}" 
+                                FontFamily="Verdana" 
+                                Grid.RowSpan="2" 
+                                AutoGenerateColumns="False" 
+                                FontWeight="Bold" FontSize="16" GridLinesVisibility="None">
+
+
+                        <!-- Aplicar estilos a los encabezados de columna -->
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <!-- Eliminar el borde gris del encabezado -->
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Foreground" Value="#FF2C3948"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+
+                        <!-- Aplicar estilo a las filas -->
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Foreground" Value="#FF2C3948"/>
+                                <Setter Property="FontWeight" Value="Regular"/>
+                            </Style>
+                        </DataGrid.RowStyle>
+
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Foto" Width="50">
+
+                            <!-- Columna de Foto -->
+                            <DataGridTemplateColumn Header="    ">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Image Source="{Binding Foto}" Width="40" Height="40"/>
+                                        <Image Source="\Resources\Login\user_icon.png" Width="20" Height="20"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
-                        <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" Width="*"/>
-                        <DataGridTextColumn Header="Género" Binding="{Binding Genero}" Width="*"/>
-                        <DataGridTextColumn Header="Altura" Binding="{Binding Altura}" Width="*"/>
-                        <DataGridTextColumn Header="Peso" Binding="{Binding Peso}" Width="*"/>
-                        <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" Width="*"/>
-                        <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="*"/>
-                        <DataGridTextColumn Header="Opciones" Binding="{Binding Opciones}" Width="*"/>
-                        <!-- NUEVA COLUMNA: Columna para los botones de opciones -->
-                        <DataGridTemplateColumn Header="Opciones" Width="Auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <!-- Botón de Editar -->
-                                        <Button Width="20" Height="20" Margin="5,0">
-                                            <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" 
-                                                Width="16" 
-                                                Height="16"/>
-                                        </Button>
-                                        <!-- Botón de Activar/Desactivar -->
-                                        <Button Width="20" Height="20" Margin="5,0">
-                                            <Image Source="/Resources/Inicio/Pacientes_List/close.png" 
-                                                Width="16" 
-                                                Height="16"/>
-                                        </Button>
 
-                                        <!-- {Binding IsActive, Converter={StaticResource BoolToImageConverter}} -->
+                            <!-- Columnas de Texto -->
+                            <DataGridTemplateColumn Header="Nombre" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Nombre}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
 
-                                        <!-- Botón de Eliminar -->
-                                        <Button Width="20" Height="20" Margin="5,0">
-                                            <Image Source="/Resources/Inicio/Pacientes_List/close.png" 
-                                                Width="16" 
-                                                Height="16"/>
-                                        </Button>
-                                    </StackPanel>
+                            <DataGridTemplateColumn Header="Apellido" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Apellido}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
 
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Género" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Genero}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
 
-                        <!-- Agrega más columnas según sea necesario -->
-                    </DataGrid.Columns>
-                </DataGrid>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                            <DataGridTemplateColumn Header="Altura" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Altura}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Peso" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Peso}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Correo" Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Correo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Teléfono" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Telefono}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+
+                            <!-- Columna de Opciones -->
+                            <DataGridTemplateColumn Header="    Opciones       " Width="2*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <!-- Botón de Editar -->
+                                            <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
+                                                <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" Width="16" Height="16"/>
+                                            </Button>
+                                            <!-- Botón de Activar/Desactivar -->
+                                            <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
+                                                <Image Source="/Resources/Inicio/Pacientes_List/redpoint.png" Width="16" Height="16"/>
+                                            </Button>
+                                            <!-- Botón de Eliminar -->
+                                            <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
+                                                <Image Source="/Resources/Inicio/Pacientes_List/close.png" Width="16" Height="16" />
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
                 </Grid>
 
-                
-                
             </DockPanel>
+            </Border>
 
         </Grid>
 
