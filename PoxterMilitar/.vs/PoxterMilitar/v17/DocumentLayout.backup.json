@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\page_new_patients.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\page_new_patients.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\page_users.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\page_users.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\page_users.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\page_users.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\page_new_patients.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\page_new_patients.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 299,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -42,11 +42,12 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T20:05:03.493Z"
+              "WhenOpened": "2024-09-05T20:05:03.493Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "page_new_patients.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\page_new_patients.xaml.cs",
               "RelativeDocumentMoniker": "Views\\page_new_patients.xaml.cs",
@@ -59,14 +60,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "page_users.xaml",
               "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\page_users.xaml",
               "RelativeDocumentMoniker": "Views\\page_users.xaml",
               "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\page_users.xaml",
               "RelativeToolTip": "Views\\page_users.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-05T22:54:04.533Z"
+              "WhenOpened": "2024-09-05T22:54:04.533Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

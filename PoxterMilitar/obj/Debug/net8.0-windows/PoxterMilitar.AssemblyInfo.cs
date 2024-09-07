@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PoxterMilitar")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+576ed88c4451345be2ade64c223d801e021e4d7b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83d83220583dd4284a7f5b3e9d57b59bbdd79f4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("PoxterMilitar")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PoxterMilitar")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
