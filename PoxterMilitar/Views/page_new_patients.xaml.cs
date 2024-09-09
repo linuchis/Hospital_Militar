@@ -24,11 +24,18 @@ namespace PoxterMilitar.Views
             InitializeComponent();
         }
 
-        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        // Evento cuando el CheckBox está marcado
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
+            // Hacer visible el Grid cuando el CheckBox está marcado
+            GridAmputacion.Visibility = Visibility.Visible;
+        }
 
+        // Evento cuando el CheckBox está desmarcado
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            // Colapsar el Grid cuando el CheckBox está desmarcado
+            GridAmputacion.Visibility = Visibility.Collapsed;
         }
     }
-
-   
 }
