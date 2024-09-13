@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PoxterMilitar.classe
 {
-    public  class dato_paciente
+    public class dato_paciente
     {
         public string? Foto { get; set; }
         public string? Nombre { get; set; }
