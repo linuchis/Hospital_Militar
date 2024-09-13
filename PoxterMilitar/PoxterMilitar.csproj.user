@@ -22,7 +22,7 @@
     <Compile Update="Views\page_users.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\patient_information.xaml.cs">
+    <Compile Update="Views\Patient__Information.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -45,7 +45,7 @@
     <Page Update="Views\page_users.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\patient_information.xaml">
+    <Page Update="Views\Patient__Information.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

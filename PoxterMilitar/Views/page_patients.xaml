@@ -370,9 +370,12 @@
                             <Label Content="Listado de pacientes" FontSize="24" FontFamily="Verdana" FontWeight="Bold" Width="1305" Height="45" />
                         </StackPanel>
 
+                        
+                        
+
                         <DataGrid 
                                 Grid.Row="1" 
-                                Margin="50,16,10,258"
+                                Margin="50,16,10,323"
                                 Style="{StaticResource StyledDataGrid}" 
                                 ItemsSource="{Binding ListaPacientes}" 
                                 FontFamily="Verdana" 
@@ -402,7 +405,6 @@
                             </DataGrid.RowStyle>
 
                             <DataGrid.Columns>
-
                                 <!-- Columna de Foto -->
                                 <DataGridTemplateColumn Header="    ">
                                     <DataGridTemplateColumn.CellTemplate>
