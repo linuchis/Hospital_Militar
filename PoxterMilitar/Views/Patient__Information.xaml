@@ -47,6 +47,42 @@
             </Style.Triggers>
         </Style>
 
+        <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
+        <Style x:Key="ButtonStartProgram" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                CornerRadius="10"
+                BorderThickness="1"
+                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Pacientes_List/play_logo.png" Width="19.65" Height="15.72"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Diseño para el buton de barra lateral-->
         <Style x:Key="MenuButtonStyle" TargetType="Button">
             <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -294,8 +330,6 @@
             </Border>
         </ControlTemplate>
 
-
-
     </Page.Resources>
 
     <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
@@ -329,15 +363,14 @@
 
 
                     <StackPanel 
-             Orientation="Horizontal" Width="741">
-                        <Grid 
-                 VerticalAlignment="Center" Width="727">
+             Orientation="Horizontal" Width="744">
+                        <Grid VerticalAlignment="Center" Width="727">
                             <Button 
-                     x:Name="NewPaciente" 
-                     Content="Nuevo Paciente" 
-                     Style="{StaticResource ButtonNewPacient}" 
-                     Margin="490,-2,0,2" 
-                      HorizontalAlignment="Right" Width="180"/>
+                                 x:Name="NewPaciente" 
+                                 Content="Nuevo Paciente" 
+                                 Style="{StaticResource ButtonNewPacient}" 
+                                 Margin="490,-2,0,2" 
+                                 HorizontalAlignment="Right" Width="180"/>
                         </Grid>
                     </StackPanel>
                 </StackPanel>
@@ -363,22 +396,35 @@
 
 
                             <Grid Grid.ColumnSpan="2">
-                                <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="55,49,767,46" Background="Black"/>
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="43,49,734,46" Background="Black"/>
 
                             </Grid>
 
                             <Grid Grid.Column ="2">
                                 <StackPanel Margin="53,23,60,436">
-                                    <TextBlock Text="Elegir ejercicio*" FontFamily="Verdana" FontSize="16" Height="34" Width="132" />
-                                    <TextBlock Text="Equipo usado*" FontFamily="Verdana" FontSize="16" Height="33" Width="189" HorizontalAlignment="Left" />
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                    <!-- DOS COLUMNAS CON LA INFORMACIÓN DEL COSTADO DERECHO -->
+                                    <Grid Grid.Column="0">
+                                        <TextBlock Text="Elegir ejercicio*" FontFamily="Verdana" FontSize="16" Margin="-40,0,0,-27" />
+
+                                    </Grid>
+                                    <Grid Grid.Column="1" HorizontalAlignment="Right" Height="24">
+                                        <TextBlock Text="Equipo usado*" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Width="255" Margin="-57,0,0,0" />
+                                    </Grid>
+
                                 </StackPanel>
-                                    
+
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
                                           Name="Extremidad2" 
                                           HorizontalAlignment="Left" 
-                                          Width="302"
+                                          Width="292"
                                           FontFamily="Verdana" 
-                                          FontSize="17" Margin="53,61,0,383" 
+                                          FontSize="17" Margin="10,61,0,383" 
                                           >
                                     <ComboBoxItem Content="Tren superior: Brazo derecho"/>
                                     <ComboBoxItem Content="Tren superior: Brazo izquierdo"/>
@@ -387,6 +433,38 @@
                                     <ComboBoxItem IsSelected="True">Primeros pasos</ComboBoxItem>
                                 </ComboBox>
 
+                                <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
+                                          Name="Equipo" 
+                                          HorizontalAlignment="Left" 
+                                          Width="316"
+                                          FontFamily="Verdana" 
+                                          FontSize="17" Margin="356,61,0,383" 
+                                          >
+                                    <ComboBoxItem Content="Oculus Quest 2"/>
+                                    <ComboBoxItem Content="Oculus Quest 2"/>
+                                    <ComboBoxItem Content="Oculus Rift"/>
+                                    <ComboBoxItem IsSelected="True">Elegir equipo de RV</ComboBoxItem>
+                                </ComboBox>
+
+                                <Button 
+                                     x:Name="Start" 
+                                     Content="Iniciar ejercicio" 
+                                     Style="{StaticResource ButtonStartProgram}" 
+                                     Margin="0,396,484,40" 
+                                     HorizontalAlignment="Right" Width="198" Background="#FF1AD700"/>
+
+                                <Button 
+                                     x:Name="Reload" 
+                                     Content="Reiniciar ejercicio" 
+                                     Style="{StaticResource ButtonNewPacient}" 
+                                     Margin="0,396,0,40" 
+                                     HorizontalAlignment="Center" Width="221" Background="#FF3383C3"/>
+                                <Button 
+                                     x:Name="Cancel" 
+                                     Content="Cancelar ejercicio" 
+                                     Style="{StaticResource ButtonNewPacient}" 
+                                     Margin="0,396,24,40" 
+                                     HorizontalAlignment="Right" Width="207" Background="#FFFF1A1A"/>
 
 
                             </Grid>

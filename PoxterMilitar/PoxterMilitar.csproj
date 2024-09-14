@@ -23,6 +23,7 @@
     <None Remove="Resources\Inicio\logo_hosp_mil.png" />
     <None Remove="Resources\Inicio\logo_poxter.png" />
     <None Remove="Resources\Inicio\Pacientes_List\arrow_down.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\cancel_icon.png" />
     <None Remove="Resources\Inicio\Pacientes_List\close.png" />
     <None Remove="Resources\Inicio\Pacientes_List\Elipse 6.png" />
     <None Remove="Resources\Inicio\Pacientes_List\greenpoint.png" />
@@ -30,7 +31,9 @@
     <None Remove="Resources\Inicio\Pacientes_List\Icon ion-close-round.png" />
     <None Remove="Resources\Inicio\Pacientes_List\left_row.png" />
     <None Remove="Resources\Inicio\Pacientes_List\pencil.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\play_logo.png" />
     <None Remove="Resources\Inicio\Pacientes_List\redpoint.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\reload_icon.png" />
     <None Remove="Resources\Login\escudo hospital.png" />
     <None Remove="Resources\Login\icono contraseña.png" />
     <None Remove="Resources\Login\icono usuario.png" />
@@ -78,6 +81,9 @@
     <Resource Include="Resources\Inicio\Pacientes_List\arrow_down.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Inicio\Pacientes_List\cancel_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Inicio\Pacientes_List\close.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -90,7 +96,13 @@
     <Resource Include="Resources\Inicio\Pacientes_List\pencil.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Inicio\Pacientes_List\play_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Inicio\Pacientes_List\redpoint.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Inicio\Pacientes_List\reload_icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Login\escudo hospital.png" />

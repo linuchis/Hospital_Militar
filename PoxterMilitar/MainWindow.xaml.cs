@@ -25,7 +25,7 @@ namespace PoxterMilitar
             FrameInicioPacientes.Navigate(new InicioPacientes());
 
             // Cargar la segunda página en el segundo Frame
-            FramePagePatients.Navigate(new Patient__Information());
+            FramePagePatients.Navigate(new Survey_Patient());
         }
     }
 }

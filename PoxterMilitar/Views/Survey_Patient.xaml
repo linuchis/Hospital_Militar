@@ -1,0 +1,393 @@
+﻿<Page x:Class="PoxterMilitar.Views.Survey_Patient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PoxterMilitar.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="1920"
+      Title="Survey_Patient">
+
+    <Page.Resources>
+
+        <!-- Diseño para el buton de Nuevo Paciente-->
+        <Style x:Key="ButtonNewPacient" TargetType="Button">
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Icon fa-solid-user-plus.png" Width="19.65" Height="15.72"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
+        <Style x:Key="ButtonStartProgram" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                CornerRadius="10"
+                BorderThickness="1"
+                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Pacientes_List/play_logo.png" Width="19.65" Height="15.72"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Diseño para el buton de barra lateral-->
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="Width" Value="110"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+        </Style>
+
+        <!-- Diseño para TextBlock de buscar -->
+        <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Path x:Name="path" 
+                          Data="M 0 0 H 180 A 20 20 0 0 1 200 20 A 20 20 0 0 1 180 40 H 0 Z"
+                          Fill="White"
+                          Stroke="#0078D7"
+                          StrokeThickness="2"
+                          Stretch="Fill"
+                          Width="Auto"
+                          Height="Auto" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"/>
+                            <TextBox x:Name="PART_TextBox"
+                             Text="{TemplateBinding Text}"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             Padding="10,0"
+                             VerticalContentAlignment="Center"
+                             Foreground="LightGray"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="path" Property="Stroke" Value="#0078D7"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="False">
+                                <Setter Property="Foreground" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Diseño para boton de buscar -->
+        <Style x:Key="CapsuleButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Path x:Name="path" 
+                          Data="M 0 20 A 20 20 0 0 1 20 0 H 80 V 40 H 20 A 20 20 0 0 1 0 20 Z"
+                          Fill="#0078D7" 
+                          Stretch="Fill" 
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="path" Property="Fill" Value="LightBlue"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="path" Property="Fill" Value="DarkBlue"/>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="path"
+                                                     Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                     To="0.9" Duration="0:0:0.1" AutoReverse="True"/>
+                                            <DoubleAnimation Storyboard.TargetName="path"
+                                                     Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                     To="0.9" Duration="0:0:0.1" AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Estilo para los encabezados de columna -->
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0,0,1,2"/>
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+
+        <!-- Estilo para las filas -->
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+
+        <!-- Diseño para el DataGrid dentro del Border -->
+        <Style x:Key="StyledDataGrid" TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="True"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Margin" Value="0"/>
+
+
+            <!-- Evitar problemas con los bordes -->
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+
+            <!-- Estilo de encabezado de columnas -->
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#FFD01C1C"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Padding" Value="10,5"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                        <Setter Property="BorderBrush" Value="#FF00FF27"/>
+                        <!-- Color del borde inferior -->
+                    </Style>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Estilo de las filas -->
+            <Setter Property="RowStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="40"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
+        <Style x:Key="SimpleDockPanelBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <!-- Fondo del Border -->
+            <Setter Property="Margin" Value="152,164,80,164"/>
+            <!-- Márgenes -->
+            <Setter Property="BorderBrush" Value="#FFCECECE"/>
+            <!-- Color del borde -->
+            <Setter Property="BorderThickness" Value="2"/>
+            <!-- Grosor del borde -->
+            <Setter Property="CornerRadius" Value="20"/>
+            <!-- Bordes redondeados de 20px -->
+        </Style>
+
+        <!-- Boton de ComboBox -->
+        <Style TargetType="ComboBox" x:Key="RoundedComboBoxStyle">
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="#2C3948"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <!-- El Border define los bordes redondeados -->
+                            <Border x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="15"
+                        Padding="5" Grid.RowSpan="2">
+
+
+                                <DockPanel>
+                                    <!-- Contenido seleccionado -->
+                                    <!-- Botón de despliegue personalizado -->
+
+
+                                    <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Left"/>
+                                    <ToggleButton DockPanel.Dock="Right"
+                                      Focusable="False"
+                                      IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                      ClickMode="Press"  Background="Transparent" BorderBrush="Transparent"
+                                      Foreground="Gray">
+                                        <Image Source="/Resources/Inicio/Pacientes_List/arrow_down.png" Height="8" Width="13.34" HorizontalAlignment="Right"/>
+                                    </ToggleButton>
+
+                                </DockPanel>
+                            </Border>
+                            <Popup x:Name="PART_Popup"
+                       AllowsTransparency="True"
+                       Focusable="False"
+                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                       Placement="Bottom"
+                       PopupAnimation="Slide" Grid.RowSpan="2">
+                                <Border Background="White"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                                    <ScrollViewer CanContentScroll="True">
+                                        <ItemsPresenter/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Definir el template del botón de despliegue -->
+        <ControlTemplate x:Key="ComboBoxToggleButtonTemplate" TargetType="ToggleButton">
+            <Border Background="Gray"
+        BorderBrush="Transparent"
+        BorderThickness="0">
+                <Path Fill="Transparent"
+          Data="M 0 0 L 4 4 L 8 0 Z"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"/>
+            </Border>
+        </ControlTemplate>
+
+    </Page.Resources>
+
+    <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Margin="-66,0,0,0">
+            
+
+            <Label 
+                 Content="ENCUESTA AL PACIENTE" 
+                 HorizontalAlignment="Left" 
+                 Margin="114,69,0,0" 
+                 VerticalAlignment="Top"
+                 FontSize="30" 
+                 FontWeight="Bold" 
+                 FontFamily="Verdana"/>
+
+           
+
+            <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2"/>
+
+
+
+            <Grid>
+                <!-- ScrollViewer permite hacer scroll cuando el contenido es más grande que el área visible -->
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Encuesta" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                        <!-- Pregunta 1 -->
+                        <TextBlock Text="Pregunta 1: ¿Cómo calificaría nuestro servicio?" Margin="0,10,0,0"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,20">
+                            <RadioButton Content="Excelente" GroupName="Pregunta1"/>
+                            <RadioButton Content="Bueno" GroupName="Pregunta1" Margin="10,0,0,0"/>
+                            <RadioButton Content="Regular" GroupName="Pregunta1" Margin="10,0,0,0"/>
+                            <RadioButton Content="Malo" GroupName="Pregunta1" Margin="10,0,0,0"/>
+                        </StackPanel>
+
+                        <!-- Pregunta 2 -->
+                        <TextBlock Text="Pregunta 2: ¿Recomendaría nuestro servicio?" Margin="0,10,0,0"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,20">
+                            <RadioButton Content="Sí" GroupName="Pregunta2"/>
+                            <RadioButton Content="No" GroupName="Pregunta2" Margin="10,0,0,0"/>
+                        </StackPanel>
+
+                        <!-- Agrega más preguntas aquí -->
+                        <TextBlock Text="Pregunta 3: ¿Cómo podríamos mejorar?" Margin="0,10,0,0"/>
+                        <TextBox Height="80" Margin="0,5,0,20" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+                        <!-- Botón para enviar la encuesta -->
+                        <Button Content="Enviar" Width="100" Height="30" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
+
