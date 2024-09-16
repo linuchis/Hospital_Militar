@@ -119,7 +119,10 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontFamily" Value="Verdana"/>
+            <!-- Añadimos el cursor estilo mano -->
+            <Setter Property="Cursor" Value="Hand"/>
         </Style>
+
 
         <!-- Diseño para imagenes de barra lateral-->
         <Style x:Key="MenuImageStyle" TargetType="Image">
@@ -195,7 +198,7 @@
                             <Path x:Name="path" 
                                   Data="M 0 20 A 20 20 0 0 1 20 0 H 80 V 40 H 20 A 20 20 0 0 1 0 20 Z"
                                   Fill="#0078D7" 
-                                  Stretch="Fill" 
+                                  Stretch="Fill"                                                                                            
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"/>
                             <ContentPresenter HorizontalAlignment="Center"
@@ -249,7 +252,7 @@
     </Page.Resources>
 
     <Grid>
-
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="274.286" />
             <ColumnDefinition />
@@ -285,45 +288,66 @@
 
                     <StackPanel 
                         Orientation="Horizontal" 
-                        Margin="0,10,0,0" Width="200" Height="60">
-                        <Image 
-                            x:Name="ImgInicio" 
-                            Source="/Resources/Inicio/iconocasa.png" 
-                            Style="{StaticResource MenuImageStyle}" Height="20" Width="20"/>
-                        <Button 
-                            Content="Inicio" 
-                            Style="{StaticResource MenuButtonStyle}" 
-                            FontSize="18" Width="110" Height="30" />
-                    </StackPanel>
+                        Margin="0,10,0,0" Width="254" Height="50">
 
+                        <Button
+                            Style="{StaticResource MenuButtonStyle}" 
+                            FontSize="18" 
+                            Width="254" Height="50" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Inicio/iconocasa.png" 
+                                       Height="20" Width="45" 
+                                       Margin="0,0,10,0"/>
+                                <TextBlock Text="Inicio" Width="83"/>
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>
+                    
+                    
+                    
+                    
 
                     <StackPanel 
                         Orientation="Horizontal" 
-                        Margin="0,10,0,0" Width="200" Height="60">
-                        <Image 
-                            x:Name="ImgPacientes" 
-                            Source="/Resources/Inicio/iconopciente.png" 
-                            Style="{StaticResource MenuImageStyle}"  Height="20" Width="20"/>
-                        <Button 
-                            Content="Paciente" 
-                            Style="{StaticResource MenuButtonStyle}" 
-                            FontSize="18" Height="36"/>
-                    </StackPanel>
+                        Margin="0,10,0,0" Width="254" Height="50">
 
+                        <Button
+                            Style="{StaticResource MenuButtonStyle}" 
+                            FontSize="18" 
+                            Width="254" Height="50">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Inicio/iconopciente.png" 
+                                       Height="20" Width="45" 
+                                       Margin="0,0,10,0"/>
+                                <TextBlock Text="Paciente" Width="83"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
 
                     <StackPanel 
                         Orientation="Horizontal" 
-                        Margin="0,10,0,0" Width="200" Height="60">
-                        <Image 
-                            x:Name="ImgUsuarios" 
-                            Source="/Resources/Inicio/iconosdoctor.png" 
-                            Style="{StaticResource MenuImageStyle}" Height="20" Width="20"/>
-                        <Button 
-                            Content="Usuarios" 
+                        Margin="0,10,0,0" Width="254" Height="50">
+                        <Button
                             Style="{StaticResource MenuButtonStyle}" 
-                            FontSize="18" Height="40" Width="100"/>
+                            FontSize="18" 
+                            Width="254" Height="50">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Inicio/iconosdoctor.png" 
+                                       Height="20" Width="45" 
+                                       Margin="0,0,10,0"/>
+                                <TextBlock Text="Usuarios" Width="83"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                 </StackPanel>
+
+
+                <Button Content="Hola" Click= "Button_Patientinformation_Click" Width="176"/>
+                    
+           
+                
+                
             </DockPanel>
 
             <Grid Grid.Row="3">
@@ -334,12 +358,12 @@
                     Background="{x:Null}" 
                     BorderBrush="Transparent" 
                     Foreground="#FF707070" 
-                    Width="98" 
-                    Height="40" 
+                    Width="274" 
+                    Height="78" 
                     HorizontalContentAlignment="Center" 
                     VerticalContentAlignment="Center" 
                     FontSize="22" 
-                    FontFamily="Verdana"/>
+                    FontFamily="Verdana" Click="Button_Click"/>
                 <Image 
                     Margin="82,52,170,51" 
                     Source="/Resources/Inicio/iconodesalir.png" 

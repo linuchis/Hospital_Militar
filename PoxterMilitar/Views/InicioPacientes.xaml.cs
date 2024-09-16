@@ -23,13 +23,17 @@ namespace PoxterMilitar.Views
         public InicioPacientes()
         {
             InitializeComponent();
+
             List<Paciente> pacientes = new List<Paciente>
             {
                
             };
-
-
         }
+        private void Button_VerPacientes_Click(object sender, RoutedEventArgs e)
+        {
+            // Si deseas que el botón también cargue la página, puedes mantener este método
+        }
+
 
         private void Btn_NewPaciente(object sender, RoutedEventArgs e)
         {
@@ -44,6 +48,17 @@ namespace PoxterMilitar.Views
         private void TextBox_TextChanged()
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
+        {
+            // Navegar a Page_NewPatient en el mismo Frame
+            this.NavigationService.Navigate(new Patient__Information());
         }
     }
 

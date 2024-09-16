@@ -114,7 +114,8 @@
                     BorderThickness="2,2,2,0" 
                     RenderTransformOrigin="0,0" 
                     SnapsToDevicePixels="True" 
-                    Style="{StaticResource RoundedButtonStyle}"/>
+                    Style="{StaticResource RoundedButtonStyle}"
+                    Click="Button_IniciarSesion_Click"/>
 
 
                 <TextBlock HorizontalAlignment="Left" Margin="213,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Width="576" FontWeight="Bold" Foreground="#FF707070"><Run Text="___________________________________________"/><Run Text="______"/><Run Text="__"/></TextBlock>

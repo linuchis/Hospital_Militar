@@ -64,7 +64,7 @@
                 BorderThickness="1"
                 Padding="{TemplateBinding Padding}">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="/Resources/Inicio/Pacientes_List/play_logo.png" Width="19.65" Height="15.72"/>
+                                <Image Source="/Resources/Inicio/Pacientes_List/save_disk.png" Width="35" Height="32" VerticalAlignment="Bottom"/>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
                             </StackPanel>
                         </Border>
@@ -330,6 +330,48 @@
             </Border>
         </ControlTemplate>
 
+        <!-- Estilo global para el TextBox con solo el borde inferior -->
+        <Style TargetType="TextBox" x:Key="UnderlinedTextBoxStyle">
+            <!-- Configuración visual -->
+            <Setter Property="Foreground" Value="#FF5D5D5D"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <!-- Solo borde inferior -->
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <!-- Placeholder TextBlock -->
+                            <TextBlock x:Name="PlaceholderText" 
+                           Text="_________________________________________________________________________"
+                           Foreground="#FFAFAFAF" 
+                           VerticalAlignment="Top" 
+                           IsHitTestVisible="False" 
+                           Margin="0,0"/>
+                            <!-- TextBox Content -->
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <!-- Ocultar el Placeholder cuando haya texto en el TextBox -->
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <!-- Ocultar el placeholder cuando el TextBox tenga texto -->
+                            <Trigger Property="Text" Value="{x:Null}">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Page.Resources>
 
     <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
@@ -363,25 +405,55 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-                            <Image Source="\Resources\Inicio\Pacientes_List\left_row.png" Margin="36,18,1320,18"/>
+                            <Image Source="\Resources\Inicio\Pacientes_List\left_row.png" Margin="42,27,1334,22"/>
                             <TextBlock Text="Encuesta " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Width="111" Margin="679,27,0,27" FontWeight="Bold" />
                         </Grid>
 
                         <Grid Grid.Column="0" Grid.Row="1">
-                            <TextBlock Text="¿Con qué frecuencia experimenta dolor en la extremidad fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,31,0,0" FontFamily="Verdana" FontSize="16"/>
-                            <TextBlock Text="¿Cuánto dura típicamente un episodio de dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,98,0,0" FontFamily="Verdana" FontSize="16"/>
-                            <TextBlock Text="¿El dolor en la extremidad fantasma aparece en respuesta a algo en particular?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,180,0,0" FontFamily="Verdana" FontSize="16"/>
-                            <TextBlock Text="¿El dolor fantasma le genera alguna emoción o sensación?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,264,0,0" FontFamily="Verdana" FontSize="16"/>
-                            <TextBlock Text="¿Qué tan efectivo ha sido el tratamiento en reducir su dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,332,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿Con qué frecuencia experimenta dolor en la extremidad fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,10,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,40,0,403">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
+                            <TextBlock Text="¿Cuánto dura típicamente un episodio de dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,100,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,132,0,311">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
+                            <TextBlock Text="¿El dolor en la extremidad fantasma aparece en respuesta a algo en particular?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,190,0,0" FontFamily="Verdana" FontSize="16" RenderTransformOrigin="0.518,-0.413"/>
+                            <StackPanel Margin="25,230,0,213">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
+                            <TextBlock Text="¿El dolor fantasma le genera alguna emoción o sensación?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,288,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,308,0,135">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
+                            <TextBlock Text="¿Qué tan efectivo ha sido el tratamiento en reducir su dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,368,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,408,0,35">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
 
                         </Grid>
 
                         <Grid Grid.Column="1" Grid.Row="1">
-                            <TextBlock Text="¿Qué tipo de dolor experimenta en la extremidad fantasma? (Describa su dolor)" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,31,0,0" FontFamily="Verdana" FontSize="16"/>
-                            <TextBlock Text="¿Cómo describiría la intensidad de su dolor fantasma? En una escala de 0 a 10, siendo 0 sin dolor y 10 el peor dolor imaginable" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,115,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿Qué tipo de dolor experimenta en la extremidad fantasma? (Describa su dolor)" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,0,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,40,0,403">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
+                            <TextBlock Text="¿Cómo describiría la intensidad de su dolor fantasma? En una escala de 0 a 10, siendo 0 sin dolor y 10 el peor dolor imaginable" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,87,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,132,0,311">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
                             <TextBlock Text="¿El dolor fantasma afecta su sueño?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,204,0,0" FontFamily="Verdana" FontSize="16"/>
-                            <TextBlock Text="¿Ha utilizado algún tratamiento para aliviar el dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,264,0,0" FontFamily="Verdana" FontSize="16"/>
-                            <TextBlock Text="¿Hay algo que usted sienta que empeora o mejora su dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,333,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,230,0,213">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
+                            <TextBlock Text="¿Ha utilizado algún tratamiento para aliviar el dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,282,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,308,0,135">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
+                            <TextBlock Text="¿Hay algo que usted sienta que empeora o mejora su dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,362,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <StackPanel Margin="25,408,0,35">
+                                <TextBox Width="642" Height="48" Style="{StaticResource UnderlinedTextBoxStyle}"/>
+                            </StackPanel>
 
                         </Grid>
 
@@ -389,6 +461,15 @@
                     </Grid>
                 </DockPanel>
             </Border>
+
+            <Button 
+                 x:Name="Save_Survey" 
+                 Content="Guardar" 
+                 Style="{StaticResource ButtonStartProgram}" 
+                 Margin="766,800,694,0" 
+                Width="198" 
+                Background="#FF0086BE" 
+                VerticalAlignment="Top"/>
 
         </Grid>
     </Grid>

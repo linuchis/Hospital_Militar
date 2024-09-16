@@ -5,8 +5,20 @@ using PoxterMilitar.classe;
 
 namespace PoxterMilitar.Views
 {
+
+
+
+
+
+
     public partial class Page_Patients : Page
     {
+
+
+
+
+        private MainWindow mainWindow;
+
         // Colección observable que estará vinculada al DataGrid
         public ObservableCollection<dato_paciente> ListaPacientes { get; set; }
 
@@ -40,10 +52,16 @@ namespace PoxterMilitar.Views
         }
 
         // Método para manejar el evento Click del botón 'Nuevo Paciente'
-        private void Btn_NewPaciente(object sender, RoutedEventArgs e)
+        private void Button_NuevoPaciente_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para agregar un nuevo paciente o abrir una ventana de creación de paciente
-            MessageBox.Show("Botón 'Nuevo Paciente' fue clicado.");
+            // Navegar a Page_NewPatient en el mismo Frame
+            this.NavigationService.Navigate(new Page_New_Patients());
+        }
+
+        private void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
+        {
+            // Navegar a Page_NewPatient en el mismo Frame
+            this.NavigationService.Navigate(new Patient__Information());
         }
     }
 }

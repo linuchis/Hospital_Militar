@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PoxterMilitar.Features;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,12 @@ namespace PoxterMilitar.Views
             InitializeComponent();
             // Suscribe al evento SizeChanged de la ventana
             this.Loaded += Login_Loaded;
+        }
+
+        private void Button_IniciarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            // Navegar a MainContent
+            NavigationService.Navigate(new MainContent());
         }
 
         private void Login_Loaded(object sender, RoutedEventArgs e)

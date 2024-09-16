@@ -1,4 +1,5 @@
 ﻿using PoxterMilitar.classe;
+using PoxterMilitar.Features;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,6 +37,12 @@ namespace PoxterMilitar.Views
         {
             // Colapsar el Grid cuando el CheckBox está desmarcado
             GridAmputacion.Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_IniciarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            // Navegar a MainContent
+            NavigationService.Navigate(new MainContent());
         }
     }
 }

@@ -12,20 +12,16 @@ using System.Windows.Shapes;
 
 namespace PoxterMilitar
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
 
-            // Cargar la primera página en el primer Frame
-            FrameInicioPacientes.Navigate(new InicioPacientes());
+            MainFrame.Navigate(new Login());
 
-            // Cargar la segunda página en el segundo Frame
-            FramePagePatients.Navigate(new Survey_Patient());
+
         }
     }
 }

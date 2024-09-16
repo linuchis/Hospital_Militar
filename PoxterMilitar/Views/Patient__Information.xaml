@@ -370,7 +370,7 @@
                                  Content="Nuevo Paciente" 
                                  Style="{StaticResource ButtonNewPacient}" 
                                  Margin="490,-2,0,2" 
-                                 HorizontalAlignment="Right" Width="180"/>
+                                 HorizontalAlignment="Right" Width="180" Click="Button_NuevoPaciente_Click"/>
                         </Grid>
                     </StackPanel>
                 </StackPanel>

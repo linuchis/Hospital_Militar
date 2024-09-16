@@ -346,7 +346,7 @@
                                 Content="Nuevo Paciente" 
                                 Style="{StaticResource ButtonNewPacient}" 
                                 Margin="4,0,-15,0" 
-                                Click="Btn_NewPaciente"/>
+                                Click= "Button_NuevoPaciente_Click"/>
                         </Grid>
 
 
@@ -482,7 +482,7 @@
                                                     <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" Width="16" Height="16"/>
                                                 </Button>
                                                 <!-- Botón de Activar/Desactivar -->
-                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
+                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0" Click= "Button_Patientinformation_Click">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/redpoint.png" Width="16" Height="16"/>
                                                 </Button>
                                                 <!-- Botón de Eliminar -->

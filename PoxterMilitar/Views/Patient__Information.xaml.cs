@@ -45,5 +45,13 @@ namespace PoxterMilitar.Views
 
             this.DataContext = this;
         }
+
+       
+
+        private void Button_NuevoPaciente_Click(object sender, RoutedEventArgs e)
+        {
+            // Navegar a Page_NewPatient en el mismo Frame
+            this.NavigationService.Navigate(new Page_New_Patients());
+        }
     }
 }

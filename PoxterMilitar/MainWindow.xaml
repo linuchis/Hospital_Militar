@@ -4,11 +4,6 @@
         xmlns:local="clr-namespace:PoxterMilitar.Views"
         Title="Main Window" Height="1000" Width="1920">
     <Grid>
-       
-        <!-- Primer Frame para la página InicioPacientes -->
-        <Frame Name="FrameInicioPacientes" NavigationUIVisibility="Hidden"/>
-
-        <!-- Segundo Frame para la página Page_Patients -->
-        <Frame Name="FramePagePatients"  NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
