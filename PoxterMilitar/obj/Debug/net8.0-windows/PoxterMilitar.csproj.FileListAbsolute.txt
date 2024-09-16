@@ -81,7 +81,6 @@ C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-
 C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\ref\PoxterMilitar.dll
 C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\page_new_patients.g.cs
 C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\page_new_patients.baml
-C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\patient_information.g.cs
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\InicioPacientes.baml
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\InicioPacientes.g.cs
@@ -118,3 +117,7 @@ C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\ref\PoxterMilitar.dll
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\Survey_Patient.g.cs
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\Survey_Patient.baml
+C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\Patient__Information.g.cs
+C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\Survey_Patient.g.cs
+C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\Patient__Information.baml
+C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\Survey_Patient.baml

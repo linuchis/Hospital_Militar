@@ -339,8 +339,6 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Margin="-66,0,0,0">
-            
-
             <Label 
                  Content="ENCUESTA AL PACIENTE" 
                  HorizontalAlignment="Left" 
@@ -348,45 +346,50 @@
                  VerticalAlignment="Top"
                  FontSize="30" 
                  FontWeight="Bold" 
-                 FontFamily="Verdana"/>
+                 FontFamily="Verdana"
+            />
 
-           
+            <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2">
+                <DockPanel>
+                    <Grid>
 
-            <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.18*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                            <Image Source="\Resources\Inicio\Pacientes_List\left_row.png" Margin="36,18,1320,18"/>
+                            <TextBlock Text="Encuesta " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Width="111" Margin="679,27,0,27" FontWeight="Bold" />
+                        </Grid>
+
+                        <Grid Grid.Column="0" Grid.Row="1">
+                            <TextBlock Text="¿Con qué frecuencia experimenta dolor en la extremidad fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,31,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿Cuánto dura típicamente un episodio de dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,98,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿El dolor en la extremidad fantasma aparece en respuesta a algo en particular?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,180,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿El dolor fantasma le genera alguna emoción o sensación?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,264,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿Qué tan efectivo ha sido el tratamiento en reducir su dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,332,0,0" FontFamily="Verdana" FontSize="16"/>
+
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <TextBlock Text="¿Qué tipo de dolor experimenta en la extremidad fantasma? (Describa su dolor)" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,31,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿Cómo describiría la intensidad de su dolor fantasma? En una escala de 0 a 10, siendo 0 sin dolor y 10 el peor dolor imaginable" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,115,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿El dolor fantasma afecta su sueño?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,204,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿Ha utilizado algún tratamiento para aliviar el dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,264,0,0" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Text="¿Hay algo que usted sienta que empeora o mejora su dolor fantasma?" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap"  VerticalAlignment="Top" Width="557" Margin="45,333,0,0" FontFamily="Verdana" FontSize="16"/>
+
+                        </Grid>
 
 
+                    </Grid>
+                </DockPanel>
+            </Border>
 
-            <Grid>
-                <!-- ScrollViewer permite hacer scroll cuando el contenido es más grande que el área visible -->
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel Margin="10">
-                        <TextBlock Text="Encuesta" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-
-                        <!-- Pregunta 1 -->
-                        <TextBlock Text="Pregunta 1: ¿Cómo calificaría nuestro servicio?" Margin="0,10,0,0"/>
-                        <StackPanel Orientation="Horizontal" Margin="0,5,0,20">
-                            <RadioButton Content="Excelente" GroupName="Pregunta1"/>
-                            <RadioButton Content="Bueno" GroupName="Pregunta1" Margin="10,0,0,0"/>
-                            <RadioButton Content="Regular" GroupName="Pregunta1" Margin="10,0,0,0"/>
-                            <RadioButton Content="Malo" GroupName="Pregunta1" Margin="10,0,0,0"/>
-                        </StackPanel>
-
-                        <!-- Pregunta 2 -->
-                        <TextBlock Text="Pregunta 2: ¿Recomendaría nuestro servicio?" Margin="0,10,0,0"/>
-                        <StackPanel Orientation="Horizontal" Margin="0,5,0,20">
-                            <RadioButton Content="Sí" GroupName="Pregunta2"/>
-                            <RadioButton Content="No" GroupName="Pregunta2" Margin="10,0,0,0"/>
-                        </StackPanel>
-
-                        <!-- Agrega más preguntas aquí -->
-                        <TextBlock Text="Pregunta 3: ¿Cómo podríamos mejorar?" Margin="0,10,0,0"/>
-                        <TextBox Height="80" Margin="0,5,0,20" TextWrapping="Wrap" AcceptsReturn="True"/>
-
-                        <!-- Botón para enviar la encuesta -->
-                        <Button Content="Enviar" Width="100" Height="30" HorizontalAlignment="Center" Margin="0,20,0,0"/>
-                    </StackPanel>
-                </ScrollViewer>
-            </Grid>
         </Grid>
     </Grid>
 </Page>
