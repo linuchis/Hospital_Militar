@@ -20,9 +20,13 @@ namespace PoxterMilitar.Views
 {
     public partial class Page_New_Patients : Page
     {
-        public Page_New_Patients()
+        MainContent mainContent;
+
+        public Page_New_Patients(MainContent mainContent)
         {
             InitializeComponent();
+
+            this.mainContent = mainContent;
         }
 
         // Evento cuando el CheckBox está marcado
@@ -42,7 +46,21 @@ namespace PoxterMilitar.Views
         private void Button_IniciarSesion_Click(object sender, RoutedEventArgs e)
         {
             // Navegar a MainContent
-            NavigationService.Navigate(new MainContent());
+            MainContent.ListaPacientes.Add(new dato_paciente
+            {
+                Foto = "/Resources/Inicio/Pacientes_List/lina.png",
+                Nombre = "Lina1",
+                Apellido = "Castañeda",
+                Genero = "Femenino",
+                Altura = "1.73",
+                Peso = "73",
+                Correo = "lina.castaneda@sasoftco.com",
+                Telefono = "3208942453"
+            });
+
+            mainContent.navigateToPatients();
+
+           
         }
     }
 }

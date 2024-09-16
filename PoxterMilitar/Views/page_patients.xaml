@@ -241,7 +241,6 @@
 
 
         <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
-        <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
         <Style x:Key="SimpleDockPanelBorderStyle" TargetType="Border">
             <Setter Property="Background" Value="White"/>
             <!-- Fondo del Border -->

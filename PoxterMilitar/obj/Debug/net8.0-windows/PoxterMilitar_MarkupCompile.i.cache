@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\
 PoxterMilitar
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\App.xaml
-9-110170281
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\App.xaml
+10264433706
 
-161336816735
+17-1370999506
 198-556154604
-Features\MainContent.xaml;MainWindow.xaml;Views\InicioPacientes.xaml;Views\Login.xaml;Views\page_new_patients.xaml;Views\page_patients.xaml;Views\page_users.xaml;Views\Patient__Information.xaml;Views\Survey_Patient.xaml;
+Features\MainContent.xaml;MainWindow.xaml;Views\InicioPacientes.xaml;Views\Login.xaml;Views\Log_Out.xaml;Views\page_new_patients.xaml;Views\page_patients.xaml;Views\page_users.xaml;Views\Patient__Information.xaml;Views\Survey_Patient.xaml;
 
 True
 

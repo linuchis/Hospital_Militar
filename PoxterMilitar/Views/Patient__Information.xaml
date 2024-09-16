@@ -362,17 +362,7 @@
 
 
 
-                    <StackPanel 
-             Orientation="Horizontal" Width="744">
-                        <Grid VerticalAlignment="Center" Width="727">
-                            <Button 
-                                 x:Name="NewPaciente" 
-                                 Content="Nuevo Paciente" 
-                                 Style="{StaticResource ButtonNewPacient}" 
-                                 Margin="490,-2,0,2" 
-                                 HorizontalAlignment="Right" Width="180" Click="Button_NuevoPaciente_Click"/>
-                        </Grid>
-                    </StackPanel>
+                    
                 </StackPanel>
             </DockPanel>
 
@@ -451,7 +441,7 @@
                                      Content="Iniciar ejercicio" 
                                      Style="{StaticResource ButtonStartProgram}" 
                                      Margin="0,396,484,40" 
-                                     HorizontalAlignment="Right" Width="198" Background="#FF1AD700"/>
+                                     HorizontalAlignment="Right" Width="198" Background="#FF1AD700" Click="Start_Click"/>
 
                                 <Button 
                                      x:Name="Reload" 

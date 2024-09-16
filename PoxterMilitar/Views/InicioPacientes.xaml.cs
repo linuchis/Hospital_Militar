@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PoxterMilitar.Features;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace PoxterMilitar.Views
     /// </summary>
     public partial class InicioPacientes : Page
     {
-        public InicioPacientes()
+        MainContent mainContent;
+
+        public InicioPacientes(MainContent mainContent)
         {
             InitializeComponent();
+
+            this.mainContent = mainContent;
 
             List<Paciente> pacientes = new List<Paciente>
             {
@@ -50,15 +55,19 @@ namespace PoxterMilitar.Views
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
         {
-            // Navegar a Page_NewPatient en el mismo Frame
-            this.NavigationService.Navigate(new Patient__Information());
+            mainContent.navigateToPatients();
+        }
+
+        private void Button_Userinformation_Click(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToUsers();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToLogin();
         }
     }
 

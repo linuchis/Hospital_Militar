@@ -1,4 +1,5 @@
 ﻿using PoxterMilitar.classe;
+using PoxterMilitar.Features;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,7 @@ namespace PoxterMilitar.Views
         // Colección observable que estará vinculada al DataGrid
         public ObservableCollection<dato_paciente> ListaPacientes { get; set; }
 
+
         public Patient__Information()
         {
             InitializeComponent();
@@ -46,12 +48,9 @@ namespace PoxterMilitar.Views
             this.DataContext = this;
         }
 
-       
-
-        private void Button_NuevoPaciente_Click(object sender, RoutedEventArgs e)
+        private void Start_Click(object sender, RoutedEventArgs e)
         {
-            // Navegar a Page_NewPatient en el mismo Frame
-            this.NavigationService.Navigate(new Page_New_Patients());
+
         }
     }
 }

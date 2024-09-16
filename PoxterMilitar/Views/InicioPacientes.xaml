@@ -286,23 +286,7 @@
                 <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Height="702" Width="254">
 
 
-                    <StackPanel 
-                        Orientation="Horizontal" 
-                        Margin="0,10,0,0" Width="254" Height="50">
-
-                        <Button
-                            Style="{StaticResource MenuButtonStyle}" 
-                            FontSize="18" 
-                            Width="254" Height="50" >
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Resources/Inicio/iconocasa.png" 
-                                       Height="20" Width="45" 
-                                       Margin="0,0,10,0"/>
-                                <TextBlock Text="Inicio" Width="83"/>
-                            </StackPanel>
-                        </Button>
-
-                    </StackPanel>
+                    
                     
                     
                     
@@ -315,7 +299,8 @@
                         <Button
                             Style="{StaticResource MenuButtonStyle}" 
                             FontSize="18" 
-                            Width="254" Height="50">
+                            Width="254" Height="50" Click="Button_Patientinformation_Click">
+                            
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/Inicio/iconopciente.png" 
                                        Height="20" Width="45" 
@@ -331,7 +316,7 @@
                         <Button
                             Style="{StaticResource MenuButtonStyle}" 
                             FontSize="18" 
-                            Width="254" Height="50">
+                            Width="254" Height="50" Click="Button_Userinformation_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/Inicio/iconosdoctor.png" 
                                        Height="20" Width="45" 
@@ -343,7 +328,7 @@
                 </StackPanel>
 
 
-                <Button Content="Hola" Click= "Button_Patientinformation_Click" Width="176"/>
+               
                     
            
                 
