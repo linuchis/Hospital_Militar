@@ -125,3 +125,13 @@ C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-
 C:\Users\lina-\Documents\GitHub\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Features\MainContent.baml
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Features\MainContent.g.cs
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Features\MainContent.baml
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\Log_Out.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\Views\Log_Out.baml
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\bin\Debug\net8.0-windows\PoxterMilitar.dll.config
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\bin\Debug\net8.0-windows\SocketIO.Core.dll
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\bin\Debug\net8.0-windows\SocketIO.Serializer.Core.dll
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\bin\Debug\net8.0-windows\SocketIO.Serializer.SystemTextJson.dll
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\bin\Debug\net8.0-windows\SocketIOClient.dll
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\PoxterMilitar.csproj.AssemblyReference.cache
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows\PoxterMi.FB734F8E.Up2Date
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\bin\Debug\net8.0-windows\Newtonsoft.Json.dll

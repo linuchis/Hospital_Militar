@@ -85,6 +85,42 @@
             </Style.Triggers>
         </Style>
 
+        <!-- Diseño para el buton de guardar pacienteeee-->
+        <Style x:Key="ButtonSaveNewPatient" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Diseño para el buton de Nuevo Paciente-->
         <Style x:Key="ButtonNewPacient" TargetType="Button">
             <Setter Property="Background" Value="#0078D7"/>
@@ -501,7 +537,7 @@
                                      x:Name="Start" 
                                      Content="" 
                                      Style="{StaticResource ButtonStartProgram}"
-                                     HorizontalAlignment="Left" Width="57" Background="Transparent" Click="Button_IniciarSesion_Click"/>
+                                     HorizontalAlignment="Left" Width="57" Background="Transparent" />
 
 
                             </Grid>
@@ -634,6 +670,18 @@
                                     <ComboBoxItem Content="Tren inferior pierna izquierda"/>
                                     <ComboBoxItem IsSelected="True">Seleccionar extremidad amputada</ComboBoxItem>
                                 </ComboBox>
+
+
+                            </Grid>
+
+                            <Grid Grid.Column="3" Grid.Row="3">
+                                
+                                <Button
+                                    x:Name="SavePatient"
+                                    Content="Guardar Paciente"
+                                    Style="{StaticResource ButtonSaveNewPatient}"
+                                    Background="#FF3383C3" Margin="78,316,78,46" Click="Button_IniciarSesion_Click" FontSize="16"
+                                    />
 
                             </Grid>
 

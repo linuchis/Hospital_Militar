@@ -62,5 +62,10 @@ namespace PoxterMilitar.Views
 
            
         }
+
+        private void SavePatient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

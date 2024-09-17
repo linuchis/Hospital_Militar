@@ -10,6 +10,43 @@
 
     <Page.Resources>
 
+        <!-- Diseño para el buton de ENCUESTA-->
+        <Style x:Key="ButtonSurvey" TargetType="Button">
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                CornerRadius="10"
+                BorderThickness="1"
+                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Diseño para el buton de Nuevo Paciente-->
         <Style x:Key="ButtonNewPacient" TargetType="Button">
             <Setter Property="Background" Value="#0078D7"/>
@@ -362,7 +399,7 @@
 
 
 
-                    
+
                 </StackPanel>
             </DockPanel>
 
@@ -410,17 +447,17 @@
                                 </StackPanel>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
-                                          Name="Extremidad2" 
+                                          Name="ExerciseCombo" 
                                           HorizontalAlignment="Left" 
                                           Width="292"
                                           FontFamily="Verdana" 
                                           FontSize="17" Margin="10,61,0,383" 
                                           >
-                                    <ComboBoxItem Content="Tren superior: Brazo derecho"/>
-                                    <ComboBoxItem Content="Tren superior: Brazo izquierdo"/>
-                                    <ComboBoxItem Content="Tren inferior: Pierna derecha"/>
-                                    <ComboBoxItem Content="Tren inferior: Pierna izquierda"/>
-                                    <ComboBoxItem IsSelected="True">Primeros pasos</ComboBoxItem>
+                                    <ComboBoxItem IsSelected="True">Nombre del ejercicio</ComboBoxItem>
+                                    <ComboBoxItem Content="Mano1"/>
+                                    <ComboBoxItem Content="Mano2"/>
+                                    <ComboBoxItem Content="Pie1"/>
+                                    <ComboBoxItem Content="Pie2"/>
                                 </ComboBox>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
@@ -430,10 +467,33 @@
                                           FontFamily="Verdana" 
                                           FontSize="17" Margin="356,61,0,383" 
                                           >
-                                    <ComboBoxItem Content="Oculus Quest 2"/>
-                                    <ComboBoxItem Content="Oculus Quest 2"/>
-                                    <ComboBoxItem Content="Oculus Rift"/>
                                     <ComboBoxItem IsSelected="True">Elegir equipo de RV</ComboBoxItem>
+                                    <ComboBoxItem Content="VR1"/>
+                                    <ComboBoxItem Content="VR2"/>
+                                </ComboBox>
+
+                                <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
+                                          Name="Perfil" 
+                                          HorizontalAlignment="Left" 
+                                          Width="292"
+                                          FontFamily="Verdana" 
+                                          FontSize="17" Margin="10,128,0,316" 
+                                          >
+                                    <ComboBoxItem IsSelected="True">Elegir perfil</ComboBoxItem>
+                                    <ComboBoxItem Content="Derecha"/>
+                                    <ComboBoxItem Content="Izquierda"/>
+                                </ComboBox>
+
+                                <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
+                                          Name="PrimerosPasos" 
+                                          HorizontalAlignment="Left" 
+                                          Width="320"
+                                          FontFamily="Verdana" 
+                                          FontSize="17" Margin="352,128,0,316" 
+                                          >
+                                    <ComboBoxItem IsSelected="True">Primeros Pasos</ComboBoxItem>
+                                    <ComboBoxItem Content="Si"/>
+                                    <ComboBoxItem Content="No"/>
                                 </ComboBox>
 
                                 <Button 
@@ -441,20 +501,27 @@
                                      Content="Iniciar ejercicio" 
                                      Style="{StaticResource ButtonStartProgram}" 
                                      Margin="0,396,484,40" 
-                                     HorizontalAlignment="Right" Width="198" Background="#FF1AD700" Click="Start_Click"/>
+                                     HorizontalAlignment="Right" Width="198" Background="#FF1AD700" Click="IniciarPrograma_Click"/>
 
                                 <Button 
                                      x:Name="Reload" 
                                      Content="Reiniciar ejercicio" 
                                      Style="{StaticResource ButtonNewPacient}" 
                                      Margin="0,396,0,40" 
-                                     HorizontalAlignment="Center" Width="221" Background="#FF3383C3"/>
+                                     HorizontalAlignment="Center" Width="221" Background="#FF3383C3" Click="ReiniciarPrograma_Click"/>
                                 <Button 
                                      x:Name="Cancel" 
                                      Content="Cancelar ejercicio" 
                                      Style="{StaticResource ButtonNewPacient}" 
                                      Margin="0,396,24,40" 
-                                     HorizontalAlignment="Right" Width="207" Background="#FFFF1A1A"/>
+                                     HorizontalAlignment="Right" Width="207" Background="#FFFF1A1A" Click="DetenerPrograma_Click"/>
+
+                                <Button 
+                                     x:Name="Encuesta" 
+                                     Content="Encuesta al usuario"                           
+                                     Style="{StaticResource ButtonSurvey}" 
+                                     Margin="0,332,24,103" 
+                                     HorizontalAlignment="Right" Width="207" Background="#FF8C8C8C" Click="EncuestaUsuario_Click"/>
 
 
                             </Grid>

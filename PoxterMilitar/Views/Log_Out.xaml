@@ -1,14 +1,10 @@
-﻿<Page x:Class="PoxterMilitar.Views.Log_Out"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PoxterMilitar.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="1000" d:DesignWidth="1920"
-      Title="Log_Out">
+﻿<Window x:Class="PoxterMilitar.Views.Log_Out"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Log_Out"
+        Width="600" Height="350">
 
-    <Page.Resources>
+    <Window.Resources>
         <Style x:Key="SimpleDockPanelBorderStyle" TargetType="Border">
             <Setter Property="Background" Value="White"/>
             <!-- Fondo del Border -->
@@ -65,40 +61,39 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-    </Page.Resources>
+    </Window.Resources>
 
     <Grid>
-        <StackPanel Background="DimGray" Opacity="0.4"/>
-
-
-        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="666,408,666,408">
-            <DockPanel>
-
-                <Grid>
-                    <Label Content="¿Está seguro que desea finalizar sesión?" FontSize="24" FontFamily="Verdana"  Height="45" Margin="0,20,0,115" HorizontalAlignment="Center" />
-                    <Image Source="/Resources/Inicio/barra.png" Margin="50,60,50,112"/>
-                    
-                    <Button 
-                         x:Name="Start" 
-                         Content="Finalizar sesión" 
-                         Style="{StaticResource ButtonLogOut}" 
-                         Margin="121,101,0,0" 
-                         HorizontalAlignment="Left" Width="160" Background="#FF3383C3" Click="Start_Click" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
-                        <Button.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform ScaleY="-1"/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Button.RenderTransform>
-                    </Button>
-                </Grid>
-
-            </DockPanel>
-        </Border>
-
-
-
+        <Label Content="¿Está seguro que desea finalizar sesión?" FontSize="24" FontFamily="Verdana"  Height="45" Margin="0,122,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Button 
+        x:Name="Button_Log_Out" 
+        Content="Finalizar sesión" 
+        Style="{StaticResource ButtonLogOut}" 
+        Margin="51,200,0,0" 
+        HorizontalAlignment="Left" Width="203" Background="#FF3383C3" Click="Button_Click" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" FontSize="20">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button 
+            x:Name="Cancel" 
+            Content="    Cancelar" 
+            Style="{StaticResource ButtonLogOut}" 
+            Margin="352,200,0,0" 
+            HorizontalAlignment="Left" Width="197" Background="#FFE84B10" Click="Button_Cancel" RenderTransformOrigin="0.5,0.5" FontSize="20" VerticalAlignment="Top">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
-</Page>
+</Window>

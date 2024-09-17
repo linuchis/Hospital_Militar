@@ -348,7 +348,7 @@
                     HorizontalContentAlignment="Center" 
                     VerticalContentAlignment="Center" 
                     FontSize="22" 
-                    FontFamily="Verdana" Click="Button_Click"/>
+                    FontFamily="Verdana" Click="Button_Exit"/>
                 <Image 
                     Margin="82,52,170,51" 
                     Source="/Resources/Inicio/iconodesalir.png" 
@@ -416,7 +416,7 @@
                                 BorderBrush="Transparent" 
                                 FontFamily="Verdana" 
                                 FontSize="18" 
-                                Height="28" HorizontalAlignment="Right"/>
+                                Height="28" HorizontalAlignment="Right" Click="Button_Userinformation_Click"/>
                         </StackPanel>
                     </DockPanel>
                 </Grid>

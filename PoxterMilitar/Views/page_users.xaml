@@ -216,7 +216,7 @@
             <Setter Property="CornerRadius" Value="20"/>
             <!-- Bordes redondeados de 20px -->
         </Style>
-
+                            
 
 
     </Page.Resources>
@@ -321,7 +321,7 @@
 
                         <DataGrid 
                             Grid.Row="1" 
-                            Margin="50,16,10,258"
+                            Margin="50,16,10,64"
                             Style="{StaticResource StyledDataGrid}" 
                             ItemsSource="{Binding ListaUsuario}" 
                             FontFamily="Verdana" 
@@ -423,7 +423,7 @@
                                                 <!-- Botón de Eliminar -->
                                                 <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/close.png" Width="16" Height="16" />
-                                                </Button>
+                                                </Button>               
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

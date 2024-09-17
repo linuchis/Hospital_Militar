@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PoxterMilitar.Features;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,16 +19,26 @@ namespace PoxterMilitar.Views
     /// <summary>
     /// Lógica de interacción para Log_Out.xaml
     /// </summary>
-    public partial class Log_Out : Page
+    public partial class Log_Out : Window
     {
-        public Log_Out()
+        MainContent mainContent;
+
+        public Log_Out(MainContent mainContent)
         {
             InitializeComponent();
+
+            this.mainContent = mainContent;
         }
 
-        private void Start_Click(object sender, RoutedEventArgs e)
+        private void Button_Cancel(object sender, RoutedEventArgs e)
         {
+            Close();
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            mainContent.navigateToLogin();
         }
     }
 }

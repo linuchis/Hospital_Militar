@@ -467,10 +467,10 @@
                  Content="Guardar" 
                  Style="{StaticResource ButtonStartProgram}" 
                  Margin="766,800,694,0" 
-                Width="198" 
-                Background="#FF0086BE" 
-                VerticalAlignment="Top"/>
-
+                 Width="198" 
+                 Background="#FF0086BE" 
+                 VerticalAlignment="Top"
+                 Click="Button_GuardarEncuesta"/>
         </Grid>
     </Grid>
 </Page>

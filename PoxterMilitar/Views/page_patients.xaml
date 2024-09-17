@@ -374,7 +374,7 @@
 
                         <DataGrid 
                                 Grid.Row="1" 
-                                Margin="50,16,10,323"
+                                Margin="50,16,10,84"
                                 Style="{StaticResource StyledDataGrid}" 
                                 ItemsSource="{Binding ListaPacientes}" 
                                 FontFamily="Verdana" 

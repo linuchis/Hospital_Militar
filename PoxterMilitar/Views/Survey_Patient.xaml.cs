@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PoxterMilitar.Features;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace PoxterMilitar.Views
     /// </summary>
     public partial class Survey_Patient : Page
     {
-        public Survey_Patient()
+        MainContent mainContent;
+        public Survey_Patient(MainContent mainContent)
         {
             InitializeComponent();
+            this.mainContent = mainContent;     
         }
+        private void Button_GuardarEncuesta(object sender, RoutedEventArgs e)
+        {
+            this.mainContent.PrimeraEncuesta =false;
+            this.NavigationService.Navigate(new Patient__Information(mainContent));
+        }
+
+
+
     }
+
+    
+
+
+
 }

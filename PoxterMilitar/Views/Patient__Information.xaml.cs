@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,8 +27,9 @@ namespace PoxterMilitar.Views
         // Colección observable que estará vinculada al DataGrid
         public ObservableCollection<dato_paciente> ListaPacientes { get; set; }
 
+        MainContent mainContent;
 
-        public Patient__Information()
+        public Patient__Information(MainContent mainContent)
         {
             InitializeComponent();
             ListaPacientes = new ObservableCollection<dato_paciente>
@@ -46,11 +48,55 @@ namespace PoxterMilitar.Views
             };
 
             this.DataContext = this;
+            this.mainContent = mainContent;
+            if (!this.mainContent.PrimeraEncuesta)
+            {
+                Encuesta.Visibility = Visibility.Hidden;
+            }
         }
 
-        private void Start_Click(object sender, RoutedEventArgs e)
+        private void IniciarPrograma_Click(object sender, RoutedEventArgs e)
         {
+            if (ExerciseCombo.SelectionBoxItem != null
+                && ExerciseCombo.SelectedIndex != 0
+                && Equipo.SelectionBoxItem != null
+                && Equipo.SelectedIndex != 0
+                && Perfil.SelectionBoxItem != null
+                && Perfil.SelectedIndex != 0
+                && PrimerosPasos.SelectionBoxItem != null
+                && PrimerosPasos.SelectedIndex != 0)
+            {
+                mainContent.LoadExercise(Equipo.SelectionBoxItem.ToString(), ExerciseCombo.SelectionBoxItem.ToString(), Perfil.SelectionBoxItem.ToString(), PrimerosPasos.SelectionBoxItem.ToString());
+            }
+        }
 
+        private void ReiniciarPrograma_Click(object sender, RoutedEventArgs e)
+        {
+            if (Equipo.SelectionBoxItem != null
+                && Equipo.SelectedIndex != 0)
+            {
+                mainContent.RestartExercise(Equipo.SelectionBoxItem.ToString());
+            }
+        }
+
+        private void DetenerPrograma_Click(object sender, RoutedEventArgs e)
+        {
+            if (Equipo.SelectionBoxItem != null
+                && Equipo.SelectedIndex != 0)
+            {
+                mainContent.StopExercise(Equipo.SelectionBoxItem.ToString());
+            }
+        }
+
+        public void EnableSurveyButton()
+        {
+            Encuesta.Visibility = Visibility.Visible;
+        }
+
+        private void EncuestaUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            // 
+            this.NavigationService.Navigate(new Survey_Patient(mainContent));
         }
     }
 }

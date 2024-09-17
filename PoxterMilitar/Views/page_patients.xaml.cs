@@ -6,18 +6,8 @@ using PoxterMilitar.Features;
 
 namespace PoxterMilitar.Views
 {
-
-
-
-
-
-
     public partial class Page_Patients : Page
     {
-
-
-
-
         private MainWindow mainWindow;
 
         // Colección observable que estará vinculada al DataGrid
@@ -52,7 +42,7 @@ namespace PoxterMilitar.Views
         private void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
         {
             // Navegar a Page_NewPatient en el mismo Frame
-            this.NavigationService.Navigate(new Patient__Information());
+            this.NavigationService.Navigate(new Patient__Information(mainContent));
         }
     }
 }
