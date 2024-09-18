@@ -43,36 +43,16 @@
                     Margin="238,354,0,619" RenderTransformOrigin="-1.538,0.722"/>
 
                 <TextBox 
-                    HorizontalAlignment="Left" 
+                    Style="{StaticResource CustomTextBoxStyle}" 
                     Margin="288,350,0,0" 
-                    TextWrapping="Wrap" 
                     Text="Usuario" 
-                    VerticalAlignment="Top" 
-                    Width="447" 
-                    Height="48" 
-                    Background="{x:Null}" 
-                    BorderBrush="{x:Null}" 
-                    FontSize="20" 
-                    FontFamily="Verdana" 
-                    VerticalContentAlignment="Center" 
-                    TextChanged="TextBox_TextChanged" 
-                    Foreground="#FF707070"/>
+                    TextChanged="TextBox_TextChanged"/>
 
                 <TextBox 
-                    x:Name="TBContra" 
-                    HorizontalAlignment="Left" 
+                    x:Name="TBContra"
+                    Style="{StaticResource CustomTextBoxStylePassword}" 
                     Margin="288,461,0,0" 
-                    TextWrapping="Wrap" 
-                    Text="Contraseña" 
-                    VerticalAlignment="Top" 
-                    Width="448" 
-                    Height="48" 
-                    Background="{x:Null}" 
-                    BorderBrush="{x:Null}" 
-                    FontSize="20" 
-                    FontFamily="Verdana" 
-                    VerticalContentAlignment="Center" 
-                    Foreground="#FF707070"/>
+                    Text="Contraseña"/>
 
                 <Image 
                     Width="27" 

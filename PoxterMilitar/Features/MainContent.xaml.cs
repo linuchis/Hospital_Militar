@@ -146,7 +146,7 @@ namespace PoxterMilitar.Features
             socket.ConnectAsync();
         }
 
-        public void LoadExercise(string receiverId, string nameExercise, string firstStep, string profile)
+        public void LoadExercise(string receiverId, string nameExercise, string profile, string firstStep)
         {
             socket.EmitAsync("VRSimulator", "{\"command\": \"Comenzar\", \"receiverId\": \"" + receiverId + "\", \"senderId\": \"INSTRUCTOR1\", \"nameEx\": \"" + nameExercise + "\", \"firtsStep\": \"" + firstStep + "\", \"profile\": \"" + profile + "\"}");
         }
