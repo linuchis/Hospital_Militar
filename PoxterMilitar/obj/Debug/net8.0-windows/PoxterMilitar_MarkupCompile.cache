@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\App.xaml
-10264433706
+11-475118766
 
-16-489604607
+17529892896
 203-615002622
-Features\MainContent.xaml;MainWindow.xaml;Views\InicioPacientes.xaml;Views\Login.xaml;Views\Log_Out.xaml;Views\page_new_patients.xaml;Views\page_patients.xaml;Views\page_users.xaml;Views\Patient__Information.xaml;Views\Survey_Patient.xaml;
+Features\MainContent.xaml;MainWindow.xaml;Views\InicioPacientes.xaml;Views\Login.xaml;Views\Log_Out.xaml;Views\page_new_patients.xaml;Views\page_patients.xaml;Views\page_users.xaml;Views\Patient__Information.xaml;Views\Survey_list.xaml;Views\Survey_Patient.xaml;
 
 False
 

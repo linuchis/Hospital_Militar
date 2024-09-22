@@ -44,5 +44,9 @@ namespace PoxterMilitar.Views
             // Navegar a Page_NewPatient en el mismo Frame
             this.NavigationService.Navigate(new Patient__Information(mainContent));
         }
+        
+        
+        
+
     }
 }

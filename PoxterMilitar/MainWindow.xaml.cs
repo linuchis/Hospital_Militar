@@ -26,22 +26,4 @@ namespace PoxterMilitar
             MainFrame.Navigate(new Login());
         }
     }
-
-
-
-
-
-
-
-   
-    
-
-
-
-
-
-
-
-
-
 }

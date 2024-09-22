@@ -476,6 +476,10 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <!-- Botón de Informacion de encuestas -->
+                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
+                                                    <Image Source="/Resources/Inicio/Pacientes_List/survey_logo.png" Width="16" Height="16"/>
+                                                </Button>
                                                 <!-- Botón de Editar -->
                                                 <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" Width="16" Height="16"/>
@@ -488,6 +492,8 @@
                                                 <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/close.png" Width="16" Height="16" />
                                                 </Button>
+                                                
+                                                
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

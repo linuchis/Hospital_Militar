@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PoxterMilitar.classe;
+using PoxterMilitar.Models;
 using PoxterMilitar.Views;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PoxterMilitar.Features
 {

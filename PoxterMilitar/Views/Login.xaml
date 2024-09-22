@@ -7,6 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="1000" d:DesignWidth="1920"
       Title="Login" Background="White">
+    
 
     <Grid>
 
@@ -43,16 +44,39 @@
                     Margin="238,354,0,619" RenderTransformOrigin="-1.538,0.722"/>
 
                 <TextBox 
+                    x:Name="txtUsername"
                     Style="{StaticResource CustomTextBoxStyle}" 
-                    Margin="288,350,0,0" 
+                    Margin="290,344,0,0" 
                     Text="Usuario" 
-                    TextChanged="TextBox_TextChanged"/>
+                    GotFocus="TBUsuario_GotFocus" 
+                    LostFocus="TBUsuario_LostFocus"/>
 
-                <TextBox 
-                    x:Name="TBContra"
-                    Style="{StaticResource CustomTextBoxStylePassword}" 
-                    Margin="288,461,0,0" 
-                    Text="Contraseña"/>
+
+                <Grid Margin="277,454,235,498" Width="448" Height="48">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="39*"/>
+                        <RowDefinition Height="10*"/>
+                    </Grid.RowDefinitions>
+                    <!-- TextBlock que simula el placeholder -->
+                    <TextBlock x:Name="PlaceholderText"
+                        Text="Contraseña"
+                        VerticalAlignment="Top"
+                        FontSize="20"
+                        FontFamily="Verdana"
+                        Foreground="#FF707070"
+                        IsHitTestVisible="False"
+                        Margin="10,10,0,0"/>
+
+                    <!-- PasswordBox real -->
+                    <PasswordBox x:Name="txtPassword"
+                         Style="{StaticResource CustomPasswordBoxStyle}"
+                         PasswordChanged="PBContra_PasswordChanged"
+                         VerticalContentAlignment="Center" 
+                         Margin="10,0,0,0" 
+                         Grid.RowSpan="2"/>
+                </Grid>
+
+
 
                 <Image 
                     Width="27" 

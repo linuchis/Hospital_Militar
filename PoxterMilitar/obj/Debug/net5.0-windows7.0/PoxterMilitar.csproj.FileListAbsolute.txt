@@ -1,0 +1,17 @@
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\PoxterMilitar.csproj.AssemblyReference.cache
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\InicioPacientes.baml
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\Log_Out.baml
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Features\MainContent.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\MainWindow.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\InicioPacientes.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\Login.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\Log_Out.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\page_new_patients.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\page_patients.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\page_users.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\Patient__Information.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\Survey_list.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\Views\Survey_Patient.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\App.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\PoxterMilitar_MarkupCompile.cache
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net5.0-windows7.0\PoxterMilitar_MarkupCompile.lref
