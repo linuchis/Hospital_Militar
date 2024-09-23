@@ -305,7 +305,72 @@
             <!-- Grosor del borde -->
             <Setter Property="CornerRadius" Value="20"/>
             <!-- Bordes redondeados de 20px -->
+
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect
+                Color="Black" BlurRadius="0.4" ShadowDepth="5" Opacity="0.2" Direction="320"/>
+                </Setter.Value>
+            </Setter>
         </Style>
+        <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
+        <Style x:Key="SimpleDockPanelBorderStyleInformation" TargetType="Border">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0.19"/>
+                        <GradientStop Color="#FFCFCFCF" Offset="0.96"/>
+                        <GradientStop Color="#FFE6E6E6" Offset="0.907"/>
+                        <GradientStop Color="White" Offset="0.847"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <!-- Fondo del Border -->
+            <Setter Property="Margin" Value="152,164,80,164"/>
+            <!-- Márgenes -->
+            <Setter Property="BorderBrush" Value="#FFCECECE"/>
+            <!-- Color del borde -->
+            <Setter Property="BorderThickness" Value="2"/>
+            <!-- Grosor del borde -->
+            <Setter Property="CornerRadius" Value="20"/>
+            <!-- Bordes redondeados de 20px -->
+        </Style>
+        <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
+        <Style x:Key="ButtonChangeDataUsers" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Pacientes_List/pencil_white.png" Width="35" Height="32" VerticalAlignment="Bottom"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
 
         <!-- Boton de ComboBox -->
         <Style TargetType="ComboBox" x:Key="RoundedComboBoxStyle">
@@ -375,15 +440,59 @@
             </Setter>
         </Style>
 
+        <!-- Diseño para el buton de cerrar sesión-->
+        <Style x:Key="ButtonLogOut" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="27" RenderTransformOrigin="0.5,0.5">
+                                <StackPanel.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="-1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </StackPanel.RenderTransform>
+
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Definir el template del botón de despliegue -->
         <ControlTemplate x:Key="ComboBoxToggleButtonTemplate" TargetType="ToggleButton">
             <Border Background="Gray"
-BorderBrush="Transparent"
-BorderThickness="0">
+                    BorderBrush="Transparent"
+                    BorderThickness="0">
                 <Path Fill="Transparent"
-  Data="M 0 0 L 4 4 L 8 0 Z"
-  HorizontalAlignment="Center"
-  VerticalAlignment="Center"/>
+                      Data="M 0 0 L 4 4 L 8 0 Z"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"/>
             </Border>
         </ControlTemplate>
 

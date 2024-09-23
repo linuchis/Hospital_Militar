@@ -417,7 +417,7 @@
                                 FontFamily="Verdana" 
                                 FontSize="18" 
                                 Height="28" HorizontalAlignment="Right" Click="Button_Userinformation_Click"/>
-                        </StackPanel>
+                        </StackPanel>   
                     </DockPanel>
                 </Grid>
 

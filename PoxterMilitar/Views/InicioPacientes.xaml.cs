@@ -62,7 +62,7 @@ namespace PoxterMilitar.Views
 
         private void Button_Userinformation_Click(object sender, RoutedEventArgs e)
         {
-            mainContent.navigateToUsers();
+            mainContent.navigateToUserInformation();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

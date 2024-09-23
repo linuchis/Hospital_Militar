@@ -240,19 +240,6 @@
         </Style>
 
 
-        <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
-        <Style x:Key="SimpleDockPanelBorderStyle" TargetType="Border">
-            <Setter Property="Background" Value="White"/>
-            <!-- Fondo del Border -->
-            <Setter Property="Margin" Value="152,164,80,164"/>
-            <!-- Márgenes -->
-            <Setter Property="BorderBrush" Value="#FFCECECE"/>
-            <!-- Color del borde -->
-            <Setter Property="BorderThickness" Value="2"/>
-            <!-- Grosor del borde -->
-            <Setter Property="CornerRadius" Value="20"/>
-            <!-- Bordes redondeados de 20px -->
-        </Style>
 
 
 
@@ -284,7 +271,7 @@
                 <StackPanel DockPanel.Dock="Right" 
                             Orientation="Horizontal" 
                             Height="82" 
-                            Width="688">
+                            Width="708">
                     <Grid 
                         Width="319" 
                         Height="39">
@@ -293,7 +280,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" Style="{StaticResource CapsuleButtonStyle}" Margin="0,0,86,0">
+                        <Button Grid.Column="1" Style="{StaticResource CapsuleButtonStyle}" Margin="0,0,86,0">
                             <StackPanel Orientation="Horizontal">
                                 <Image 
                                     Source="\Resources\Inicio\iconodebuscar.png" 
@@ -313,7 +300,7 @@
                                     Text="Buscar" 
                                     FontFamily="Verdana" 
                                     FontSize="16" 
-                                    Margin="-87,0,10,0" 
+                                    Margin="67,0,-154,0" 
                                     TextChanged="TextBox_TextChanged" 
                                     Grid.ColumnSpan="2"/>
                             </Grid>
@@ -323,28 +310,26 @@
                     </Grid>
                     <StackPanel Orientation="Horizontal">
 
-                        <Grid 
+                        <!-- <Grid 
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Center">
                             <Button 
                                 Content="Ver streams" 
                                 Style="{StaticResource ButtonStream}" 
                                 Margin="8,0,4,0"/>
-                        </Grid>
+                        </Grid> -->
 
 
                     </StackPanel>
 
                     <StackPanel 
                         Orientation="Horizontal">
-                        <Grid 
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center">
+                        <Grid Width="392">
                             <Button 
                                 x:Name="NewPaciente" 
                                 Content="Nuevo Paciente" 
                                 Style="{StaticResource ButtonNewPacient}" 
-                                Margin="4,0,-15,0" 
+                                Margin="169,16,16,16" 
                                 Click= "Button_NuevoPaciente_Click"/>
                         </Grid>
 
@@ -369,8 +354,8 @@
                             <Label Content="Listado de pacientes" FontSize="24" FontFamily="Verdana" FontWeight="Bold" Width="1305" Height="45" />
                         </StackPanel>
 
-                        
-                        
+
+
 
                         <DataGrid 
                                 Grid.Row="1" 
@@ -477,7 +462,7 @@
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                 <!-- Botón de Informacion de encuestas -->
-                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
+                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0" Click="Button_SurveyList_Click">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/survey_logo.png" Width="16" Height="16"/>
                                                 </Button>
                                                 <!-- Botón de Editar -->
@@ -485,15 +470,15 @@
                                                     <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" Width="16" Height="16"/>
                                                 </Button>
                                                 <!-- Botón de Activar/Desactivar -->
-                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0" Click= "Button_Patientinformation_Click">
+                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0" Click="Button_Patientinformation_Click">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/redpoint.png" Width="16" Height="16"/>
                                                 </Button>
                                                 <!-- Botón de Eliminar -->
                                                 <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/close.png" Width="16" Height="16" />
                                                 </Button>
-                                                
-                                                
+
+
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

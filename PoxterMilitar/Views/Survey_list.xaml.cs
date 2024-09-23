@@ -21,11 +21,13 @@ namespace PoxterMilitar.Views
     /// </summary>
     public partial class Survey_list : Page
     {
+        MainContent mainContent;
 
 
-        public Survey_list()
+        public Survey_list(MainContent mainContent)
         {
             InitializeComponent();
+            this.mainContent = mainContent;
         }
     }
 }

@@ -32,6 +32,7 @@
     <None Remove="Resources\Inicio\Pacientes_List\info_icon.png" />
     <None Remove="Resources\Inicio\Pacientes_List\left_row.png" />
     <None Remove="Resources\Inicio\Pacientes_List\pencil.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\pencil_white.png" />
     <None Remove="Resources\Inicio\Pacientes_List\play_logo.png" />
     <None Remove="Resources\Inicio\Pacientes_List\redpoint.png" />
     <None Remove="Resources\Inicio\Pacientes_List\reload_icon.png" />
@@ -107,6 +108,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Inicio\Pacientes_List\pencil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Inicio\Pacientes_List\pencil_white.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Inicio\Pacientes_List\play_logo.png">

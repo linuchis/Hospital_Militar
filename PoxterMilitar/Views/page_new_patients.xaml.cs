@@ -25,7 +25,6 @@ namespace PoxterMilitar.Views
         public Page_New_Patients(MainContent mainContent)
         {
             InitializeComponent();
-
             this.mainContent = mainContent;
         }
 

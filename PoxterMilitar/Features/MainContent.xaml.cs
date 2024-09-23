@@ -72,14 +72,15 @@ namespace PoxterMilitar.Features
             FramePagePatients.Navigate(new Page_Users());
         }
 
+        public void navigateToUserInformation()
+        {
+            FramePagePatients.Navigate(new User_Information());
+        }
+
         public void navigateToLogin()
         {
             NavigationService.Navigate(new Login());
         }
-
-
-
-
 
         public void navigateToSesion()
         {
