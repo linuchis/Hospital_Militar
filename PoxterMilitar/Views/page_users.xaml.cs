@@ -1,4 +1,5 @@
 ﻿using PoxterMilitar.classe;
+using PoxterMilitar.Features;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,27 +22,13 @@ namespace PoxterMilitar.Views
     {
 
         public ObservableCollection<dato_usuario> ListaUsuario { get; set; }
-
-        public Page_Users()
+        public MainContent mainContent;
+        public Page_Users(ObservableCollection<dato_usuario> listaUsuario, MainContent mainContent)
         {
             InitializeComponent();
-            // Inicializar la colección de pacientes
-            ListaUsuario = new ObservableCollection<dato_usuario>
-            {
-                new dato_usuario
-                {
-                    Foto = "/Resources/Inicio/Pacientes_List/lina.png",
-                    Nombre = "Lina",
-                    Apellido = "Castañeda",
-                    Area = "Ingenieria",
-                    Correo = "lina.castaneda@sasoftco.com",
-                    Telefono = "3208942453",
-                    NivelAcceso = "Administrador"
-                }
-            };
-
+            this.ListaUsuario = listaUsuario;
+            this.mainContent = mainContent;
             this.DataContext = this;
-
         }
 
         // Método para manejar el evento TextChanged del TextBox
@@ -55,5 +42,17 @@ namespace PoxterMilitar.Views
         {
             // Lógica para agregar un nuevo paciente o abrir una ventana de creación de paciente
         }
+
+        private void Button_BackHome(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToPatients(); 
+        }
+
+        private void Button_UserInformation(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToUserInformation();
+        }
+
+
     }
 }

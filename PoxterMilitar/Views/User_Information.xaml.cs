@@ -20,7 +20,7 @@ namespace PoxterMilitar.Views
     /// </summary>
     public partial class User_Information : Page
     {
-        public User_Information()
+        public User_Information(object listaUsuario, Features.MainContent mainContent)
         {
             InitializeComponent();
         }

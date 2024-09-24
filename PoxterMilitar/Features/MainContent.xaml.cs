@@ -29,6 +29,8 @@ namespace PoxterMilitar.Features
     public partial class MainContent : Page
     {
         public static ObservableCollection<dato_paciente> ListaPacientes { get; set; }
+        public static ObservableCollection<dato_usuario> ListaUsuario { get;  set; }
+
         SocketIOClient.SocketIO socket;
 
         public bool PrimeraEncuesta=true;
@@ -53,6 +55,20 @@ namespace PoxterMilitar.Features
                 }
             };
 
+            ListaUsuario = new ObservableCollection<dato_usuario>
+            {
+                new dato_usuario
+                {
+                    Foto = "/Resources/Inicio/Pacientes_List/lina.png",
+                    Nombre = "Lina",
+                    Apellido = "Castañeda",
+                    Area = "Ingenieria",
+                    Correo = "lina.castaneda@sasoftco.com",
+                    Telefono = "3208942453",
+                    NivelAcceso = "Administrador"
+                }
+            };
+
             // Navegar el Frame de InicioPacientes a la página InicioPacientes
             FrameInicioPacientes.Navigate(new InicioPacientes(this));
 
@@ -67,20 +83,22 @@ namespace PoxterMilitar.Features
             FramePagePatients.Navigate(new Page_Patients(ListaPacientes, this));
         }
 
-        public void navigateToUsers()
+        public void navigateToUsersList()
         {
-            FramePagePatients.Navigate(new Page_Users());
+            FramePagePatients.Navigate(new Page_Users(ListaUsuario, this));
         }
 
         public void navigateToUserInformation()
         {
-            FramePagePatients.Navigate(new User_Information());
+            FramePagePatients.Navigate(new User_Information(ListaUsuario, this));
         }
 
         public void navigateToLogin()
         {
             NavigationService.Navigate(new Login());
         }
+        
+
 
         public void navigateToSesion()
         {

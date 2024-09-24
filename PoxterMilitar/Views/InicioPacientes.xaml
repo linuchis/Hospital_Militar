@@ -302,10 +302,10 @@
                             Width="254" Height="50" Click="Button_Patientinformation_Click">
                             
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Resources/Inicio/iconopciente.png" 
+                                <Image Source="/Resources/Inicio/iconocasa.png" 
                                        Height="20" Width="45" 
                                        Margin="0,0,10,0"/>
-                                <TextBlock Text="Paciente" Width="83"/>
+                                <TextBlock Text="Pacientes" Width="90"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -316,7 +316,7 @@
                         <Button
                             Style="{StaticResource MenuButtonStyle}" 
                             FontSize="18" 
-                            Width="254" Height="50" Click="Button_Userinformation_Click">
+                            Width="254" Height="54" Click="Button_UsersList_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/Inicio/iconosdoctor.png" 
                                        Height="20" Width="45" 

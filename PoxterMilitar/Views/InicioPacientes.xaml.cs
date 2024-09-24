@@ -65,6 +65,12 @@ namespace PoxterMilitar.Views
             mainContent.navigateToUserInformation();
         }
 
+
+        private void Button_UsersList_Click(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToUsersList();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             mainContent.navigateToLogin();

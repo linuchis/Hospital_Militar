@@ -435,41 +435,7 @@
             </Setter>
         </Style>
 
-        <!-- Estilo personalizado para el CheckBox -->
-        <Style TargetType="CheckBox" x:Key="LargeCheckBoxStyle">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="CheckBox">
-                        <StackPanel Orientation="Horizontal">
-                            <!-- Caja de selección personalizada -->
-                            <Border x:Name="Border" Width="30" Height="30" 
-                                BorderBrush="Gray" BorderThickness="2"
-                                CornerRadius="3" Background="White"
-                                VerticalAlignment="Center">
-                                <Grid>
-                                    <!-- Marca de verificación (X) más grande y centrada -->
-                                    <Path x:Name="CheckMark"
-                                      Data="M 0,0 L 10,10 M 10,0 L 0,10"
-                                      Stroke="Gray"
-                                      StrokeThickness="2"
-                                      Stretch="Uniform"
-                                      VerticalAlignment="Center"
-                                      HorizontalAlignment="Center"
-                                      Visibility="Collapsed"/>
-                                </Grid>
-                            </Border>
-                            <ContentPresenter VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        </StackPanel>
-                        <ControlTemplate.Triggers>
-                            <!-- Cambiar la visibilidad de la marca de verificación cuando esté activado -->
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+       
     </Page.Resources>
 
     <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
@@ -518,16 +484,14 @@
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0">
-                                <StackPanel Margin="38,0,168,0">
-
-                                </StackPanel>
                                 <Button 
-                                     x:Name="Start" 
-                                     Content="" 
-                                     Style="{StaticResource ButtonStartProgram}"
-                                     HorizontalAlignment="Left" Width="57" Background="Transparent" />
-
-
+                                    x:Name="Start" 
+                                    Content="" 
+                                    Style="{StaticResource ButtonStartProgram}"
+                                    HorizontalAlignment="Left" 
+                                    Width="57" 
+                                    Background="Transparent" 
+                                    Click="Button_Back_Click"/>
                             </Grid>
 
                             <Grid  Grid.Row="1">

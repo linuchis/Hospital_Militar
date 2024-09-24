@@ -20,12 +20,14 @@ namespace PoxterMilitar.Views
 {
     public partial class Page_New_Patients : Page
     {
-        MainContent mainContent;
+        public MainContent mainContent;
 
         public Page_New_Patients(MainContent mainContent)
         {
             InitializeComponent();
             this.mainContent = mainContent;
+            this.DataContext = this;
+
         }
 
         // Evento cuando el CheckBox está marcado
@@ -65,6 +67,11 @@ namespace PoxterMilitar.Views
         private void SavePatient_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Back_Click(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToPatients();
         }
     }
 }

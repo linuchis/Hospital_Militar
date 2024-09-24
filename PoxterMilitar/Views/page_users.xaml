@@ -204,8 +204,8 @@
 
         <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
         <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
-        
-                            
+
+
 
 
     </Page.Resources>
@@ -219,24 +219,25 @@
         <Grid Grid.Row="0" Margin="-66,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="557*"/>
-                <RowDefinition Height="352*"/>
             </Grid.RowDefinitions>
 
+
+
             <Label 
-        Content="USUARIOS" 
-        HorizontalAlignment="Left" 
-        Margin="114,69,0,0" 
-        VerticalAlignment="Top"
-        FontSize="30" 
-        FontWeight="Bold" 
-        FontFamily="Verdana"
+                Content="USUARIOS" 
+                HorizontalAlignment="Left" 
+                Margin="114,69,0,0" 
+                VerticalAlignment="Top"
+                FontSize="30" 
+                FontWeight="Bold" 
+                FontFamily="Verdana"
         />
 
-            <DockPanel LastChildFill="True" Margin="831,69,116,408">
-                <StackPanel DockPanel.Dock="Right" 
+            <DockPanel LastChildFill="True" Margin="1208,69,80,408">
+                <!--<StackPanel DockPanel.Dock="Right" 
                         Orientation="Horizontal" 
                         Height="82" 
-                        Width="532">
+                        Width="312">
                     <Grid 
                     Width="319" 
                     Height="39">
@@ -284,13 +285,13 @@
                             x:Name="NewUsuario" 
                             Content="Nuevo Usuario" 
                             Style="{StaticResource ButtonNewUser}" 
-                            Margin="4,0,-15,0" />
+                            Margin="110,10,-121,-10" />
                         </Grid>
 
 
-                    </StackPanel>
-
                 </StackPanel>
+
+                </StackPanel> -->
 
             </DockPanel>
 
@@ -304,8 +305,20 @@
                             <RowDefinition Height="488*"/>
                         </Grid.RowDefinitions>
 
+
+
                         <StackPanel Margin="0,10,0,0">
-                            <Label Content="Listado de usuarios" FontSize="24" FontFamily="Verdana" FontWeight="Bold" Width="1305" Height="45" />
+                            <Label Content="Listado de usuarios" FontSize="24" FontFamily="Verdana" FontWeight="Bold" Width="1234" Height="54" />
+                            <Grid Grid.Column="0">
+                                <Button 
+                                    x:Name="Button_Back" 
+                                    Content="" 
+                                    Style="{StaticResource ButtonComeBackProgram}"
+                                    HorizontalAlignment="Left" 
+                                    Width="57" 
+                                    Background="Transparent" 
+                                    Click="Button_BackHome" Margin="25,-54,0,54"/>
+                            </Grid>
                         </StackPanel>
 
                         <DataGrid 
@@ -390,7 +403,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                
+
                                 <DataGridTemplateColumn Header="Nivel de acceso" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
@@ -406,20 +419,21 @@
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                 <!-- Botón de Editar -->
-                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
+                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0" Click="Button_UserInformation">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" Width="16" Height="16"/>
+                                                    
                                                 </Button>
-                                                <!-- Botón de Eliminar -->
+                                                <!-- Botón de Eliminar 
                                                 <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/close.png" Width="16" Height="16" />
-                                                </Button>               
+                                                </Button>-->
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
                             </DataGrid.Columns>
-
+            
                         </DataGrid>
 
                     </Grid>

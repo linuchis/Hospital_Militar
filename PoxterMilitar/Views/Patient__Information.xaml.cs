@@ -63,10 +63,9 @@ namespace PoxterMilitar.Views
                 && Equipo.SelectedIndex != 0
                 && Perfil.SelectionBoxItem != null
                 && Perfil.SelectedIndex != 0
-                && PrimerosPasos.SelectionBoxItem != null
-                && PrimerosPasos.SelectedIndex != 0)
+                && PrimerosPasos.IsChecked == true)
             {
-                mainContent.LoadExercise(Equipo.SelectionBoxItem.ToString(), ExerciseCombo.SelectionBoxItem.ToString(), Perfil.SelectionBoxItem.ToString(), PrimerosPasos.SelectionBoxItem.ToString());
+                mainContent.LoadExercise(Equipo.SelectionBoxItem.ToString(), ExerciseCombo.SelectionBoxItem.ToString(), Perfil.SelectionBoxItem.ToString(), PrimerosPasos.IsChecked.ToString());
             }
         }
 
@@ -97,6 +96,16 @@ namespace PoxterMilitar.Views
         {
             // 
             this.NavigationService.Navigate(new Survey_Patient(mainContent));
+        }
+
+        private void Button_BackPatients(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToPatients();
+        }
+
+        private void CheckPrimerosPasos_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

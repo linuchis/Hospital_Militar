@@ -7,7 +7,6 @@
 
 
         <!-- Estilo para BUTTON DE INICIO DE SESION EN LOGIN -->
-
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -36,6 +35,42 @@
             </Style.Triggers>
 
         </Style>
+        
+        <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
+<Style x:Key="ButtonComeBackProgram" TargetType="Button">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontFamily" Value="Verdana"/>
+    <Setter Property="FontSize" Value="16"/>
+    <Setter Property="Padding" Value="10,5"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="Width" Value="180"/>
+    <Setter Property="Height" Value="49"/>
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        Padding="{TemplateBinding Padding}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="/Resources/Inicio/Pacientes_List/left_row.png" Height="47" Width="35"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+    <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                </Setter.Value>
+            </Setter>
+        </Trigger>
+    </Style.Triggers>
+</Style>
 
         <!-- Estilo para TextBox USUARIO EN LOGIN -->
         <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
@@ -54,7 +89,6 @@
         </Style>
 
         <!-- Estilo para TextBox CONTRASEÑA DE USUARIO EN LOGIN -->
-
         <Style x:Key="CustomPasswordBoxStyle" TargetType="PasswordBox">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Width" Value="448"/>
@@ -105,7 +139,7 @@
         </Style>
 
         <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
-        <Style x:Key="ButtonStartProgram" TargetType="Button">
+        <Style x:Key="ButtonStartProgram1" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontFamily" Value="Verdana"/>
             <Setter Property="FontSize" Value="16"/>
@@ -117,11 +151,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-        CornerRadius="10"
-        BorderThickness="1"
-        Padding="{TemplateBinding Padding}">
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        Padding="{TemplateBinding Padding}">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="/Resources/Inicio/Pacientes_List/save_disk.png" Width="35" Height="32" VerticalAlignment="Bottom"/>
+                                <Image Source="/Resources/Inicio/Pacientes_List/left_row.png" Height="47" Width="35"/>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
                             </StackPanel>
                         </Border>
@@ -313,6 +347,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
         <!-- Estilo para un Border que envuelve al DockPanel y tiene bordes redondeados de 20px -->
         <Style x:Key="SimpleDockPanelBorderStyleInformation" TargetType="Border">
             <Setter Property="Background">
@@ -335,6 +370,43 @@
             <Setter Property="CornerRadius" Value="20"/>
             <!-- Bordes redondeados de 20px -->
         </Style>
+
+        <!-- Diseño para el Editar informacion de pacientes-->
+        <Style x:Key="ButtonChangeDataPatients" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" Width="20" Height="20" VerticalAlignment="Bottom"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,10,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
         <Style x:Key="ButtonChangeDataUsers" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
@@ -371,7 +443,6 @@
             </Style.Triggers>
         </Style>
 
-
         <!-- Boton de ComboBox -->
         <Style TargetType="ComboBox" x:Key="RoundedComboBoxStyle">
             <Setter Property="FontFamily" Value="Verdana"/>
@@ -401,34 +472,30 @@
 
 
                                 <DockPanel>
-                                    <!-- Contenido seleccionado -->
-                                    <!-- Botón de despliegue personalizado -->
-
-
                                     <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
-                        Margin="10,0,0,0"
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Left"/>
+                                        Margin="10,0,0,0"
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Left"/>
                                     <ToggleButton DockPanel.Dock="Right"
-                              Focusable="False"
-                              IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                              ClickMode="Press"  Background="Transparent" BorderBrush="Transparent"
-                              Foreground="Gray">
+                                        Focusable="False"
+                                        IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                        ClickMode="Press"  Background="Transparent" BorderBrush="Transparent"
+                                        Foreground="Gray">
                                         <Image Source="/Resources/Inicio/Pacientes_List/arrow_down.png" Height="8" Width="13.34" HorizontalAlignment="Right"/>
                                     </ToggleButton>
 
                                 </DockPanel>
                             </Border>
                             <Popup x:Name="PART_Popup"
-               AllowsTransparency="True"
-               Focusable="False"
-               IsOpen="{TemplateBinding IsDropDownOpen}"
-               Placement="Bottom"
-               PopupAnimation="Slide" Grid.RowSpan="2">
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   Placement="Bottom"
+                                   PopupAnimation="Slide" Grid.RowSpan="2">
                                 <Border Background="White"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="1"
-                    CornerRadius="10">
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="10">
                                     <ScrollViewer CanContentScroll="True">
                                         <ItemsPresenter/>
                                     </ScrollViewer>
@@ -538,6 +605,77 @@
             </Setter>
         </Style>
 
+        <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
+        <Style x:Key="Button_StatusTransmision" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/iconodebuscar.png" Width="18" Height="18" VerticalAlignment="Bottom" Margin="5,1,0,1"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.2,0.2"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Estilo personalizado para el CheckBox -->
+        <Style TargetType="CheckBox" x:Key="LargeCheckBoxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Orientation="Horizontal">
+                            <!-- Caja de selección personalizada -->
+                            <Border x:Name="Border" Width="30" Height="30" 
+                         BorderBrush="Gray" BorderThickness="2"
+                         CornerRadius="3" Background="White"
+                         VerticalAlignment="Center">
+                                <Grid>
+                                    <!-- Marca de verificación (X) más grande y centrada -->
+                                    <Path x:Name="CheckMark"
+                               Data="M 0,0 L 10,10 M 10,0 L 0,10"
+                               Stroke="Gray"
+                               StrokeThickness="2"
+                               Stretch="Uniform"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Visibility="Collapsed"/>
+                                </Grid>
+                            </Border>
+                            <ContentPresenter VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <!-- Cambiar la visibilidad de la marca de verificación cuando esté activado -->
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
     </Application.Resources>

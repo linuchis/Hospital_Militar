@@ -273,7 +273,7 @@
             </Setter>
         </Style>
 
-        
+
 
         <!-- Boton de ComboBox -->
         <Style TargetType="ComboBox" x:Key="RoundedComboBoxStyle">
@@ -369,6 +369,8 @@
                 <RowDefinition Height="352*"/>
             </Grid.RowDefinitions>
 
+
+
             <Label 
                  Content="INFORMACIÓN DE PACIENTE" 
                  HorizontalAlignment="Left" 
@@ -376,21 +378,7 @@
                  VerticalAlignment="Top"
                  FontSize="30" 
                  FontWeight="Bold" 
-                 FontFamily="Verdana"
-                 />
-
-            <DockPanel LastChildFill="True" Margin="831,69,80,408">
-                <StackPanel DockPanel.Dock="Right" 
-                 Orientation="Horizontal" 
-                 Height="82" 
-                 Width="746">
-
-
-
-
-                </StackPanel>
-            </DockPanel>
-
+                 FontFamily="Verdana"/>
             <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2">
                 <DockPanel>
                     <Grid>
@@ -401,13 +389,20 @@
                             <RowDefinition Height="488*"/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Margin="0,10,0,0"/>
-
                         <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
+
+                            <Button 
+                                x:Name="Button_Back" 
+                                Content="" 
+                                Style="{StaticResource ButtonComeBackProgram}"
+                                HorizontalAlignment="Left" 
+                                Width="57" 
+                                Background="Transparent" 
+                                Click="Button_BackPatients" Margin="11,-88,0,523"/>
 
 
                             <Grid Grid.ColumnSpan="2">
@@ -425,11 +420,13 @@
                                     </Grid>
                                     <!-- DOS COLUMNAS CON LA INFORMACIÓN DEL COSTADO DERECHO -->
                                     <Grid Grid.Column="0">
-                                        <TextBlock Text="Elegir ejercicio*" FontFamily="Verdana" FontSize="16" Margin="-40,0,0,-27" />
+                                        <TextBlock Text="Elegir ejercicio*" FontFamily="Verdana" FontSize="16" Margin="-15,0,0,-27" FontWeight="Bold" HorizontalAlignment="Left" Width="241" Foreground="#FF656565" />
+                                        <TextBlock Text="Elegir lado de la extremidad*" FontFamily="Verdana" FontSize="16" Margin="-15,103,328,-130" FontWeight="Bold" Foreground="#FF656565" />
 
                                     </Grid>
                                     <Grid Grid.Column="1" HorizontalAlignment="Right" Height="24">
-                                        <TextBlock Text="Equipo usado*" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Width="255" Margin="-57,0,0,0" />
+                                        <TextBlock Text="Equipo usado*" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Width="282" Margin="-183,0,0,0" FontWeight="Bold" Foreground="#FF656565"/>
+                                        <TextBlock Text="¿Primeros pasos del paciente?*" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Width="287" Margin="-183,106,0,-106" FontWeight="Bold" Foreground="#FF656565" />
                                     </Grid>
 
                                 </StackPanel>
@@ -465,24 +462,32 @@
                                           HorizontalAlignment="Left" 
                                           Width="292"
                                           FontFamily="Verdana" 
-                                          FontSize="17" Margin="10,128,0,316" 
+                                          FontSize="17" Margin="10,164,0,280" 
                                           >
                                     <ComboBoxItem IsSelected="True">Elegir perfil</ComboBoxItem>
                                     <ComboBoxItem Content="Derecha"/>
                                     <ComboBoxItem Content="Izquierda"/>
                                 </ComboBox>
 
-                                <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
-                                          Name="PrimerosPasos" 
-                                          HorizontalAlignment="Left" 
-                                          Width="320"
-                                          FontFamily="Verdana" 
-                                          FontSize="17" Margin="352,128,0,316" 
-                                          >
-                                    <ComboBoxItem IsSelected="True">Primeros Pasos</ComboBoxItem>
-                                    <ComboBoxItem Content="Si"/>
-                                    <ComboBoxItem Content="No"/>
-                                </ComboBox>
+                                
+
+
+                                <CheckBox 
+                                    x:Name="PrimerosPasos"
+                                    Content="Sí, primeros pasos del paciente." 
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Top" 
+                                    Width="295" 
+                                    Margin="356,154,0,0" 
+                                    FontSize="16" 
+                                    FontFamily="Verdana" 
+                                    Style="{StaticResource LargeCheckBoxStyle}"
+                                    Checked="CheckPrimerosPasos_Checked"
+                                    Unchecked="CheckBox_Unchecked"
+                                    Height="48" Background="{x:Null}" 
+                                    BorderBrush="White" 
+                                    Foreground="#FF5A5A5A"
+                                    />
 
                                 <Button 
                                      x:Name="Start" 
@@ -525,7 +530,7 @@
                         </Grid>
 
                         <DataGrid 
-                             Margin="50,37,10,470"
+                             Margin="78,37,33,470"
                              Style="{StaticResource StyledDataGrid}" 
                              ItemsSource="{Binding ListaPacientes}" 
                              FontFamily="Verdana" 

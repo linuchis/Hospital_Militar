@@ -9,11 +9,10 @@ namespace PoxterMilitar.Views
     public partial class Page_Patients : Page
     {
         private MainWindow mainWindow;
-
         // Colección observable que estará vinculada al DataGrid
         public ObservableCollection<dato_paciente> ListaPacientes { get; set; }
 
-        MainContent mainContent;
+        public MainContent mainContent;
 
         public Page_Patients(ObservableCollection<dato_paciente> listaPacientes, MainContent mainContent)
         {
@@ -22,8 +21,12 @@ namespace PoxterMilitar.Views
             // Inicializar la colección de pacientes
             this.ListaPacientes = listaPacientes;
             this.mainContent = mainContent;
-
             this.DataContext = this;
+        }
+
+        public Page_Patients(MainContent mainContent)
+        {
+            this.mainContent = mainContent;
         }
 
         // Método para manejar el evento TextChanged del TextBox
@@ -49,8 +52,9 @@ namespace PoxterMilitar.Views
             this.NavigationService.Navigate(new Survey_list(mainContent));
         }
 
-
-
-
+        private void Button_EditPatientinformation_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Edit_Patient_Information(mainContent));
+        }
     }
 }
