@@ -24,6 +24,12 @@ namespace PoxterMilitar.Views
         MainContent mainContent;
 
 
+        public Survey_list(long id, MainContent mainContent)
+        {
+            InitializeComponent();
+            this.mainContent = mainContent;
+        }
+
         public Survey_list(MainContent mainContent)
         {
             InitializeComponent();

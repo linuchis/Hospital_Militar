@@ -46,18 +46,7 @@ namespace PoxterMilitar.Views
 
         private void Button_IniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            // Navegar a MainContent
-            MainContent.ListaPacientes.Add(new dato_paciente
-            {
-                Foto = "/Resources/Inicio/Pacientes_List/lina.png",
-                Nombre = "Lina1",
-                Apellido = "Castañeda",
-                Genero = "Femenino",
-                Altura = "1.73",
-                Peso = "73",
-                Correo = "lina.castaneda@sasoftco.com",
-                Telefono = "3208942453"
-            });
+            
 
             mainContent.navigateToPatients();
 

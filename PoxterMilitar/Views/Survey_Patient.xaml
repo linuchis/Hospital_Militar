@@ -40,8 +40,16 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-                            <Image Source="\Resources\Inicio\Pacientes_List\left_row.png" Margin="42,27,1334,22"/>
-                            <TextBlock Text="Encuesta " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Width="111" Margin="679,27,0,27" FontWeight="Bold" />
+                            <Grid Grid.Column="0">
+                                <Button 
+                                    x:Name="Button_Back" 
+                                    Content="" 
+                                    Style="{StaticResource ButtonComeBackProgram}"
+                                    HorizontalAlignment="Left" 
+                                    Width="57" 
+                                    Background="Transparent" 
+                                    Click="Button_Patientinformation_Click" Margin="26,20,0,20"/>
+                            </Grid>
                         </Grid>
 
                         <Grid Grid.Column="0" Grid.Row="1">

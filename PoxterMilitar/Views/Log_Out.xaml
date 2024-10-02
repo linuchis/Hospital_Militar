@@ -28,7 +28,13 @@
             Content="    Cancelar" 
             Style="{StaticResource ButtonLogOut}" 
             Margin="352,200,0,0" 
-            HorizontalAlignment="Left" Width="197" Background="#FFE84B10" Click="Button_Cancel" RenderTransformOrigin="0.5,0.5" FontSize="20" VerticalAlignment="Top">
+            HorizontalAlignment="Left" 
+            Width="197" 
+            Background="#FFE84B10" 
+            Click="Button_Cancel" 
+            RenderTransformOrigin="0.5,0.5" 
+            FontSize="20" 
+            VerticalAlignment="Top">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>

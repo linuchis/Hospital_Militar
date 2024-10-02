@@ -26,7 +26,7 @@ public partial class dbpoxterContext : DbContext
     {
     }
 
-    public virtual DbSet<patientes> patientes { get; set; }
+    public virtual DbSet<patients_poxter> patients_poxter { get; set; }
 
     public virtual DbSet<surveys_patients> surveys_patients { get; set; }
 
@@ -34,16 +34,13 @@ public partial class dbpoxterContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<patientes>(entity =>
+        modelBuilder.Entity<patients_poxter>(entity =>
         {
-            entity.HasKey(e => e.id_p).HasName("patientes_pkey");
+            entity.HasKey(e => e.id_p).HasName("patients_poxter_pkey");
 
             entity.ToTable(tb => tb.HasComment("usuarios pacientes"));
 
             entity.Property(e => e.id_p).ValueGeneratedNever();
-            entity.Property(e => e.email_p)
-                .IsRequired()
-                .HasMaxLength(100);
             entity.Property(e => e.gender_p)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -104,21 +101,37 @@ public partial class dbpoxterContext : DbContext
             entity.Property(e => e.area_u)
                 .IsRequired()
                 .HasMaxLength(100);
+
+
             entity.Property(e => e.email_u)
                 .IsRequired()
                 .HasMaxLength(100);
+
+
             entity.Property(e => e.lastname_u).HasMaxLength(100);
+
+
             entity.Property(e => e.name_u)
                 .IsRequired()
                 .HasMaxLength(100);
+
+            entity.Property(e => e.telephone_u)
+                .IsRequired()
+                .HasMaxLength(255);
+
+
             entity.Property(e => e.password_u)
                 .IsRequired()
                 .HasColumnName("password_u") // Mapeo a la columna password_u
                 .HasMaxLength(255);
+
+
+
             entity.Property(e => e.username_u)
                 .IsRequired()
                 .HasColumnName("username_u") // Mapeo a la columna username_u
                 .HasMaxLength(50);
+
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -55,6 +55,8 @@ namespace PoxterMilitar.Views
             }
         }
 
+
+
         private void IniciarPrograma_Click(object sender, RoutedEventArgs e)
         {
             if (ExerciseCombo.SelectionBoxItem != null
@@ -107,5 +109,28 @@ namespace PoxterMilitar.Views
         {
 
         }
+
+        private void Button_BackHome(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToPatients();
+        }
+
+        private void Button_Maximice(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Inicio de transmisión...", "Error de inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Button_SurveyList_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Survey_list(mainContent));
+        }
+
+        private void Button_EditPatientinformation_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Edit_Patient_Information(mainContent));
+        }
+
+
+
     }
 }

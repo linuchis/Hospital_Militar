@@ -55,19 +55,6 @@ namespace PoxterMilitar.Features
                 }
             };
 
-            ListaUsuario = new ObservableCollection<dato_usuario>
-            {
-                new dato_usuario
-                {
-                    Foto = "/Resources/Inicio/Pacientes_List/lina.png",
-                    Nombre = "Lina",
-                    Apellido = "Castañeda",
-                    Area = "Ingenieria",
-                    Correo = "lina.castaneda@sasoftco.com",
-                    Telefono = "3208942453",
-                    NivelAcceso = "Administrador"
-                }
-            };
 
             // Navegar el Frame de InicioPacientes a la página InicioPacientes
             FrameInicioPacientes.Navigate(new InicioPacientes(this));
@@ -80,25 +67,20 @@ namespace PoxterMilitar.Features
 
         public void navigateToPatients()
         {
+            //var pagePatients = new Page_Patients(this);
+            //FramePagePatients.Navigate(pagePatients);
             FramePagePatients.Navigate(new Page_Patients(ListaPacientes, this));
         }
 
         public void navigateToUsersList()
         {
-            FramePagePatients.Navigate(new Page_Users(ListaUsuario, this));
-        }
-
-        public void navigateToUserInformation()
-        {
-            FramePagePatients.Navigate(new User_Information(ListaUsuario, this));
+            FramePagePatients.Navigate(new Page_Users(this));
         }
 
         public void navigateToLogin()
         {
             NavigationService.Navigate(new Login());
         }
-        
-
 
         public void navigateToSesion()
         {
@@ -181,5 +163,9 @@ namespace PoxterMilitar.Features
             socket.EmitAsync("VRSimulator", "{\"command\": \"Detener\", \"receiverId\": \"" + receiverId + "\", \"senderId\": \"INSTRUCTOR1\"}");
         }
 
+        internal void navigateToUserInformation()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

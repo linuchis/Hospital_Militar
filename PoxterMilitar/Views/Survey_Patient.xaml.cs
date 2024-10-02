@@ -33,11 +33,17 @@ namespace PoxterMilitar.Views
             this.NavigationService.Navigate(new Patient__Information(mainContent));
         }
 
+        private void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Patient__Information(mainContent));
+        }
+
+
 
 
     }
 
-    
+
 
 
 

@@ -1,0 +1,135 @@
+﻿<Page x:Class="PoxterMilitar.Views.Edit_Real_Patient_Information"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PoxterMilitar.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="1920"
+      Title="Edit_Real_Patient_Information">
+
+    <Grid Margin="318,91,10,0" Background="#FFF5F5F9">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Margin="-66,0,0,0">
+            <Label 
+             Content="EDITAR INFORMACIÓN DEL PACIENTE" 
+             HorizontalAlignment="Left" 
+             Margin="114,69,0,0" 
+             VerticalAlignment="Top"
+             FontSize="30" 
+             FontWeight="Bold" 
+             FontFamily="Verdana"
+        />
+
+            <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2">
+                <DockPanel>
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.18*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+                            <Button 
+                            x:Name="Start" 
+                            Content="" 
+                            Style="{StaticResource ButtonComeBackProgram}"
+                            HorizontalAlignment="Left" 
+                            Width="57" 
+                            Background="Transparent" 
+                            Click="Button_Back_Click" Margin="31,17,0,23"/>
+
+                            <TextBlock Text="Datos de registro " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Center" Width="206" Margin="0,24,0,30" FontWeight="Bold" />
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Row="1">
+                                <TextBlock Text="Nombres* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,17,0,444" />
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,56,111,397">
+                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                </Border>
+                                <Grid Grid.Row="0"/>
+
+
+                                <TextBlock Text="Género* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,120,0,341" />
+                                <ComboBox Style="{StaticResource RoundedComboBoxStyleee}"
+                                      Name="GeneroPaciente" 
+                                      HorizontalAlignment="Left" 
+                                      Width="567"
+                                      FontFamily="Verdana" 
+                                      FontSize="17" Margin="33,176,0,277">
+                                    <ComboBoxItem Content="Masculino                                                                        "/>
+                                    <ComboBoxItem Content="Femenino                                                                        "/>
+                                    <ComboBoxItem Content="Otro                                                                        "/>
+                                </ComboBox>
+                                <Grid Grid.Row="0"/>
+
+
+
+                                <TextBlock Text="Peso* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,239,0,223" />
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,286,111,167">
+                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                </Border>
+                                <Grid Grid.Row="0"/>
+
+                                <TextBlock Text="Teléfono* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,344,0,118" />
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,386,111,67">
+                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                </Border>
+                                <Grid Grid.Row="0"/>
+
+
+                            </Grid>
+
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <TextBlock Text="Apellidos* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,17,0,444" />
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,56,111,397">
+                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                </Border>
+                                <Grid Grid.Row="0"/>
+
+                                <TextBlock Text="Altura* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,125,0,336" />
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,172,111,282">
+                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                </Border>
+                                <Grid Grid.Row="0"/>
+
+                                <TextBlock Text="Correo electrónico* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,238,0,224" />
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,270,111,183">
+                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                </Border>
+                                <Grid Grid.Row="0"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </DockPanel>
+            </Border>
+
+            <Button 
+             x:Name="Save_Patients_Information" 
+             Content="Guardar paciente" 
+             Style="{StaticResource ButtonChangeInformationPatients}" 
+             Margin="766,800,616,0" 
+             Width="NaN" 
+             Background="#FF0086BE" 
+             VerticalAlignment="Top"
+                                    />
+        </Grid>
+    </Grid>
+</Page>

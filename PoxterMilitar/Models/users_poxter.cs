@@ -10,12 +10,14 @@ namespace PoxterMilitar.Models;
 /// </summary>
 public partial class users_poxter
 {
+    internal string telefono_u;
+
     public long id_u { get; set; }
     public string name_u { get; set; }
     public string lastname_u { get; set; }
     public string email_u { get; set; }
     public string area_u { get; set; }
-    public int access_u { get; set; }
     public string password_u { get; set; }
     public string username_u { get; set; }
+    public string telephone_u { get; set; }
 }

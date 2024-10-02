@@ -76,3 +76,11 @@ C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Login_Error.baml
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Edit_Patient_Information.g.cs
 C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Edit_Patient_Information.baml
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Edit_Real_Patient_Information.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Edit_User_Information.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Edit_Warning_User_Information.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Survey_View.g.cs
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Edit_Real_Patient_Information.baml
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Edit_User_Information.baml
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Edit_Warning_User_Information.baml
+C:\Users\Lina\Documents\Hospital_Militar\PoxterMilitar\obj\Debug\net8.0-windows7.0\Views\Survey_View.baml

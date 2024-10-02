@@ -8,354 +8,7 @@
       d:DesignHeight="1000" d:DesignWidth="1920"
       Title="Patient__Information">
 
-    <Page.Resources>
 
-        <!-- Diseño para el buton de ENCUESTA-->
-        <Style x:Key="ButtonSurvey" TargetType="Button">
-            <Setter Property="Background" Value="#0078D7"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Verdana"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="49"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                CornerRadius="10"
-                BorderThickness="1"
-                Padding="{TemplateBinding Padding}">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
-                            </StackPanel>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <!-- Diseño para el buton de Nuevo Paciente-->
-        <Style x:Key="ButtonNewPacient" TargetType="Button">
-            <Setter Property="Background" Value="#0078D7"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Verdana"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="49"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                        CornerRadius="10"
-                        BorderThickness="1"
-                        Padding="{TemplateBinding Padding}">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="/Resources/Inicio/Icon fa-solid-user-plus.png" Width="19.65" Height="15.72"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
-                            </StackPanel>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
-        <Style x:Key="ButtonStartProgram" TargetType="Button">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Verdana"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="49"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                CornerRadius="10"
-                BorderThickness="1"
-                Padding="{TemplateBinding Padding}">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="/Resources/Inicio/Pacientes_List/play_logo.png" Width="19.65" Height="15.72"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
-                            </StackPanel>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <!-- Diseño para el buton de barra lateral-->
-        <Style x:Key="MenuButtonStyle" TargetType="Button">
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#FF000000"/>
-            <Setter Property="Width" Value="110"/>
-            <Setter Property="Height" Value="70"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="FontFamily" Value="Verdana"/>
-        </Style>
-
-        <!-- Diseño para TextBlock de buscar -->
-        <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Grid>
-                            <Path x:Name="path" 
-                          Data="M 0 0 H 180 A 20 20 0 0 1 200 20 A 20 20 0 0 1 180 40 H 0 Z"
-                          Fill="White"
-                          Stroke="#0078D7"
-                          StrokeThickness="2"
-                          Stretch="Fill"
-                          Width="Auto"
-                          Height="Auto" 
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"/>
-                            <TextBox x:Name="PART_TextBox"
-                             Text="{TemplateBinding Text}"
-                             BorderThickness="0"
-                             Background="Transparent"
-                             Padding="10,0"
-                             VerticalContentAlignment="Center"
-                             Foreground="LightGray"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="path" Property="Stroke" Value="#0078D7"/>
-                                <Setter Property="Foreground" Value="Black"/>
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocused" Value="False">
-                                <Setter Property="Foreground" Value="LightGray"/>
-                            </Trigger>
-                            <Trigger Property="Text" Value="">
-                                <Setter Property="Foreground" Value="Black"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- Diseño para boton de buscar -->
-        <Style x:Key="CapsuleButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Path x:Name="path" 
-                          Data="M 0 20 A 20 20 0 0 1 20 0 H 80 V 40 H 20 A 20 20 0 0 1 0 20 Z"
-                          Fill="#0078D7" 
-                          Stretch="Fill" 
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"/>
-                            <ContentPresenter HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="path" Property="Fill" Value="LightBlue"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="path" Property="Fill" Value="DarkBlue"/>
-                                <Trigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetName="path"
-                                                     Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
-                                                     To="0.9" Duration="0:0:0.1" AutoReverse="True"/>
-                                            <DoubleAnimation Storyboard.TargetName="path"
-                                                     Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
-                                                     To="0.9" Duration="0:0:0.1" AutoReverse="True"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </Trigger.EnterActions>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- Estilo para los encabezados de columna -->
-        <Style TargetType="{x:Type DataGridColumnHeader}">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="BorderThickness" Value="0,0,1,2"/>
-            <Setter Property="BorderBrush" Value="White"/>
-        </Style>
-
-        <!-- Estilo para las filas -->
-        <Style TargetType="{x:Type DataGridRow}">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="White"/>
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-            <Setter Property="Height" Value="40"/>
-        </Style>
-
-        <!-- Diseño para el DataGrid dentro del Border -->
-        <Style x:Key="StyledDataGrid" TargetType="DataGrid">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="AutoGenerateColumns" Value="False"/>
-            <Setter Property="CanUserAddRows" Value="True"/>
-            <Setter Property="HeadersVisibility" Value="Column"/>
-            <Setter Property="IsReadOnly" Value="True"/>
-            <Setter Property="Margin" Value="0"/>
-
-
-            <!-- Evitar problemas con los bordes -->
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="1"/>
-
-            <!-- Estilo de encabezado de columnas -->
-            <Setter Property="ColumnHeaderStyle">
-                <Setter.Value>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#FFD01C1C"/>
-                        <Setter Property="FontWeight" Value="Bold"/>
-                        <Setter Property="Padding" Value="10,5"/>
-                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
-                        <Setter Property="BorderBrush" Value="#FF00FF27"/>
-                        <!-- Color del borde inferior -->
-                    </Style>
-                </Setter.Value>
-            </Setter>
-
-            <!-- Estilo de las filas -->
-            <Setter Property="RowStyle">
-                <Setter.Value>
-                    <Style TargetType="DataGridRow">
-                        <Setter Property="Height" Value="40"/>
-                        <Setter Property="VerticalAlignment" Value="Center"/>
-                    </Style>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-
-
-        <!-- Boton de ComboBox -->
-        <Style TargetType="ComboBox" x:Key="RoundedComboBoxStyle">
-            <Setter Property="FontFamily" Value="Verdana"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="#CCCCCC"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Foreground" Value="#2C3948"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ComboBox">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0*"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <!-- El Border define los bordes redondeados -->
-                            <Border x:Name="Border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="15"
-                        Padding="5" Grid.RowSpan="2">
-
-
-                                <DockPanel>
-                                    <!-- Contenido seleccionado -->
-                                    <!-- Botón de despliegue personalizado -->
-
-
-                                    <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
-                                Margin="10,0,0,0"
-                                VerticalAlignment="Center" 
-                                HorizontalAlignment="Left"/>
-                                    <ToggleButton DockPanel.Dock="Right"
-                                      Focusable="False"
-                                      IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                      ClickMode="Press"  Background="Transparent" BorderBrush="Transparent"
-                                      Foreground="Gray">
-                                        <Image Source="/Resources/Inicio/Pacientes_List/arrow_down.png" Height="8" Width="13.34" HorizontalAlignment="Right"/>
-                                    </ToggleButton>
-
-                                </DockPanel>
-                            </Border>
-                            <Popup x:Name="PART_Popup"
-                       AllowsTransparency="True"
-                       Focusable="False"
-                       IsOpen="{TemplateBinding IsDropDownOpen}"
-                       Placement="Bottom"
-                       PopupAnimation="Slide" Grid.RowSpan="2">
-                                <Border Background="White"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="1"
-                            CornerRadius="10">
-                                    <ScrollViewer CanContentScroll="True">
-                                        <ItemsPresenter/>
-                                    </ScrollViewer>
-                                </Border>
-                            </Popup>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- Definir el template del botón de despliegue -->
-        <ControlTemplate x:Key="ComboBoxToggleButtonTemplate" TargetType="ToggleButton">
-            <Border Background="Gray"
-        BorderBrush="Transparent"
-        BorderThickness="0">
-                <Path Fill="Transparent"
-          Data="M 0 0 L 4 4 L 8 0 Z"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center"/>
-            </Border>
-        </ControlTemplate>
-
-    </Page.Resources>
 
     <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
 
@@ -368,8 +21,6 @@
                 <RowDefinition Height="557*"/>
                 <RowDefinition Height="352*"/>
             </Grid.RowDefinitions>
-
-
 
             <Label 
                  Content="INFORMACIÓN DE PACIENTE" 
@@ -395,18 +46,32 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button 
-                                x:Name="Button_Back" 
-                                Content="" 
-                                Style="{StaticResource ButtonComeBackProgram}"
-                                HorizontalAlignment="Left" 
-                                Width="57" 
-                                Background="Transparent" 
-                                Click="Button_BackPatients" Margin="11,-88,0,523"/>
+                            <Grid Grid.Column="0">
+                                <Button 
+                                    x:Name="Button_Back" 
+                                    Content="" 
+                                    Style="{StaticResource ButtonComeBackProgram}"
+                                    HorizontalAlignment="Left" 
+                                    Width="57" 
+                                    Background="Transparent" 
+                                    Click="Button_BackHome" Margin="21,-78,0,514" />
+                            </Grid>
 
 
                             <Grid Grid.ColumnSpan="2">
-                                <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="43,49,734,46" Background="Black"/>
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="100,59,734,46" Background="Black"/>
+
+                                <Grid Grid.Column="0">
+                                    <Button 
+                                        x:Name="Button_BigWindow" 
+                                        Content="" 
+                                        Style="{StaticResource ButtonBigWindow}"
+                                        HorizontalAlignment="Left" 
+                                        Width="75" 
+                                        Height="NaN"
+                                        Background="Transparent" 
+                                        Click="Button_Maximice" Margin="595,360,0,57" RenderTransformOrigin="0.494,0.514"/>
+                                </Grid>
 
                             </Grid>
 
@@ -436,13 +101,12 @@
                                           HorizontalAlignment="Left" 
                                           Width="292"
                                           FontFamily="Verdana" 
-                                          FontSize="17" Margin="10,61,0,383" 
+                                          FontSize="17" Margin="10,61,0,383"  HorizontalContentAlignment ="Left"
                                           >
-                                    <ComboBoxItem IsSelected="True">Nombre del ejercicio</ComboBoxItem>
-                                    <ComboBoxItem Content="Mano1"/>
-                                    <ComboBoxItem Content="Mano2"/>
-                                    <ComboBoxItem Content="Pie1"/>
-                                    <ComboBoxItem Content="Pie2"/>
+                                    <ComboBoxItem Content="  Mano: Ejercicio frutas"/>
+                                    <ComboBoxItem Content="  Mano: Ejercicio objetos    "/>
+                                    <ComboBoxItem Content="  Pie: Bicicleta"/>
+                                    <ComboBoxItem Content="  Pie: Ejercicio"/>
                                 </ComboBox>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
@@ -452,9 +116,8 @@
                                           FontFamily="Verdana" 
                                           FontSize="17" Margin="356,61,0,383" 
                                           >
-                                    <ComboBoxItem IsSelected="True">Elegir equipo de RV</ComboBoxItem>
-                                    <ComboBoxItem Content="VR1"/>
-                                    <ComboBoxItem Content="VR2"/>
+                                    <ComboBoxItem Content="                  VR1                     "/>
+                                    <ComboBoxItem Content="                  VR2                     "/>
                                 </ComboBox>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
@@ -464,12 +127,11 @@
                                           FontFamily="Verdana" 
                                           FontSize="17" Margin="10,164,0,280" 
                                           >
-                                    <ComboBoxItem IsSelected="True">Elegir perfil</ComboBoxItem>
-                                    <ComboBoxItem Content="Derecha"/>
-                                    <ComboBoxItem Content="Izquierda"/>
+                                    <ComboBoxItem Content="              Derecha                  "/>
+                                    <ComboBoxItem Content="              Izquierda                "/>
                                 </ComboBox>
 
-                                
+
 
 
                                 <CheckBox 
@@ -483,7 +145,6 @@
                                     FontFamily="Verdana" 
                                     Style="{StaticResource LargeCheckBoxStyle}"
                                     Checked="CheckPrimerosPasos_Checked"
-                                    Unchecked="CheckBox_Unchecked"
                                     Height="48" Background="{x:Null}" 
                                     BorderBrush="White" 
                                     Foreground="#FF5A5A5A"
@@ -632,18 +293,19 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <!-- Botón de Informacion de encuestas -->
+                                                <Button Width="60" Height="40" Margin="0.1,0" BorderThickness="0" Background="Transparent" Padding="0" Click="Button_SurveyList_Click">
+                                                    <Image Source="/Resources/Inicio/Pacientes_List/survey_logo.png" Width="16" Height="16"/>
+                                                </Button>
                                                 <!-- Botón de Editar -->
-                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
+                                                <Button Width="60" Height="40" Margin="0.1,0" BorderThickness="0" Background="Transparent" Padding="0" Click="Button_EditPatientinformation_Click">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" Width="16" Height="16"/>
                                                 </Button>
                                                 <!-- Botón de Activar/Desactivar -->
                                                 <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
-                                                    <Image Source="/Resources/Inicio/Pacientes_List/redpoint.png" Width="16" Height="16"/>
+                                                    <Image Source="/Resources/Inicio/Pacientes_List/greenpoint.png" Width="16" Height="16"/>
                                                 </Button>
-                                                <!-- Botón de Eliminar -->
-                                                <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
-                                                    <Image Source="/Resources/Inicio/Pacientes_List/close.png" Width="16" Height="16" />
-                                                </Button>
+
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

@@ -23,7 +23,13 @@ namespace PoxterMilitar.Views
     {
 
         MainContent mainContent;
+
         public Edit_Patient_Information(MainContent mainContent)
+        {
+            this.mainContent = mainContent;
+        }
+
+        public Edit_Patient_Information(long id_p, MainContent mainContent)
         {
             InitializeComponent();
             this.mainContent = mainContent;
@@ -33,7 +39,9 @@ namespace PoxterMilitar.Views
         {
             mainContent.navigateToPatients();
         }
-
-
+        private void Button_ToEditRealPatientInformation(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Edit_Real_Patient_Information(mainContent));
+        }
     }
 }

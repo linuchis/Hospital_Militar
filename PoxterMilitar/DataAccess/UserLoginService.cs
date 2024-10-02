@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PoxterMilitar.Models; 
+using System.Security.Cryptography;
+using PoxterMilitar.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
@@ -18,16 +18,38 @@ namespace PoxterMilitar.DataAccess
             _context = new dbpoxterContext(); // Inicializa el contexto aquí
         }
 
+        // Método para calcular el hash SHA256 de una cadena
+        private string ComputeSha256Hash(string rawData)
+        {
+            // Crear una instancia de SHA256
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // Computar el hash como arreglo de bytes
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                // Convertir el arreglo de bytes a una cadena hexadecimal
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
         // Método para validar las credenciales
         public bool ValidateCredentials(string username, string password)
         {
             // Buscar el usuario en la base de datos por nombre de usuario
-            var user = _context.users_poxter.FirstOrDefault(u => u.username_u == username);
+             var user = _context.users_poxter.FirstOrDefault(u => u.username_u == username);
 
             if (user != null)
             {
-                // Verificar la contraseña (aquí deberías usar hash en un entorno real)
-                if (user.password_u == password)
+                // Calcular el hash SHA256 de la contraseña ingresada
+                string hashedPassword = ComputeSha256Hash(password);
+
+                // Verificar si el hash calculado coincide con el almacenado
+                if (user.password_u.Equals(hashedPassword, StringComparison.OrdinalIgnoreCase))
                 {
                     return true; // Credenciales válidas
                 }

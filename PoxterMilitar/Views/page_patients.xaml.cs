@@ -21,6 +21,7 @@ namespace PoxterMilitar.Views
             // Inicializar la colección de pacientes
             this.ListaPacientes = listaPacientes;
             this.mainContent = mainContent;
+            this.mainContent = mainContent;
             this.DataContext = this;
         }
 

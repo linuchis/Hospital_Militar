@@ -13,6 +13,15 @@
     <Compile Update="Views\Edit_Patient_Information.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Edit_Real_Patient_Information.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Edit_User_Information.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Edit_Warning_User_Information.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\InicioPacientes.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +52,9 @@
     <Compile Update="Views\Survey_Patient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Survey_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\User_Information.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +67,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Edit_Patient_Information.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Edit_Real_Patient_Information.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Edit_User_Information.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Edit_Warning_User_Information.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\InicioPacientes.xaml">
@@ -85,6 +106,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Survey_Patient.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Survey_View.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\User_Information.xaml">

@@ -40,8 +40,16 @@
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
-                            <Image Source="\Resources\Inicio\Pacientes_List\left_row.png" Margin="42,27,1334,22"/>
-                            <TextBlock Text="Información " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Width="140" Margin="638,24,0,30" FontWeight="Bold" />
+                            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+                                <Button 
+                                    x:Name="Start" 
+                                    Content="" 
+                                    Style="{StaticResource ButtonComeBackProgram}"
+                                    HorizontalAlignment="Left" 
+                                    Width="57" 
+                                    Background="Transparent" 
+                                    Click="Button_Back_Click" Margin="31,17,0,23"/>
+                            </Grid>
                         </Grid>
 
                         <Grid Grid.Row="1">
@@ -54,40 +62,37 @@
                             <Grid Grid.Row="1">
                                 <TextBlock Text="Nombres* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,17,0,444" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,56,38,397">
-                                    <TextBlock x:Name="NombresUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
+                                    <TextBlock x:Name="NombresURGDsuario" Text="Nombre" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
                                 </Border>
 
                                 <TextBlock Text="Área* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,120,0,341" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,173,38,280">
-                                    <TextBlock x:Name="AreaUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
+                                    <TextBlock x:Name="AreaUsuario" Text="Área" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
                                 </Border>
 
                                 <TextBlock Text="Teléfono* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,239,0,223" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,286,38,167">
-                                    <TextBlock x:Name="TelefonoUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
+                                    <TextBlock x:Name="TelefonoUsuario" Text="Teléfono" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
                                 </Border>
 
                                 <TextBlock Text="Contraseña* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,344,0,118" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,386,38,67">
-                                    <TextBlock x:Name="ContraseñaUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
+                                    <TextBlock x:Name="ContraseñaUsuario" Text="Contraseña" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
                                 </Border>
                             </Grid>
 
                             <Grid Grid.Column="1" Grid.Row="1">
                                 <TextBlock Text="Apellidos* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,17,0,444" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,56,38,397">
-                                    <TextBlock x:Name="ApellidosUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
+                                    <TextBlock x:Name="ApellidosUsuario" Text="Apellido" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
                                 </Border>
 
                                 <TextBlock Text="Correo electrónico* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,125,0,336" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,172,38,282">
-                                    <TextBlock x:Name="CorreoElectronicoUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
+                                    <TextBlock x:Name="CorreoElectronicoUsuario" Text="Correo electrónico" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
                                 </Border>
 
-                                <TextBlock Text="Nivel de acceso* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,238,0,224" />
-                                <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,270,39,183">
-                                    <TextBlock x:Name="AccesoUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,100,-8" FontWeight="ExtraLight"/>
-                                </Border>
+                                
                             </Grid>
                         </Grid>
                     </Grid>
@@ -95,13 +100,14 @@
             </Border>
 
             <Button 
-             x:Name="Save_Survey" 
-             Content="Editar datos del usuario" 
-             Style="{StaticResource ButtonChangeDataUsers}" 
-             Margin="766,800,616,0" 
-             Width="NaN" 
-             Background="#FF0086BE" 
-             VerticalAlignment="Top"
+                 x:Name="Save_Survey" 
+                 Content="Editar datos del usuario" 
+                 Style="{StaticResource ButtonChangeDataUsers}" 
+                 Margin="766,800,616,0" 
+                 Width="NaN" 
+                 Background="#FF0086BE" 
+                 VerticalAlignment="Top"
+                Click="Button_ToEditUserInformation"
              />
         </Grid>
     </Grid>
