@@ -419,8 +419,29 @@
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontFamily" Value="Verdana"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="#FF707070"/>
-            <!-- Color del placeholder -->
+            <Setter Property="Foreground" Value="#FF707070" />
+
+            <!-- Deshabilitar el FocusVisualStyle para eliminar el borde azul -->
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+            <!-- Si deseas puedes personalizar el borde al estar enfocado -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="0">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <!-- Estilo para TextBox CONTRASEÑA DE USUARIO EN LOGIN -->
@@ -434,6 +455,33 @@
             <Setter Property="FontFamily" Value="Verdana"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#FF707070"/>
+
+
+            <!-- Deshabilitar el FocusVisualStyle para eliminar el borde azul -->
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+            <!-- Plantilla para personalizar el estilo del PasswordBox -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="0">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Opcional: Puedes agregar comportamiento personalizado cuando el PasswordBox recibe el foco -->
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+
+
         </Style>
 
         

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PoxterMilitar.Features;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,16 @@ namespace PoxterMilitar.Views
     /// </summary>
     public partial class Login_Error : Window
     {
-        public Login_Error()
+        MainContent mainContent;
+
+        public Login_Error(MainContent mainContent)
         {
             InitializeComponent();
+
+            this.mainContent = mainContent;
         }
 
-        private void Button_Accept(object sender, RoutedEventArgs e)
+        private void Button_Cancel(object sender, RoutedEventArgs e)
         {
             Close();
         }

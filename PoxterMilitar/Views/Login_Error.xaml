@@ -20,7 +20,7 @@
             RenderTransformOrigin="0.5,0.5" 
             FontSize="20" 
             VerticalAlignment="Top"
-            Click="Button_Accept">
+            Click="Button_Cancel">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>

@@ -5,5 +5,11 @@
     <Setting Name="Socket" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://127.0.0.1:3000/</Value>
     </Setting>
+    <Setting Name="Username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RememberMe" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

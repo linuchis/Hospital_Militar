@@ -46,6 +46,9 @@
     <Compile Update="Views\Patient__Information.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Recover_Password.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Survey_list.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -100,6 +103,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Patient__Information.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Recover_Password.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Survey_list.xaml">

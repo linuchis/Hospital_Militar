@@ -1,7 +1,9 @@
 ﻿using PoxterMilitar.DataAccess;
 using PoxterMilitar.Features;
 using System;
+using System.Configuration;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,55 +21,82 @@ using PoxterMilitar.DataAccess; // Importa el servicio
 
 namespace PoxterMilitar.Views
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
-    /// 
-    /// 
     
     public partial class Login : Page
     {
-
-        //llamamos a la logica que toca la base de datos
-
-        //private readonly LoginViewModel _viewModel;
-
+        
         private UserLoginService _userLoginService;
-
 
         public Login()
         {
             InitializeComponent();
-            // Suscribe al evento SizeChanged de la ventana
-
             _userLoginService = new UserLoginService();
 
-
             this.Loaded += Login_Loaded;
-
+            LoadUserSettings();
 
         }
+
+        //REMEEEEMBER MEEEE  
+        private void LoadUserSettings()
+        {
+            // Verificar si RememberMe está activado
+           
+            if (Settings.Default.RememberMe)
+            {
+                // Si está activado, cargar el nombre de usuario guardado
+                txtUsername.Text = Settings.Default.Username;
+                chkRememberMe.IsChecked = true; // Marcar el checkbox de "Recuérdame"
+            }
+        }
+
+        private void SaveUserSettings()
+        {
+            if (chkRememberMe.IsChecked == true) // Si el checkbox está marcado
+            {
+                Settings.Default.Username = txtUsername.Text; // Guardar el nombre de usuario
+                Settings.Default.RememberMe = true; // Guardar que "Recordarme" está activado
+            }
+            else
+            {
+                // Limpiar los datos si el checkbox NO está marcado
+                Settings.Default.Username = string.Empty;
+                Settings.Default.RememberMe = false;
+            }
+
+            // Guardar la configuración en Properties
+            Settings.Default.Save();
+        }
+
 
 
         private void Button_IniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            // Obtener los valores ingresados por el usuario
-            string username = txtUsername.Text; 
+            // Obtener los valores ingresados por el usuario  
+            string username = txtUsername.Text;
             string password = txtPassword.Password;
 
             if (_userLoginService.ValidateCredentials(username, password))
             {
-                // Credenciales correctas, navegar a la siguiente página
+                // Credenciales correctas, navegar a la siguiente página  
+                SaveUserSettings();
                 NavigationService.Navigate(new MainContent());
             }
             else
             {
-                // Credenciales incorrectas, mostrar mensaje de error
-                MessageBox.Show("Usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Error);
+               
+                MainContent mainContent = new MainContent();
+                mainContent.navigateToWrongData();
+                 
             }
-
-
         }
+        
+        // Se supone que después de esto ya quedan guardados los datos xd
+
+
+
+
+
 
 
         private void Login_Loaded(object sender, RoutedEventArgs e)
@@ -78,6 +107,16 @@ namespace PoxterMilitar.Views
                 parentWindow.SizeChanged += Window_SizeChanged;
             }
         }
+
+        //ventana de ¿Olvidaste tu contraseña?
+
+        void Button_Forgot_Password(object sender, RoutedEventArgs e)
+        {
+            MainContent mainContent = new MainContent();
+            mainContent.navigateToInfoPassword();
+        }
+
+        //Para ajustar el tamaño de la ventana xd
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {

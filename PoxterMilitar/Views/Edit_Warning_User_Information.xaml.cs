@@ -22,12 +22,19 @@ namespace PoxterMilitar.Views
     public partial class Edit_Warning_User_Information : Window
     {
         MainContent mainContent;
+
         public Edit_Warning_User_Information(MainContent mainContent)
         {
             InitializeComponent();
+
             this.mainContent = mainContent;
         }
-    }
-    
 
+        private void Button_Cancel(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+    }
+
+    
 }

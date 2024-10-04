@@ -88,6 +88,20 @@ namespace PoxterMilitar.Features
             log_Out.ShowDialog();
         }
 
+        public void navigateToInfoPassword()
+        {
+            Recover_Password recover_Password = new Recover_Password(this);
+            recover_Password.ShowDialog();
+        }
+
+        public void navigateToWrongData()
+        {
+            Login_Error login_Error = new Login_Error(this);
+            login_Error.ShowDialog();
+        }
+
+
+
         private void InitSocket()
         {
             socket = new SocketIOClient.SocketIO(Settings.Default.Socket);
