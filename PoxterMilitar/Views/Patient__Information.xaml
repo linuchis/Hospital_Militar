@@ -8,10 +8,6 @@
       d:DesignHeight="1000" d:DesignWidth="1920"
       Title="Patient__Information">
 
-
-
-
-
     <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -35,10 +31,8 @@
                  FontWeight="Bold" 
                  FontFamily="Verdana"/>
 
-
             <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2">
-
-
+                
                 <DockPanel>
                     <Grid>
 
@@ -64,7 +58,6 @@
                                     Background="Transparent" 
                                     Click="Button_BackHome" Margin="21,-78,0,514" />
                             </Grid>
-
 
                             <Grid Grid.ColumnSpan="2">
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="100,59,734,46" Background="Black"/>
@@ -125,10 +118,6 @@
                                     <ComboBoxItem Content="Pie1"/>
                                     <ComboBoxItem Content="Pie2"/>
                                 </ComboBox>
-
-
-
-
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
                                           Name="Equipo" 
@@ -228,14 +217,6 @@
                                         GotFocus="TextBox_GotFocus"
                                         LostFocus="TextBox_LostFocus"/>
                             </Grid>
-
-
-
-
-
-
-
-
 
                         </Grid>
 
@@ -359,16 +340,11 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-
                             </DataGrid.Columns>
-
                         </DataGrid>
-
                     </Grid>
-
                 </DockPanel>
             </Border>
-
         </Grid>
     </Grid>
 </Page>

@@ -55,10 +55,21 @@ namespace PoxterMilitar.Views
             this.NavigationService.Navigate(new Page_New_Patients(mainContent));
         }
 
+        //ESTE ES EL BOTON QUE DEBE CREAR LA NAVEGACIÓN A LA PÁGINA DE INFORMACIÓN DEL PACIENTE
         private void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Patient__Information(mainContent));
+            Button button = sender as Button;
+            if (button != null)
+            {
+                dato_paciente selectedPatient = button.DataContext as dato_paciente;
+                if (selectedPatient != null)
+                {
+                    this.NavigationService.Navigate(new Patient__Information(selectedPatient.Id, mainContent));
+                }
+            }
         }
+
+
 
         private void Button_SurveyList_Click(object sender, RoutedEventArgs e)
         {

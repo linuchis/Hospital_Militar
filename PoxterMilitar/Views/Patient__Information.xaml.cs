@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PoxterMilitar.DataAccess;
+using PoxterMilitar.Models;
 
 namespace PoxterMilitar.Views
 {
@@ -25,24 +27,38 @@ namespace PoxterMilitar.Views
     public partial class Patient__Information : Page
     {
         // Colección observable que estará vinculada al DataGrid
-        public ObservableCollection<dato_paciente> ListaPacientes { get; set; }
 
         MainContent mainContent;
+        private PatientService _userPatients;
+        private long patientId;
+        private patients_poxter patients;
 
-        public Patient__Information(MainContent mainContent)
+        public Patient__Information(long id, MainContent mainContent)
         {
             InitializeComponent();
-            ListaPacientes = new ObservableCollection<dato_paciente>
+            this.mainContent = mainContent;
+            this.DataContext = this;
+            PatientService patientService = new PatientService
             {
-                
-            };
 
+            }
+            _userPatients = patientService;
+            
+            
+            LoadPatientData();
+            
+            
             this.DataContext = this;
             this.mainContent = mainContent;
             if (!this.mainContent.PrimeraEncuesta)
             {
                 Encuesta.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void LoadPatientData()
+        {
+            throw new NotImplementedException();
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -64,8 +80,6 @@ namespace PoxterMilitar.Views
                 textBox.Foreground = new SolidColorBrush(Colors.Gray); // Cambia el color del texto del placeholder
             }
         }
-
-
 
         private void IniciarPrograma_Click(object sender, RoutedEventArgs e)
         {
