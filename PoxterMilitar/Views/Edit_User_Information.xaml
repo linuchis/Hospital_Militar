@@ -106,7 +106,7 @@
                  x:Name="Save_Patients_Information" 
                  Content="Guardar usuario" 
                  Style="{StaticResource ButtonChangeInformationPatients}" 
-                 Margin="766,800,616,0" 
+                 Margin="1287,661,143,0" 
                  Width="NaN" 
                  Background="#FF0086BE" 
                  VerticalAlignment="Top"

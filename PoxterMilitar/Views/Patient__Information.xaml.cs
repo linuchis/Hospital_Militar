@@ -18,47 +18,84 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PoxterMilitar.DataAccess;
 using PoxterMilitar.Models;
+using System.ComponentModel;
 
 namespace PoxterMilitar.Views
 {
     /// <summary>
     /// Lógica de interacción para Patient__Information.xaml
     /// </summary>
-    public partial class Patient__Information : Page
+    public partial class Patient__Information : Page, INotifyPropertyChanged
     {
         // Colección observable que estará vinculada al DataGrid
 
         MainContent mainContent;
         private PatientService _userPatients;
         private long patientId;
-        private patients_poxter patients;
+        private dato_paciente patients;
+        private List<dato_paciente> _listaPacientes;
+        public List<dato_paciente> ListaPacientes
+        {
+            get { return _listaPacientes; }
+            set
+            {
+                _listaPacientes = value;
+                OnPropertyChanged(nameof(ListaPacientes));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        //-----------------------------------------------------------------------------
 
         public Patient__Information(long id, MainContent mainContent)
         {
             InitializeComponent();
             this.mainContent = mainContent;
-            this.DataContext = this;
-            PatientService patientService = new PatientService
-            {
+            this.patientId = id; // Asignar el ID del paciente
+            _userPatients = new PatientService();
 
-            }
-            _userPatients = patientService;
-            
-            
             LoadPatientData();
-            
-            
-            this.DataContext = this;
-            this.mainContent = mainContent;
+
+            this.DataContext = this; // Establecer DataContext a la página misma
+
             if (!this.mainContent.PrimeraEncuesta)
             {
                 Encuesta.Visibility = Visibility.Hidden;
             }
         }
 
+
+        public Patient__Information(MainContent mainContent)
+        {
+            this.mainContent = mainContent;
+        }
+
         private void LoadPatientData()
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Obtener el paciente por ID
+                patients = _userPatients.GetPatientById(patientId);
+                if (patients != null)
+                {
+                    // Asignar el paciente a una lista para el DataGrid
+                    ListaPacientes = new List<dato_paciente> { patients };
+                }
+                else
+                {
+                    MessageBox.Show("Paciente no encontrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos del paciente: {ex.Message}");
+            }
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)

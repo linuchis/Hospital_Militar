@@ -40,11 +40,7 @@ namespace PoxterMilitar.Views
         {
             this.page_Patients = page_Patients;
         }
-
-
-
         //--------------------------------------------------------------------------------------------------------------------------
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
            

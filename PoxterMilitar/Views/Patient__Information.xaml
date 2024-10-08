@@ -32,7 +32,7 @@
                  FontFamily="Verdana"/>
 
             <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2">
-                
+
                 <DockPanel>
                     <Grid>
 
@@ -60,7 +60,7 @@
                             </Grid>
 
                             <Grid Grid.ColumnSpan="2">
-                                <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="100,59,734,46" Background="Black"/>
+                                <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="37,33,734,46" Background="Black"/>
 
                                 <Grid Grid.Column="0">
                                     <Button 
@@ -68,10 +68,10 @@
                                         Content="" 
                                         Style="{StaticResource ButtonBigWindow}"
                                         HorizontalAlignment="Left" 
-                                        Width="75" 
+                                        Width="76" 
                                         Height="NaN"
                                         Background="Transparent" 
-                                        Click="Button_Maximice" Margin="595,360,0,57" RenderTransformOrigin="0.494,0.514"/>
+                                        Click="Button_Maximice" Margin="594,360,0,57" RenderTransformOrigin="0.494,0.514"/>
                                 </Grid>
 
                             </Grid>
@@ -86,14 +86,15 @@
                                     </Grid>
                                     <!-- DOS COLUMNAS CON LA INFORMACIÓN DEL COSTADO DERECHO -->
                                     <Grid Grid.Column="0">
-                                        <TextBlock Text="Elegir ejercicio*" FontFamily="Verdana" FontSize="16" Margin="-15,0,0,-27" FontWeight="Bold" HorizontalAlignment="Left" Width="241" Foreground="#FF656565" />
-                                        <TextBlock Text="Elegir lado de la extremidad*" FontFamily="Verdana" FontSize="16" Margin="-15,107,328,-134" FontWeight="Bold" Foreground="#FF656565" />
-                                        <TextBlock Text="Repeticiones del ejercicio" FontFamily="Verdana" FontSize="16" Margin="-37,205,350,-232" FontWeight="Bold" Foreground="#FF656565" />
+                                        <TextBlock Text="Elegir ejercicio*" FontFamily="Verdana" FontSize="16" Margin="-44,10,0,-37" FontWeight="Bold" HorizontalAlignment="Left" Width="241" Foreground="#FF656565" />
+                                        <TextBlock Text="Elegir lado de la extremidad*" FontFamily="Verdana" FontSize="16" Margin="-44,110,357,-137" FontWeight="Bold" Foreground="#FF656565" />
+                                        
 
                                     </Grid>
                                     <Grid Grid.Column="1" HorizontalAlignment="Right" Height="24">
-                                        <TextBlock Text="Equipo usado*" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Width="282" Margin="-183,0,0,0" FontWeight="Bold" Foreground="#FF656565"/>
-                                        <TextBlock Text="¿Primeros pasos del paciente?*" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Width="287" Margin="-183,106,0,-106" FontWeight="Bold" Foreground="#FF656565" />
+                                        <TextBlock Text="Equipo usado*" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Width="282" Margin="303,8,0,-8" FontWeight="Bold" Foreground="#FF656565"/>
+                                        <TextBlock Text="¿Primeros pasos del paciente?*" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Width="287" Margin="308,102,0,-102" FontWeight="Bold" Foreground="#FF656565" />
+                                       <TextBlock Text="Repeticiones del ejercicio" FontFamily="Verdana" FontSize="16" Margin="308,187,6,-214" FontWeight="Bold" Foreground="#FF656565" />
                                     </Grid>
 
                                 </StackPanel>
@@ -103,7 +104,10 @@
                                           HorizontalAlignment="Left" 
                                           Width="292"
                                           FontFamily="Verdana" 
-                                          FontSize="17" Margin="10,61,0,383"  HorizontalContentAlignment ="Left" SelectionChanged="ExerciseCombo_SelectionChanged"
+                                          FontSize="17" 
+                                          Margin="10,61,0,386"  
+                                          HorizontalContentAlignment ="Left" 
+                                          SelectionChanged="ExerciseCombo_SelectionChanged"
                                           >
                                     <!--
                                     <ComboBoxItem Content="Mano: Ejercicio frutas     "/>
@@ -139,7 +143,7 @@
                                           HorizontalAlignment="Left" 
                                           Width="292"
                                           FontFamily="Verdana" 
-                                          FontSize="17" Margin="10,164,0,280" 
+                                          FontSize="17" Margin="10,164,0,283" 
                                           >
                                     <!--
                                     <ComboBoxItem Content="Derecha                                   "/>
@@ -198,8 +202,12 @@
                                      x:Name="Encuesta" 
                                      Content="Encuesta al usuario"                           
                                      Style="{StaticResource ButtonSurvey}" 
-                                     Margin="0,332,24,103" 
-                                     HorizontalAlignment="Right" Width="207" Background="#FF8C8C8C" Click="EncuestaUsuario_Click"/>
+                                     Margin="0,240,409,203" 
+                                     HorizontalAlignment="Right" 
+                                    Width="292" 
+                                    Background="{x:Null}" 
+                                    Click="EncuestaUsuario_Click" 
+                                    BorderBrush="#FFCCCCCC" RenderTransformOrigin="0.503,0.523"/>
 
 
                                 <TextBox 
@@ -207,15 +215,15 @@
                                         Style="{StaticResource RepetitionsButton}"
                                         HorizontalAlignment="Left" 
                                         Height="44" 
-                                        Margin="10,259,0,0" 
+                                        Margin="356,242,0,0" 
                                         TextWrapping="Wrap" 
-                                        Text="Digite número "
+                                        Text="Digite número"
                                         TextAlignment="Left"
                                         VerticalAlignment="Top" 
-                                        Width="292"
+                                        Width="316"
                                         Foreground="#FFBFBFBF"
                                         GotFocus="TextBox_GotFocus"
-                                        LostFocus="TextBox_LostFocus"/>
+                                        LostFocus="TextBox_LostFocus" Cursor="" Background="{x:Null}" BorderBrush="#FFCCCCCC"/>
                             </Grid>
 
                         </Grid>
@@ -227,7 +235,9 @@
                              FontFamily="Verdana" 
                              Grid.RowSpan="3" 
                              AutoGenerateColumns="False" 
-                             FontWeight="Bold" FontSize="16" GridLinesVisibility="None" Background="{x:Null}">
+                             FontWeight="Bold" FontSize="16" 
+                            GridLinesVisibility="None" 
+                            Background="{x:Null}">
 
                             <!-- Aplicar estilos a los encabezados de columna -->
                             <DataGrid.ColumnHeaderStyle>
@@ -250,15 +260,14 @@
                             </DataGrid.RowStyle>
 
                             <DataGrid.Columns>
-
-                                <!-- Columna de Foto -->
+                                <!-- Columna de Foto 
                                 <DataGridTemplateColumn Header="    ">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Image Source="\Resources\Login\user_icon.png" Width="20" Height="20"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                </DataGridTemplateColumn> -->
 
                                 <!-- Columnas de Texto -->
                                 <DataGridTemplateColumn Header="Nombre" Width="*">
@@ -301,37 +310,17 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="Correo" Width="Auto">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Correo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-
-                                <DataGridTemplateColumn Header="Teléfono" Width="*">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Telefono}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-
-
-                                <!-- Columna de Opciones -->
+                                <!-- Columna de Opciones 
                                 <DataGridTemplateColumn Header="    Opciones       " Width="2*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <!-- Botón de Informacion de encuestas -->
                                                 <Button Width="60" Height="40" Margin="0.1,0" BorderThickness="0" Background="Transparent" Padding="0" Click="Button_SurveyList_Click">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/survey_logo.png" Width="16" Height="16"/>
                                                 </Button>
-                                                <!-- Botón de Editar -->
                                                 <Button Width="60" Height="40" Margin="0.1,0" BorderThickness="0" Background="Transparent" Padding="0" Click="Button_EditPatientinformation_Click">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" Width="16" Height="16"/>
                                                 </Button>
-                                                <!-- Botón de Activar/Desactivar -->
                                                 <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0">
                                                     <Image Source="/Resources/Inicio/Pacientes_List/greenpoint.png" Width="16" Height="16"/>
                                                 </Button>
@@ -339,7 +328,7 @@
                                             </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                </DataGridTemplateColumn>-->
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

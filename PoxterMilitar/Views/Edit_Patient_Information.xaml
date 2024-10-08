@@ -81,11 +81,11 @@
                                 </Border>
                                 <Grid Grid.Row="0"/>
 
-                                <TextBlock Text="Teléfono* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,344,0,118" />
+                                <!--<TextBlock Text="Teléfono* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,344,0,118" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,386,111,67">
                                     <TextBlock x:Name="ContraseñaUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,15,-8" FontWeight="ExtraLight"/>
                                 </Border>
-                                <Grid Grid.Row="0"/>
+                                <Grid Grid.Row="0"/>-->
 
 
                             </Grid>
@@ -103,11 +103,11 @@
                                 </Border>
                                 <Grid Grid.Row="0"/>
 
-                                <TextBlock Text="Correo electrónico* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,238,0,224" />
+                                <!--<TextBlock Text="Correo electrónico* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,238,0,224" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,270,111,183">
                                     <TextBlock x:Name="AccesoUsuario" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,15,-8" FontWeight="ExtraLight"/>
                                 </Border>
-                                <Grid Grid.Row="0"/>
+                                <Grid Grid.Row="0"/>-->
                             </Grid>
                         </Grid>
                     </Grid>
