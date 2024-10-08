@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\login.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\login.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\patient__information.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\patient__information.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\patient__information.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\patient__information.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\features\\maincontent.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:features\\maincontent.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\models\\dbpoxtercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:models\\dbpoxtercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\login.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\login.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
       "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\page_new_patients.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\page_new_patients.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|c:\\users\\lina\\documents\\hospital_militar\\poxtermilitar\\views\\recover_password.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{14E7921B-14DE-4927-BC4B-0A8E677C4275}|PoxterMilitar.csproj|solutionrelative:views\\recover_password.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,8 +45,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 721,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 327,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,78 +66,112 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainContent.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Features\\MainContent.xaml.cs",
-              "RelativeDocumentMoniker": "Features\\MainContent.xaml.cs",
-              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Features\\MainContent.xaml.cs",
-              "RelativeToolTip": "Features\\MainContent.xaml.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAGoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T14:21:43.613Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "page_new_patients.xaml",
-              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\page_new_patients.xaml",
-              "RelativeDocumentMoniker": "Views\\page_new_patients.xaml",
-              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\page_new_patients.xaml",
-              "RelativeToolTip": "Views\\page_new_patients.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-04T05:12:22.814Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Login.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Login.xaml.cs",
-              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Login.xaml.cs",
-              "RelativeToolTip": "Views\\Login.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAMAAAAAAAAAA==",
+              "Title": "dbpoxterContext.cs",
+              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Models\\dbpoxterContext.cs",
+              "RelativeDocumentMoniker": "Models\\dbpoxterContext.cs",
+              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Models\\dbpoxterContext.cs",
+              "RelativeToolTip": "Models\\dbpoxterContext.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAABcAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T05:10:47.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T22:36:35.944Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-07T22:36:08.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T20:48:28.283Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T22:36:03.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Settings.settings",
               "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Settings.settings",
               "RelativeDocumentMoniker": "Settings.settings",
               "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Settings.settings",
               "RelativeToolTip": "Settings.settings",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002767|",
-              "WhenOpened": "2024-10-03T20:42:43.403Z",
+              "WhenOpened": "2024-10-07T21:26:49.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Login.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Login.xaml.cs",
+              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Login.xaml.cs",
+              "RelativeToolTip": "Views\\Login.xaml.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAKkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T20:15:49.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Patient__Information.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Patient__Information.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Patient__Information.xaml.cs",
+              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Patient__Information.xaml.cs",
+              "RelativeToolTip": "Views\\Patient__Information.xaml.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAuwHYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T21:17:41.833Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Recover_Password.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Recover_Password.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Recover_Password.xaml.cs",
-              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Recover_Password.xaml.cs",
-              "RelativeToolTip": "Views\\Recover_Password.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Patient__Information.xaml",
+              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Patient__Information.xaml",
+              "RelativeDocumentMoniker": "Views\\Patient__Information.xaml",
+              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Views\\Patient__Information.xaml",
+              "RelativeToolTip": "Views\\Patient__Information.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-06T16:26:41.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-06T16:50:32.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainContent.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Features\\MainContent.xaml.cs",
+              "RelativeDocumentMoniker": "Features\\MainContent.xaml.cs",
+              "ToolTip": "C:\\Users\\Lina\\Documents\\Hospital_Militar\\PoxterMilitar\\Features\\MainContent.xaml.cs",
+              "RelativeToolTip": "Features\\MainContent.xaml.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAADwv6gAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T19:36:47.326Z"
+              "WhenOpened": "2024-10-07T19:24:40.414Z",
+              "EditorCaption": ""
             }
           ]
         }

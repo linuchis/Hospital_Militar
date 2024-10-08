@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PoxterMilitar.classe;
+using PoxterMilitar.DataAccess;
 using PoxterMilitar.Models;
 using PoxterMilitar.Views;
 using System;
@@ -23,38 +24,24 @@ using System.Windows.Shapes;
 
 namespace PoxterMilitar.Features
 {
-    /// <summary>
-    /// Lógica de interacción para MainContent.xaml
-    /// </summary>
+    
     public partial class MainContent : Page
     {
-        public static ObservableCollection<dato_paciente> ListaPacientes { get; set; }
+        public static List<dato_paciente> ListaPacientes { get; set; }
         public static ObservableCollection<dato_usuario> ListaUsuario { get;  set; }
 
         SocketIOClient.SocketIO socket;
 
         public bool PrimeraEncuesta=true;
-        
+        private PatientService _patientService;
 
         public MainContent()
         {
             InitializeComponent();
+            _patientService = new PatientService(); // Inicializa el servicio
 
-            ListaPacientes = new ObservableCollection<dato_paciente>
-            {
-                new dato_paciente
-                {
-                    Foto = "/Resources/Inicio/Pacientes_List/lina.png",
-                    Nombre = "Lina",
-                    Apellido = "Castañeda",
-                    Genero = "Femenino",
-                    Altura = "1.73",
-                    Peso = "73",
-                    Correo = "lina.castaneda@sasoftco.com",
-                    Telefono = "3208942453"
-                }
-            };
-
+            
+            ListaPacientes = _patientService.GetAllPatients();
 
             // Navegar el Frame de InicioPacientes a la página InicioPacientes
             FrameInicioPacientes.Navigate(new InicioPacientes(this));
@@ -99,8 +86,6 @@ namespace PoxterMilitar.Features
             Login_Error login_Error = new Login_Error(this);
             login_Error.ShowDialog();
         }
-
-
 
         private void InitSocket()
         {
@@ -161,9 +146,9 @@ namespace PoxterMilitar.Features
             socket.ConnectAsync();
         }
 
-        public void LoadExercise(string receiverId, string nameExercise, string profile, string firstStep)
+        public void LoadExercise(string receiverId, string nameExercise, string profile, string firstStep, int rep)
         {
-            socket.EmitAsync("VRSimulator", "{\"command\": \"Comenzar\", \"receiverId\": \"" + receiverId + "\", \"senderId\": \"INSTRUCTOR1\", \"nameEx\": \"" + nameExercise + "\", \"firtsStep\": \"" + firstStep + "\", \"profile\": \"" + profile + "\"}");
+            socket.EmitAsync("VRSimulator", "{\"command\": \"Comenzar\", \"receiverId\": \"" + receiverId + "\", \"senderId\": \"INSTRUCTOR1\", \"nameEx\": \"" + nameExercise + "\", \"firtsStep\": \"" + firstStep + "\", \"profile\": \"" + profile + "\", \"rep\": \"" + rep + "\"}");
         }
 
 

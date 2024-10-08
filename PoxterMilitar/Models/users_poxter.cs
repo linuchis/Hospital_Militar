@@ -5,9 +5,6 @@ using System.Collections.Generic;
 
 namespace PoxterMilitar.Models;
 
-/// <summary>
-/// datos de usuarios
-/// </summary>
 public partial class users_poxter
 {
     internal string telefono_u;

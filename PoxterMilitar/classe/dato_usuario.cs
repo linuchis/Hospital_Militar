@@ -14,7 +14,6 @@ namespace PoxterMilitar.classe
         public string? Apellido { get; set; }
         public string? Correo { get; set; }
         public string? Area { get; set; }
-        public string? NivelAcceso { get; set; }
         public string? Telefono { get; set; }
         public string? Password { get; set; }
     }

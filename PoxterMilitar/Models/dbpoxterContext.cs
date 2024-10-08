@@ -27,9 +27,7 @@ public partial class dbpoxterContext : DbContext
     }
 
     public virtual DbSet<patients_poxter> patients_poxter { get; set; }
-
     public virtual DbSet<surveys_patients> surveys_patients { get; set; }
-
     public virtual DbSet<users_poxter> users_poxter { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -119,13 +117,10 @@ public partial class dbpoxterContext : DbContext
                 .IsRequired()
                 .HasMaxLength(255);
 
-
             entity.Property(e => e.password_u)
                 .IsRequired()
                 .HasColumnName("password_u") // Mapeo a la columna password_u
                 .HasMaxLength(255);
-
-
 
             entity.Property(e => e.username_u)
                 .IsRequired()

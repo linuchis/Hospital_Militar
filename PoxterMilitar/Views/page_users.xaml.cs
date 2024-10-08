@@ -27,7 +27,15 @@ namespace PoxterMilitar.Views
         private Page_Users page_Users;
         private readonly UserService _userService; // Instancia del servicio
 
-        //public Page_Users(ObservableCollection<dato_usuario> listaUsuario, MainContent mainContent)
+        public Page_Users(ObservableCollection<dato_usuario> listaUsuario, MainContent mainContent)
+        {
+            InitializeComponent();
+            this.mainContent = mainContent;
+            ListaUsuario = listaUsuario;
+            _userService = new UserService(); // Inicializa el servicio
+
+            this.DataContext = this;
+        }
 
 
         public Page_Users(MainContent mainContent)

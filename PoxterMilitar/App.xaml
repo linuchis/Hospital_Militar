@@ -5,8 +5,149 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <Style TargetType="TextBox" x:Key="RepetitionsButton">
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="#2C3948"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="15"
+                        Padding="{TemplateBinding Padding}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
         <!-- Boton de ComboBox -->
+        <!-- Boton de ComboBox -->
+
+        <ControlTemplate x:Key="CustomToggleButtonTemplate" TargetType="ToggleButton">
+            <Border Background="Transparent" 
+                BorderBrush="Transparent" 
+                BorderThickness="0">
+                <ContentPresenter HorizontalAlignment="Center" 
+                              VerticalAlignment="Center"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <!-- Triggers vacíos para que no haya cambios visuales -->
+                <Trigger Property="IsMouseOver" Value="True"/>
+                <Trigger Property="IsPressed" Value="True"/>
+                <Trigger Property="IsChecked" Value="True"/>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!-- Boton de ComboBox -->
+        
         <Style TargetType="ComboBox" x:Key="RoundedComboBoxStyle">
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="#2C3948"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <!-- Desactivar FocusVisual para eliminar el cuadro azul en selección o hover -->
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Focusable" Value="False"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <!-- El Border define los bordes redondeados -->
+                            <Border x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="15"
+                            Padding="5" Grid.RowSpan="2">
+
+                                <!-- Cambiamos el DockPanel por un Grid para un mejor control de alineaciones -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <!-- Columna para el contenido -->
+                                        <ColumnDefinition Width="*"/>
+                                        <!-- Columna para el botón de despliegue -->
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Espacio reservado para evitar que el texto se superponga a la flecha -->
+                                    <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
+                                              Margin="10,0,0,0"
+                                              VerticalAlignment="Center" 
+                                              HorizontalAlignment="Left"
+                                              Grid.Column="0"/>
+
+                                    <!-- Botón de despliegue personalizado, usando Grid.Column="1" para controlar el espacio -->
+                                    <ToggleButton Grid.Column="1"
+                                                  Focusable="False"
+                                                  IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                                  ClickMode="Press"  
+                                                  Background="Transparent" 
+                                                  BorderBrush="Transparent"
+                                                  Foreground="Gray"
+                                                  FocusVisualStyle="{x:Null}"
+                                                  HorizontalAlignment="Right"
+                                                  Template="{StaticResource CustomToggleButtonTemplate}">
+
+                                        <!-- Imagen de la flecha siempre alineada a la derecha -->
+                                        <Image Source="/Resources/Inicio/Pacientes_List/arrow_down.png" 
+                                               Height="8" 
+                                               Width="43.34" 
+                                               HorizontalAlignment="Right" 
+                                               VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                    </ToggleButton>
+                                </Grid>
+                            </Border>
+
+                            <!-- Popup de los items -->
+                            <Popup x:Name="PART_Popup"
+                           AllowsTransparency="True"
+                           Focusable="False"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           Placement="Bottom"
+                           PopupAnimation="Slide" Grid.RowSpan="2">
+                                <Border Background="White"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="10">
+                                    <ScrollViewer CanContentScroll="True">
+                                        <ItemsPresenter/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <!-- Boton de ComboBox -->
+        <Style TargetType="ComboBox" x:Key="RoundedGridStyle">
             <Setter Property="FontFamily" Value="Verdana"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Padding" Value="10,5"/>
@@ -26,11 +167,11 @@
                             </Grid.RowDefinitions>
                             <!-- El Border define los bordes redondeados -->
                             <Border x:Name="Border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="15"
-                        Padding="5" Grid.RowSpan="2">
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    CornerRadius="15"
+                                    Padding="5" Grid.RowSpan="2">
 
 
                                 <DockPanel>
@@ -39,29 +180,30 @@
 
 
                                     <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
-                                Margin="10,0,0,0"
-                                VerticalAlignment="Center" 
-                                HorizontalAlignment="Left"/>
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left"/>
                                     <ToggleButton DockPanel.Dock="Right"
-                                      Focusable="False"
-                                      IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                      ClickMode="Press"  Background="Transparent" BorderBrush="Transparent"
-                                      Foreground="Gray">
+                                                  Focusable="False"
+                                                  FocusVisualStyle="{x:Null}"
+                                                  IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                                  ClickMode="Press"  Background="Transparent" BorderBrush="Transparent"
+                                                  Foreground="Gray">
                                         <Image Source="/Resources/Inicio/Pacientes_List/arrow_down.png" Height="8" Width="13.34" HorizontalAlignment="Right"/>
                                     </ToggleButton>
 
                                 </DockPanel>
                             </Border>
                             <Popup x:Name="PART_Popup"
-                       AllowsTransparency="True"
-                       Focusable="False"
-                       IsOpen="{TemplateBinding IsDropDownOpen}"
-                       Placement="Bottom"
-                       PopupAnimation="Slide" Grid.RowSpan="2">
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   Placement="Bottom"
+                                   PopupAnimation="Slide" Grid.RowSpan="2">
                                 <Border Background="White"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="1"
-                            CornerRadius="10">
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="10">
                                     <ScrollViewer CanContentScroll="True">
                                         <ItemsPresenter/>
                                     </ScrollViewer>
@@ -129,6 +271,80 @@
                                 Padding="{TemplateBinding Padding}">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <Image Source="/Resources/Inicio/Icon fa-solid-user-plus.png" Width="19.65" Height="15.72"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Diseño para el buton de recargar ejercicio del paciente-->
+        <Style x:Key="ButtonReloadExcercise" TargetType="Button">
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Pacientes_List/reload_icon.png" Width="19.65" Height="15.72"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Diseño para el buton de recargar ejercicio del paciente-->
+        <Style x:Key="ButtonCancelExcercise" TargetType="Button">
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                CornerRadius="10"
+                BorderThickness="1"
+                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Pacientes_List/cancel_icon.png" Width="19.65" Height="15.72"/>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
                             </StackPanel>
                         </Border>
@@ -249,14 +465,17 @@
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="BorderThickness" Value="0,0,1,2"/>
             <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Padding" Value="20,10,20,10"/>
+            <Setter Property="Margin" Value="0,10,0,10"/>
         </Style>
+
 
         <!-- Estilo para las filas -->
         <Style TargetType="{x:Type DataGridRow}">
             <Setter Property="Background" Value="White"/>
             <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="BorderThickness" Value="0,0,0,1"/>
-            <Setter Property="Height" Value="40"/>
+            <Setter Property="Height" Value="10"/>
         </Style>
 
         <!-- Diseño para el DataGrid dentro del Border -->
@@ -1090,18 +1309,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-
-
-        
-
-
-
-
-
-
-
-
 
     </Application.Resources>
 </Application>

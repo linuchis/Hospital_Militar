@@ -34,17 +34,7 @@ namespace PoxterMilitar.Views
             InitializeComponent();
             ListaPacientes = new ObservableCollection<dato_paciente>
             {
-                new dato_paciente
-                {
-                    Foto = "/Resources/Inicio/Pacientes_List/lina.png",
-                    Nombre = "Lina",
-                    Apellido = "Castañeda",
-                    Genero = "Femenino",
-                    Altura = "1.73",
-                    Peso = "73",
-                    Correo = "lina.castaneda@sasoftco.com",
-                    Telefono = "3208942453"
-                }
+                
             };
 
             this.DataContext = this;
@@ -55,26 +45,50 @@ namespace PoxterMilitar.Views
             }
         }
 
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "Digite número")
+            {
+                textBox.Text = "";
+                textBox.Foreground = new SolidColorBrush(Colors.Black); // Cambia el color del texto cuando el usuario escribe
+            }
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "Digite número";
+                textBox.Foreground = new SolidColorBrush(Colors.Gray); // Cambia el color del texto del placeholder
+            }
+        }
+
 
 
         private void IniciarPrograma_Click(object sender, RoutedEventArgs e)
         {
             if (ExerciseCombo.SelectionBoxItem != null
-                && ExerciseCombo.SelectedIndex != 0
+                //&& ExerciseCombo.SelectedIndex != 0
                 && Equipo.SelectionBoxItem != null
-                && Equipo.SelectedIndex != 0
+                //&& Equipo.SelectedIndex != 0
                 && Perfil.SelectionBoxItem != null
-                && Perfil.SelectedIndex != 0
-                && PrimerosPasos.IsChecked == true)
+                //&& Perfil.SelectedIndex != 0
+                //&& PrimerosPasos.IsChecked == true
+                && !string.IsNullOrEmpty(Repeticiones.Text) // Verifica que no esté vacío
+                && int.TryParse(Repeticiones.Text, out int rep) // Verifica que sea un número válido
+                && rep > 0) // Verifica que el número sea mayor que 0
             {
-                mainContent.LoadExercise(Equipo.SelectionBoxItem.ToString(), ExerciseCombo.SelectionBoxItem.ToString(), Perfil.SelectionBoxItem.ToString(), PrimerosPasos.IsChecked.ToString());
+                mainContent.LoadExercise(Equipo.SelectionBoxItem.ToString(), ExerciseCombo.SelectionBoxItem.ToString(), Perfil.SelectionBoxItem.ToString(), PrimerosPasos.IsChecked.ToString(), rep);
             }
         }
 
         private void ReiniciarPrograma_Click(object sender, RoutedEventArgs e)
         {
             if (Equipo.SelectionBoxItem != null
-                && Equipo.SelectedIndex != 0)
+                //&& Equipo.SelectedIndex != 0
+                )
             {
                 mainContent.RestartExercise(Equipo.SelectionBoxItem.ToString());
             }
@@ -83,7 +97,8 @@ namespace PoxterMilitar.Views
         private void DetenerPrograma_Click(object sender, RoutedEventArgs e)
         {
             if (Equipo.SelectionBoxItem != null
-                && Equipo.SelectedIndex != 0)
+                //&& Equipo.SelectedIndex != 0
+                )
             {
                 mainContent.StopExercise(Equipo.SelectionBoxItem.ToString());
             }
@@ -117,7 +132,7 @@ namespace PoxterMilitar.Views
 
         private void Button_Maximice(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Inicio de transmisión...", "Error de inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Inicio de transmisión...", "Estado de transmisión", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Button_SurveyList_Click(object sender, RoutedEventArgs e)
@@ -130,7 +145,9 @@ namespace PoxterMilitar.Views
             this.NavigationService.Navigate(new Edit_Patient_Information(mainContent));
         }
 
+        private void ExerciseCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
-
+        }
     }
 }

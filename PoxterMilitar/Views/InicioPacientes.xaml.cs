@@ -36,7 +36,6 @@ namespace PoxterMilitar.Views
         }
         private void Button_VerPacientes_Click(object sender, RoutedEventArgs e)
         {
-            // Si deseas que el botón también cargue la página, puedes mantener este método
         }
 
 

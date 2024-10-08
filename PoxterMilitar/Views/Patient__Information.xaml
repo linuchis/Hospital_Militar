@@ -10,16 +10,20 @@
 
 
 
+
+
     <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Margin="-66,0,0,0">
+        <Grid Grid.Row="0" Margin="-66,0,0,0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="557*"/>
-                <RowDefinition Height="352*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Label 
@@ -30,7 +34,11 @@
                  FontSize="30" 
                  FontWeight="Bold" 
                  FontFamily="Verdana"/>
+
+
             <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2">
+
+
                 <DockPanel>
                     <Grid>
 
@@ -86,7 +94,8 @@
                                     <!-- DOS COLUMNAS CON LA INFORMACIÓN DEL COSTADO DERECHO -->
                                     <Grid Grid.Column="0">
                                         <TextBlock Text="Elegir ejercicio*" FontFamily="Verdana" FontSize="16" Margin="-15,0,0,-27" FontWeight="Bold" HorizontalAlignment="Left" Width="241" Foreground="#FF656565" />
-                                        <TextBlock Text="Elegir lado de la extremidad*" FontFamily="Verdana" FontSize="16" Margin="-15,103,328,-130" FontWeight="Bold" Foreground="#FF656565" />
+                                        <TextBlock Text="Elegir lado de la extremidad*" FontFamily="Verdana" FontSize="16" Margin="-15,107,328,-134" FontWeight="Bold" Foreground="#FF656565" />
+                                        <TextBlock Text="Repeticiones del ejercicio" FontFamily="Verdana" FontSize="16" Margin="-37,205,350,-232" FontWeight="Bold" Foreground="#FF656565" />
 
                                     </Grid>
                                     <Grid Grid.Column="1" HorizontalAlignment="Right" Height="24">
@@ -101,13 +110,25 @@
                                           HorizontalAlignment="Left" 
                                           Width="292"
                                           FontFamily="Verdana" 
-                                          FontSize="17" Margin="10,61,0,383"  HorizontalContentAlignment ="Left"
+                                          FontSize="17" Margin="10,61,0,383"  HorizontalContentAlignment ="Left" SelectionChanged="ExerciseCombo_SelectionChanged"
                                           >
-                                    <ComboBoxItem Content="  Mano: Ejercicio frutas"/>
-                                    <ComboBoxItem Content="  Mano: Ejercicio objetos    "/>
-                                    <ComboBoxItem Content="  Pie: Bicicleta"/>
-                                    <ComboBoxItem Content="  Pie: Ejercicio"/>
+                                    <!--
+                                    <ComboBoxItem Content="Mano: Ejercicio frutas     "/>
+                                    <ComboBoxItem Content="Mano: Ejercicio objetos             "/>
+                                    <ComboBoxItem Content="Pie: Bicicleta"/>
+                                    <ComboBoxItem Content="Pie: Ejercicio"/>
                                 </ComboBox>
+                                    -->
+
+                                    <ComboBoxItem Content="Mano1"/>
+                                    <ComboBoxItem Content="Mano2"/>
+                                    <ComboBoxItem Content="Pie1"/>
+                                    <ComboBoxItem Content="Pie2"/>
+                                </ComboBox>
+
+
+
+
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
                                           Name="Equipo" 
@@ -116,8 +137,12 @@
                                           FontFamily="Verdana" 
                                           FontSize="17" Margin="356,61,0,383" 
                                           >
-                                    <ComboBoxItem Content="                  VR1                     "/>
-                                    <ComboBoxItem Content="                  VR2                     "/>
+                                    <!--
+                                    <ComboBoxItem Content="VR1                                             "/>
+                                    <ComboBoxItem Content="VR2                                             "/>
+                                    -->
+                                    <ComboBoxItem Content="VR1"/>
+                                    <ComboBoxItem Content="VR2"/>
                                 </ComboBox>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
@@ -127,12 +152,13 @@
                                           FontFamily="Verdana" 
                                           FontSize="17" Margin="10,164,0,280" 
                                           >
-                                    <ComboBoxItem Content="              Derecha                  "/>
-                                    <ComboBoxItem Content="              Izquierda                "/>
+                                    <!--
+                                    <ComboBoxItem Content="Derecha                                   "/>
+                                    <ComboBoxItem Content="Izquierda                                 "/>
+                                    -->
+                                    <ComboBoxItem Content="Derecha"/>
+                                    <ComboBoxItem Content="Izquierda"/>
                                 </ComboBox>
-
-
-
 
                                 <CheckBox 
                                     x:Name="PrimerosPasos"
@@ -155,20 +181,29 @@
                                      Content="Iniciar ejercicio" 
                                      Style="{StaticResource ButtonStartProgram}" 
                                      Margin="0,396,484,40" 
-                                     HorizontalAlignment="Right" Width="198" Background="#FF1AD700" Click="IniciarPrograma_Click"/>
+                                     HorizontalAlignment="Right" 
+                                    Width="198" 
+                                    Background="#FF1AD700" 
+                                    Click="IniciarPrograma_Click"/>
 
                                 <Button 
                                      x:Name="Reload" 
-                                     Content="Reiniciar ejercicio" 
-                                     Style="{StaticResource ButtonNewPacient}" 
+                                     Content="Reiniciar ejercicio"
+                                     Style="{StaticResource ButtonReloadExcercise}" 
                                      Margin="0,396,0,40" 
-                                     HorizontalAlignment="Center" Width="221" Background="#FF3383C3" Click="ReiniciarPrograma_Click"/>
+                                     HorizontalAlignment="Center" 
+                                    Width="221" 
+                                    Background="#FF3383C3" 
+                                    Click="ReiniciarPrograma_Click"/>
                                 <Button 
                                      x:Name="Cancel" 
                                      Content="Cancelar ejercicio" 
-                                     Style="{StaticResource ButtonNewPacient}" 
+                                     Style="{StaticResource ButtonCancelExcercise}" 
                                      Margin="0,396,24,40" 
-                                     HorizontalAlignment="Right" Width="207" Background="#FFFF1A1A" Click="DetenerPrograma_Click"/>
+                                     HorizontalAlignment="Right" 
+                                    Width="207" 
+                                    Background="#FFFF1A1A" 
+                                    Click="DetenerPrograma_Click"/>
 
                                 <Button 
                                      x:Name="Encuesta" 
@@ -178,6 +213,20 @@
                                      HorizontalAlignment="Right" Width="207" Background="#FF8C8C8C" Click="EncuestaUsuario_Click"/>
 
 
+                                <TextBox 
+                                    x:Name="Repeticiones"
+                                        Style="{StaticResource RepetitionsButton}"
+                                        HorizontalAlignment="Left" 
+                                        Height="44" 
+                                        Margin="10,259,0,0" 
+                                        TextWrapping="Wrap" 
+                                        Text="Digite número "
+                                        TextAlignment="Left"
+                                        VerticalAlignment="Top" 
+                                        Width="292"
+                                        Foreground="#FFBFBFBF"
+                                        GotFocus="TextBox_GotFocus"
+                                        LostFocus="TextBox_LostFocus"/>
                             </Grid>
 
 

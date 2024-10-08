@@ -1,45 +1,57 @@
-﻿using System.Windows.Controls;
-using System.Windows;
-using System.Collections.ObjectModel;
-using PoxterMilitar.classe;
+﻿using PoxterMilitar.classe;
 using PoxterMilitar.Features;
+using PoxterMilitar.DataAccess;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace PoxterMilitar.Views
 {
     public partial class Page_Patients : Page
     {
-        private MainWindow mainWindow;
-        // Colección observable que estará vinculada al DataGrid
-        public ObservableCollection<dato_paciente> ListaPacientes { get; set; }
-
+        public List<dato_paciente> ListaPacientes { get; set; }
         public MainContent mainContent;
+        private Page_Patients page_Patients;
+        private readonly PatientService _patientService; // Instancia del servicio
 
-        public Page_Patients(ObservableCollection<dato_paciente> listaPacientes, MainContent mainContent)
+        public Page_Patients(List<dato_paciente> listaPacientes, MainContent mainContent)
         {
             InitializeComponent();
+            this.mainContent = mainContent;
+            ListaPacientes = listaPacientes;
+            _patientService = new PatientService(); // Inicializa el servicio
 
-            // Inicializar la colección de pacientes
-            this.ListaPacientes = listaPacientes;
-            this.mainContent = mainContent;
-            this.mainContent = mainContent;
             this.DataContext = this;
         }
 
-        public Page_Patients(MainContent mainContent)
+        public Page_Patients(Page_Patients page_Patients)
         {
-            this.mainContent = mainContent;
+            this.page_Patients = page_Patients;
         }
 
-        // Método para manejar el evento TextChanged del TextBox
+
+
+        //--------------------------------------------------------------------------------------------------------------------------
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Aquí puedes agregar lógica para filtrar la lista de pacientes o actualizar la UI
+           
         }
 
-        // Método para manejar el evento Click del botón 'Nuevo Paciente'
         private void Button_NuevoPaciente_Click(object sender, RoutedEventArgs e)
         {
-            // Navegar a Page_NewPatient en el mismo Frame
             this.NavigationService.Navigate(new Page_New_Patients(mainContent));
         }
 
