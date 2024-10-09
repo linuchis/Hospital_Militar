@@ -33,25 +33,47 @@
 
 
         <!-- Boton de ComboBox -->
-        <!-- Boton de ComboBox -->
-
         <ControlTemplate x:Key="CustomToggleButtonTemplate" TargetType="ToggleButton">
+            <!-- Border transparente para eliminar los cambios visuales por defecto -->
             <Border Background="Transparent" 
-                BorderBrush="Transparent" 
-                BorderThickness="0">
+            BorderBrush="Transparent" 
+            BorderThickness="0">
+                <!-- Contenido del botón, en este caso la imagen de la flecha -->
                 <ContentPresenter HorizontalAlignment="Center" 
-                              VerticalAlignment="Center"/>
+                          VerticalAlignment="Center"/>
             </Border>
+
+            <!-- Triggers para desactivar los estados visuales por defecto -->
             <ControlTemplate.Triggers>
-                <!-- Triggers vacíos para que no haya cambios visuales -->
-                <Trigger Property="IsMouseOver" Value="True"/>
-                <Trigger Property="IsPressed" Value="True"/>
-                <Trigger Property="IsChecked" Value="True"/>
+                <!-- Eliminar cualquier cambio visual en Hover (IsMouseOver) -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Trigger>
+
+                <!-- Eliminar cualquier cambio visual en el estado presionado (IsPressed) -->
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Trigger>
+
+                <!-- Eliminar cualquier cambio visual en el estado de enfoque (Focus) -->
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Trigger>
+
+                <!-- Controla cuando el ToggleButton está activado (Checked), para evitar bordes -->
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
+
         <!-- Boton de ComboBox -->
-        
+        <!-- Boton de ComboBox -->
         <Style TargetType="ComboBox" x:Key="RoundedComboBoxStyle">
             <Setter Property="FontFamily" Value="Verdana"/>
             <Setter Property="FontSize" Value="14"/>
@@ -96,54 +118,66 @@
 
                                     <!-- Espacio reservado para evitar que el texto se superponga a la flecha -->
                                     <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
-                                              Margin="10,0,0,0"
-                                              VerticalAlignment="Center" 
-                                              HorizontalAlignment="Left"
-                                              Grid.Column="0"/>
+                                      Margin="10,0,0,0"
+                                      VerticalAlignment="Center" 
+                                      HorizontalAlignment="Left"
+                                      Grid.Column="0"/>
 
                                     <!-- Botón de despliegue personalizado, usando Grid.Column="1" para controlar el espacio -->
                                     <ToggleButton Grid.Column="1"
-                                                  Focusable="False"
-                                                  IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                                  ClickMode="Press"  
-                                                  Background="Transparent" 
-                                                  BorderBrush="Transparent"
-                                                  Foreground="Gray"
-                                                  FocusVisualStyle="{x:Null}"
-                                                  HorizontalAlignment="Right"
-                                                  Template="{StaticResource CustomToggleButtonTemplate}">
+                                          Focusable="False"
+                                          IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                          ClickMode="Press"  
+                                          Background="Transparent" 
+                                          BorderBrush="Transparent"
+                                          Foreground="Gray"
+                                          FocusVisualStyle="{x:Null}"
+                                          HorizontalAlignment="Right"
+                                          Template="{StaticResource CustomToggleButtonTemplate}">
 
-                                        <!-- Imagen de la flecha siempre alineada a la derecha -->
-                                        <Image Source="/Resources/Inicio/Pacientes_List/arrow_down.png" 
-                                               Height="8" 
-                                               Width="43.34" 
-                                               HorizontalAlignment="Right" 
-                                               VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                        <!-- Imagen de la flecha por defecto (hacia abajo) -->
+                                        <Image x:Name="ArrowImage" Source="/Resources/Inicio/Pacientes_List/arrow_down.png" 
+                                       Height="8" 
+                                       Width="13.34" 
+                                       HorizontalAlignment="Right" 
+                                       VerticalAlignment="Center" Margin="0,0,10,0"/>
                                     </ToggleButton>
                                 </Grid>
                             </Border>
 
                             <!-- Popup de los items -->
                             <Popup x:Name="PART_Popup"
-                           AllowsTransparency="True"
-                           Focusable="False"
-                           IsOpen="{TemplateBinding IsDropDownOpen}"
-                           Placement="Bottom"
-                           PopupAnimation="Slide" Grid.RowSpan="2">
+                   AllowsTransparency="True"
+                   Focusable="False"
+                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                   Placement="Bottom"
+                   PopupAnimation="Slide" Grid.RowSpan="2">
                                 <Border Background="White"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="1"
-                                CornerRadius="10">
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="10">
                                     <ScrollViewer CanContentScroll="True">
                                         <ItemsPresenter/>
                                     </ScrollViewer>
                                 </Border>
                             </Popup>
                         </Grid>
+
+                        <!-- Triggers para cambiar la imagen según el estado del ToggleButton -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter TargetName="ArrowImage" Property="Source" Value="/Resources/Inicio/Pacientes_List/arrow_up.png"/>
+                            </Trigger>
+                            <Trigger Property="IsDropDownOpen" Value="False">
+                                <Setter TargetName="ArrowImage" Property="Source" Value="/Resources/Inicio/Pacientes_List/arrow_down.png"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
+
 
 
 

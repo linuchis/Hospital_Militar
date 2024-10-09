@@ -23,6 +23,7 @@
     <None Remove="Resources\Inicio\logo_hosp_mil.png" />
     <None Remove="Resources\Inicio\logo_poxter.png" />
     <None Remove="Resources\Inicio\Pacientes_List\arrow_down.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\arrow_up.png" />
     <None Remove="Resources\Inicio\Pacientes_List\cancel_icon.png" />
     <None Remove="Resources\Inicio\Pacientes_List\close.png" />
     <None Remove="Resources\Inicio\Pacientes_List\Elipse 6.png" />
@@ -91,6 +92,9 @@
     </Resource>
     <Resource Include="Resources\Inicio\logo_poxter.png" />
     <Resource Include="Resources\Inicio\Pacientes_List\arrow_down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Inicio\Pacientes_List\arrow_up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Inicio\Pacientes_List\cancel_icon.png">

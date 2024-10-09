@@ -69,13 +69,13 @@ namespace PoxterMilitar.Views
                 Encuesta.Visibility = Visibility.Hidden;
             }
         }
+        
 
 
         public Patient__Information(MainContent mainContent)
         {
             this.mainContent = mainContent;
         }
-
         private void LoadPatientData()
         {
             try
@@ -97,6 +97,7 @@ namespace PoxterMilitar.Views
                 MessageBox.Show($"Error al cargar los datos del paciente: {ex.Message}");
             }
         }
+        
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -106,6 +107,10 @@ namespace PoxterMilitar.Views
                 textBox.Text = "";
                 textBox.Foreground = new SolidColorBrush(Colors.Black); // Cambia el color del texto cuando el usuario escribe
             }
+
+            // Restablecer el estado de error
+            textBox.BorderBrush = Brushes.Gray; // O el color de borde predeterminado
+            ErrorMessage.Visibility = Visibility.Collapsed;
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -116,22 +121,65 @@ namespace PoxterMilitar.Views
                 textBox.Text = "Digite número";
                 textBox.Foreground = new SolidColorBrush(Colors.Gray); // Cambia el color del texto del placeholder
             }
+            else
+            {
+                // Validar el número ingresado
+                if (!int.TryParse(textBox.Text, out int rep) || rep <= 0 || rep > 50)
+                {
+                    // Número inválido
+                    textBox.BorderBrush = Brushes.Red;
+                    ErrorMessage.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    // Número válido
+                    textBox.BorderBrush = Brushes.Gray; // O el color de borde predeterminado
+                    ErrorMessage.Visibility = Visibility.Collapsed;
+                }
+            }
         }
+
+        //------------------------------------------
 
         private void IniciarPrograma_Click(object sender, RoutedEventArgs e)
         {
-            if (ExerciseCombo.SelectionBoxItem != null
-                //&& ExerciseCombo.SelectedIndex != 0
-                && Equipo.SelectionBoxItem != null
-                //&& Equipo.SelectedIndex != 0
-                && Perfil.SelectionBoxItem != null
-                //&& Perfil.SelectedIndex != 0
-                //&& PrimerosPasos.IsChecked == true
-                && !string.IsNullOrEmpty(Repeticiones.Text) // Verifica que no esté vacío
-                && int.TryParse(Repeticiones.Text, out int rep) // Verifica que sea un número válido
-                && rep > 0) // Verifica que el número sea mayor que 0
+            bool isValid = true;
+            int rep = 0;
+
+            // Resetear estados de error anteriores
+            Repeticiones.BorderBrush = Brushes.Gray; // O el color de borde predeterminado
+            ErrorMessage.Visibility = Visibility.Collapsed;
+
+            // Validar Repeticiones
+            if (string.IsNullOrWhiteSpace(Repeticiones.Text) ||
+                !int.TryParse(Repeticiones.Text, out rep) ||
+                rep <= 0 ||
+                rep > 50)
             {
-                mainContent.LoadExercise(Equipo.SelectionBoxItem.ToString(), ExerciseCombo.SelectionBoxItem.ToString(), Perfil.SelectionBoxItem.ToString(), PrimerosPasos.IsChecked.ToString(), rep);
+                isValid = false;
+                Repeticiones.BorderBrush = Brushes.Red; // Poner borde rojo
+                ErrorMessage.Visibility = Visibility.Visible; // Mostrar mensaje de error
+            }
+
+            // Validar otros controles si es necesario
+            if (ExerciseCombo.SelectionBoxItem == null ||
+                Equipo.SelectionBoxItem == null ||
+                Perfil.SelectionBoxItem == null)
+            {
+                isValid = false;
+                // Puedes agregar mensajes de error similares para otros controles
+                MessageBox.Show("Por favor, completa todos los campos requeridos.");
+            }
+
+            if (isValid)
+            {
+                mainContent.LoadExercise(
+                    Equipo.SelectionBoxItem.ToString(),
+                    ExerciseCombo.SelectionBoxItem.ToString(),
+                    Perfil.SelectionBoxItem.ToString(),
+                    PrimerosPasos.IsChecked.ToString(),
+                    rep
+                );
             }
         }
 
