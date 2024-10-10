@@ -33,6 +33,7 @@
     <None Remove="Resources\Inicio\Pacientes_List\Icon ion-close-round.png" />
     <None Remove="Resources\Inicio\Pacientes_List\info_icon.png" />
     <None Remove="Resources\Inicio\Pacientes_List\left_row.png" />
+    <None Remove="Resources\Inicio\Pacientes_List\livestreaming.png" />
     <None Remove="Resources\Inicio\Pacientes_List\pencil.png" />
     <None Remove="Resources\Inicio\Pacientes_List\pencil_white.png" />
     <None Remove="Resources\Inicio\Pacientes_List\play_logo.png" />
@@ -40,6 +41,7 @@
     <None Remove="Resources\Inicio\Pacientes_List\reload_icon.png" />
     <None Remove="Resources\Inicio\Pacientes_List\save_disk.png" />
     <None Remove="Resources\Inicio\Pacientes_List\survey_logo.png" />
+    <None Remove="Resources\Inicio\setting.png" />
     <None Remove="Resources\Login\escudo hospital.png" />
     <None Remove="Resources\Login\icono contraseña.png" />
     <None Remove="Resources\Login\icono usuario.png" />
@@ -115,6 +117,9 @@
     <Resource Include="Resources\Inicio\Pacientes_List\left_row.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Inicio\Pacientes_List\livestreaming.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Inicio\Pacientes_List\pencil.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -136,6 +141,9 @@
     <Resource Include="Resources\Inicio\Pacientes_List\survey_logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Inicio\setting.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Login\escudo hospital.png" />
     <Resource Include="Resources\Login\icono contraseña.png" />
     <Resource Include="Resources\Login\logo ssoftco.png" />
@@ -152,6 +160,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Alert.xaml.cs">
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 

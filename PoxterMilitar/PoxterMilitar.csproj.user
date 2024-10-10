@@ -90,6 +90,9 @@
     <Page Update="Views\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Alert.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Login_Error.xaml">
       <SubType>Designer</SubType>
     </Page>

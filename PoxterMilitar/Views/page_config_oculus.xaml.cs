@@ -20,6 +20,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Windows.Interop;
+using System.Collections;
 
 namespace PoxterMilitar.Views
 {
@@ -50,7 +51,8 @@ namespace PoxterMilitar.Views
         {
             if (Equipo.SelectedValue != null)
             {
-                MessageBox.Show("Conecta un dispositivo Oculus por USB para configurarlo.");
+                Alert alert = new Alert("Conecta un dispositivo Oculus por USB para configurarlo");
+                alert.ShowDialog();
 
                 string deviceSerial = GetUsbDeviceSerial();
                 if (!string.IsNullOrEmpty(deviceSerial))
@@ -73,12 +75,14 @@ namespace PoxterMilitar.Views
                 }
                 else
                 {
-                    MessageBox.Show("No se detectó un dispositivo Oculus conectado por USB");
+                    Alert alert2 = new Alert("No se detectó un dispositivo Oculus conectado por USB");
+                    alert2.ShowDialog();
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione un dispositivo de la lista");
+                Alert alert3 = new Alert("Seleccione un dispositivo de la lista");
+                alert3.ShowDialog();
             }
         }
 
@@ -167,7 +171,8 @@ namespace PoxterMilitar.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al habilitar ADB over WiFi: " + ex.Message);
+                Alert alert = new Alert("Error al habilitar ADB over WiFi: " + ex.Message);
+                alert.ShowDialog();
             }
         }
 
@@ -189,7 +194,8 @@ namespace PoxterMilitar.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al conectar ADB por WiFi: " + ex.Message);
+                Alert alert = new Alert("Error al conectar ADB por WiFi: " + ex.Message);
+                alert.ShowDialog();
             }
         }
 
@@ -206,7 +212,8 @@ namespace PoxterMilitar.Views
             }
             else
             {
-                MessageBox.Show("Seleccione un dispositivo vinculado");
+                Alert alert = new Alert("Seleccione un dispositivo vinculado");
+                alert.ShowDialog();
             }
         }
 
@@ -248,7 +255,8 @@ namespace PoxterMilitar.Views
 
                     if (scrcpyHandle == IntPtr.Zero)
                     {
-                        MessageBox.Show("No se pudo obtener la ventana de scrcpy.");
+                        Alert alert = new Alert("No se pudo obtener la ventana de scrcpy.");
+                        alert.ShowDialog();
                         return;
                     }
 
@@ -263,14 +271,25 @@ namespace PoxterMilitar.Views
                         // Cambiar el padre de la ventana scrcpy al contenedor de WPF
                         SetParent(scrcpyHandle, wpfWindowHandle);
 
-                        // Ajustar la ventana de scrcpy dentro del contenedor
-                        MoveWindow(scrcpyHandle, 0, 0, (int)scrcpyContainer.ActualWidth, (int)scrcpyContainer.ActualHeight, true);
+                        double containerWidth = scrcpyContainer.ActualWidth;
+                        double containerHeight = scrcpyContainer.ActualHeight;
+
+                        // Convertir las coordenadas del contenedor a coordenadas de pantalla
+                        Point screenPos = scrcpyContainer.PointToScreen(new Point(0, 0));
+
+                        // Obtener las coordenadas x e y de la posición en pantalla
+                        int x = (int)screenPos.X;
+                        int y = (int)screenPos.Y;
+
+                        // Mover la ventana scrcpy a la posición y tamaño del contenedor
+                        MoveWindow(scrcpyHandle, x, y, (int)containerWidth, (int)containerHeight, true);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al iniciar scrcpy: " + ex.Message);
+                Alert alert = new Alert("Error al iniciar scrcpy: " + ex.Message);
+                alert.ShowDialog();
             }
         }
 
@@ -301,7 +320,8 @@ namespace PoxterMilitar.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener la resolución del dispositivo: " + ex.Message);
+                Alert alert = new Alert("Error al obtener la resolución del dispositivo: " + ex.Message);
+                alert.ShowDialog();
             }
 
             return null;
