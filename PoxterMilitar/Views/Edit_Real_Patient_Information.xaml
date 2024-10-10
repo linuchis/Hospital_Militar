@@ -62,7 +62,7 @@
                             <Grid Grid.Row="1">
                                 <TextBlock Text="Nombres* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,17,0,444" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,56,111,397">
-                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                    <TextBox x:Name="NombrePaciente" Margin="16,3,25,3" TextWrapping="Wrap" FontFamily="Verdana" FontSize="18" FontWeight="ExtraLight" Background="White" SelectionBrush="LightBlue" SelectionTextBrush="Black" Foreground="#FF4E4E4E" BorderBrush="Transparent"/>
                                 </Border>
                                 <Grid Grid.Row="0"/>
 
@@ -84,14 +84,9 @@
 
                                 <TextBlock Text="Peso* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,239,0,223" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,286,111,167">
-                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                    <TextBox x:Name="PesoPaciente" Margin="16,3,25,3" TextWrapping="Wrap" FontFamily="Verdana" FontSize="18" FontWeight="ExtraLight" Background="White" SelectionBrush="LightBlue" SelectionTextBrush="Black" Foreground="#FF4E4E4E" BorderBrush="Transparent"/>
                                 </Border>
                                 <Grid Grid.Row="0"/>
-
-                                <TextBlock Text="Teléfono* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,344,0,118" />
-                                <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,386,111,67">
-                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
-                                </Border>
                                 <Grid Grid.Row="0"/>
 
 
@@ -100,36 +95,37 @@
                             <Grid Grid.Column="1" Grid.Row="1">
                                 <TextBlock Text="Apellidos* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,17,0,444" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,56,111,397">
-                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                    <TextBox Name="ApellidoPaciente" Margin="16,3,25,3" TextWrapping="Wrap" FontFamily="Verdana" FontSize="18" FontWeight="ExtraLight" Background="White" SelectionBrush="LightBlue" SelectionTextBrush="Black" Foreground="#FF4E4E4E" BorderBrush="Transparent"/>
                                 </Border>
                                 <Grid Grid.Row="0"/>
 
                                 <TextBlock Text="Altura* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,125,0,336" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,172,111,282">
-                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                    <TextBox x:Name="AlturaPaciente" Margin="16,3,25,3" TextWrapping="Wrap" FontFamily="Verdana" FontSize="18" FontWeight="ExtraLight" Background="White" SelectionBrush="LightBlue" SelectionTextBrush="Black" Foreground="#FF4E4E4E" BorderBrush="Transparent"/>
                                 </Border>
                                 <Grid Grid.Row="0"/>
 
-                                <TextBlock Text="Correo electrónico* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,238,0,224" />
+                                <TextBlock Text="Identificación* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,238,0,224" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,270,111,183">
-                                    <TextBox Margin="16,3,25,3" TextWrapping="Wrap" Text="name user" FontFamily="Verdana" FontSize="18"  FontWeight="ExtraLight" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF4E4E4E" BorderBrush="White"/>
+                                    <TextBox x:Name="Id_Paciente" Margin="16,3,25,3" TextWrapping="Wrap" FontFamily="Verdana" FontSize="18" FontWeight="ExtraLight" Background="White" SelectionBrush="LightBlue" SelectionTextBrush="Black" Foreground="#FF4E4E4E" BorderBrush="Transparent"/>
                                 </Border>
-                                <Grid Grid.Row="0"/>
+                                <Grid Grid.Row="0">
+                                    <Button 
+                                         x:Name="Save_Patients_Information" 
+                                         Content="Guardar paciente" 
+                                         Style="{StaticResource ButtonChangeInformationPatients}" 
+                                         Margin="391,410,44,0" 
+                                         Width="NaN" 
+                                         Background="#FF0086BE" 
+                                         VerticalAlignment="Top"
+                                        Click="Button_Save_Patient_Click"
+                                    />
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
                 </DockPanel>
             </Border>
-
-            <Button 
-             x:Name="Save_Patients_Information" 
-             Content="Guardar paciente" 
-             Style="{StaticResource ButtonChangeInformationPatients}" 
-             Margin="766,800,616,0" 
-             Width="NaN" 
-             Background="#FF0086BE" 
-             VerticalAlignment="Top"
-                                    />
         </Grid>
     </Grid>
 </Page>

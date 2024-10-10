@@ -48,7 +48,7 @@
                                 Width="57" 
                                 Background="Transparent" 
                                 Click="Button_Back_Click" Margin="31,17,0,23"/>
-                            
+
                             <TextBlock Text="Datos de registro " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Center" Width="206" Margin="0,24,0,30" FontWeight="Bold" />
                         </Grid>
 
@@ -108,7 +108,18 @@
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="34,247,109,207">
                                     <TextBlock x:Name="Id_Paciente" Text="Consultar cómo es que se llama desde base e datosss" FontFamily="Verdana" FontSize="18" Foreground="#FF797979" Margin="28,8,15,-8" FontWeight="ExtraLight"/>
                                 </Border>
-                                <Grid Grid.Row="0"/>
+                                <Grid Grid.Row="0">
+                                    <Button 
+                 x:Name="Save_Survey" 
+                 Content="Editar datos del paciente" 
+                 Style="{StaticResource ButtonChangeDataUsers}" 
+                 Margin="394,408,41,0" 
+                 Width="NaN" 
+                 Background="#FF0086BE" 
+                 VerticalAlignment="Top"
+                 Click="Button_ToEditRealPatientInformation"
+                 />
+                                </Grid>
 
                                 <!--<TextBlock Text="Correo electrónico* " FontFamily="Verdana" FontSize="20" HorizontalAlignment="Left" Margin="56,238,0,224" />
                                 <Border Style="{StaticResource SimpleDockPanelBorderStyleInformation}" Margin="33,270,111,183">
@@ -120,17 +131,6 @@
                     </Grid>
                 </DockPanel>
             </Border>
-
-            <Button 
-                 x:Name="Save_Survey" 
-                 Content="Editar datos del paciente" 
-                 Style="{StaticResource ButtonChangeDataUsers}" 
-                 Margin="766,800,616,0" 
-                 Width="NaN" 
-                 Background="#FF0086BE" 
-                 VerticalAlignment="Top"
-                 Click="Button_ToEditRealPatientInformation"
-                 />
         </Grid>
     </Grid>
 </Page>

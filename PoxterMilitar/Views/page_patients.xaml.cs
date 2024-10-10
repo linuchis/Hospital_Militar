@@ -80,7 +80,6 @@ namespace PoxterMilitar.Views
                 dato_paciente selectedPatient = button.DataContext as dato_paciente;
                 if (selectedPatient != null)
                 {
-                    // Navegar y pasar el Id_p del paciente
                     this.NavigationService.Navigate(new Edit_Patient_Information(selectedPatient.Id, mainContent));
                 }
             }

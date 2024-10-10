@@ -13,33 +13,31 @@ namespace PoxterMilitar.DataAccess
     {
         private readonly dbpoxterContext _context;
 
-        // Constructor que inicializa el contexto de la base de datos
+        
         public PatientService()
         {
             _context = new dbpoxterContext();
         }
 
-        // Método para obtener todos los pacientes y mapearlos a dato_paciente
+     
         public List<dato_paciente> GetAllPatients()
         {
-            var patients = _context.patients_poxter.ToList();
+            var patients= _context.patients_poxter.ToList();
 
-            var listaPacientes = patients.Select(p => new dato_paciente
-            {
-                // Mapea las propiedades de patients_poxter a dato_paciente
+            var listaPacientes = patients.Select(p =>new dato_paciente
+            {               
                 Id = p.id_p,
                 Altura = p.height_p,
                 Peso = p.weight_p,
                 Nombre = p.name_p,
                 Apellido = p.lastname_p,
                 Genero = p.gender_p,
-                // Añade otras propiedades si las tienes
+                
             }).ToList();
 
             return listaPacientes;
         }
 
-        // **Nuevo Método: Obtener un Paciente por ID**
         public dato_paciente GetPatientById(long patientId)
         {
             var paciente = _context.patients_poxter.FirstOrDefault(p => p.id_p == patientId);
@@ -53,12 +51,31 @@ namespace PoxterMilitar.DataAccess
                     Nombre = paciente.name_p,
                     Apellido = paciente.lastname_p,
                     Genero = paciente.gender_p,
-                    // Añade otras propiedades si las tienes
                 };
             }
             else
             {
                 return null;
+            }
+        }
+        //este metodo care picha es el que sube los datos a la base de datos
+        public void UpdatePatient(dato_paciente updatedPatient)
+        {
+            var paciente = _context.patients_poxter.FirstOrDefault(p => p.id_p == updatedPatient.Id);
+            if (paciente != null)
+            {
+                paciente.name_p = updatedPatient.Nombre;
+                paciente.lastname_p = updatedPatient.Apellido;
+                paciente.gender_p = updatedPatient.Genero;
+                paciente.weight_p = updatedPatient.Peso;
+                paciente.height_p = updatedPatient.Altura;
+                // Actualiza otras propiedades según sea necesario
+
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Paciente no encontrado.");
             }
         }
 

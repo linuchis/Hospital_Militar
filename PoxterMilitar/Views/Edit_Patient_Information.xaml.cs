@@ -23,7 +23,6 @@ namespace PoxterMilitar.Views
     /// </summary>
     public partial class Edit_Patient_Information : Page
     {
-
         MainContent mainContent;
         private readonly PatientService _patientService;
         private long patientId;
@@ -81,7 +80,9 @@ namespace PoxterMilitar.Views
 
         private void Button_ToEditRealPatientInformation(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Edit_Real_Patient_Information(mainContent));
+            // Asegúrate de que 'patientId' está definido y tiene el valor correcto
+            this.NavigationService.Navigate(new Edit_Real_Patient_Information(mainContent, patientId));
         }
+
     }
 }
