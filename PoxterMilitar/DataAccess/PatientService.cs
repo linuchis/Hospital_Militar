@@ -58,6 +58,38 @@ namespace PoxterMilitar.DataAccess
                 return null;
             }
         }
+
+        public void AddPatient(dato_paciente newPatient)
+        {
+            try
+            {
+                // Verificar si el ID ya existe para evitar duplicados
+                var existingPatient = _context.patients_poxter.FirstOrDefault(p => p.id_p == newPatient.Id);
+                if (existingPatient != null)
+                {
+                    throw new Exception("Ya existe un paciente con este ID.");
+                }
+
+                var paciente = new patients_poxter
+                {
+                    id_p = newPatient.Id,
+                    name_p = newPatient.Nombre,
+                    lastname_p = newPatient.Apellido,
+                    gender_p = newPatient.Genero,
+                    weight_p = newPatient.Peso,
+                    height_p = newPatient.Altura
+                    // Añade otras propiedades si las tienes
+                };
+
+                _context.patients_poxter.Add(paciente);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al agregar el paciente: {ex.Message}");
+            }
+        }
+
         //este metodo care picha es el que sube los datos a la base de datos
         public void UpdatePatient(dato_paciente updatedPatient)
         {
@@ -79,7 +111,8 @@ namespace PoxterMilitar.DataAccess
             }
         }
 
-        // Método para eliminar un paciente
+
+
         public void DeletePatient(long patientId)
         {
             try

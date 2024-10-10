@@ -101,6 +101,12 @@ namespace PoxterMilitar.Views
         {
             try
             {
+                if (patient == null)
+                {
+                    MessageBox.Show("No se ha cargado la información del paciente.");
+                    return;
+                }
+
                 // Obtener los datos de los controles
                 string nombre = NombrePaciente.Text.Trim();
                 string apellido = ApellidoPaciente.Text.Trim();
@@ -118,21 +124,27 @@ namespace PoxterMilitar.Views
                     return;
                 }
 
-                
+                // Validar que los campos obligatorios no estén vacíos
                 if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || string.IsNullOrEmpty(genero))
                 {
                     MessageBox.Show("Por favor, completa todos los campos obligatorios.");
                     return;
                 }
 
-                
+                // Actualizar el objeto paciente
                 patient.Nombre = nombre;
                 patient.Apellido = apellido;
                 patient.Genero = genero;
                 patient.Peso = peso;
-                patient.Altura = altura;               
+                patient.Altura = altura;
+                // Actualiza otras propiedades según sea necesario
+
+                // Actualizar en la base de datos
                 _patientService.UpdatePatient(patient);
-                MessageBox.Show("Datos del paciente actualizados correctamente.");                
+
+                MessageBox.Show("Datos del paciente actualizados correctamente.");
+
+                // Navegar de vuelta a la lista de pacientes
                 mainContent.navigateToPatients();
             }
             catch (Exception ex)
@@ -140,5 +152,6 @@ namespace PoxterMilitar.Views
                 MessageBox.Show($"Error al guardar los datos del paciente: {ex.Message}");
             }
         }
+
     }
 }
