@@ -1,38 +1,22 @@
-﻿using Microsoft.Windows.Themes;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using PoxterMilitar.classe;
 using PoxterMilitar.DataAccess;
-using PoxterMilitar.Models;
 using PoxterMilitar.Views;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PoxterMilitar.Features
 {
-    
+
     public partial class MainContent : Page
     {
         public static List<dato_paciente> ListaPacientes { get; set; }
-        public static ObservableCollection<dato_usuario> ListaUsuario { get;  set; }
+        public static ObservableCollection<dato_usuario> ListaUsuario { get; set; }
 
         SocketIOClient.SocketIO socket;
 
-        public bool PrimeraEncuesta=true;
+        public bool PrimeraEncuesta = true;
         private PatientService _patientService;
 
         public MainContent()
@@ -40,7 +24,7 @@ namespace PoxterMilitar.Features
             InitializeComponent();
             _patientService = new PatientService(); // Inicializa el servicio
 
-            
+
             ListaPacientes = _patientService.GetAllPatients();
 
             // Navegar el Frame de InicioPacientes a la página InicioPacientes
@@ -62,6 +46,11 @@ namespace PoxterMilitar.Features
         public void navigateToUsersList()
         {
             FramePagePatients.Navigate(new Page_Users(this));
+        }
+
+        public void navigateToSettings()
+        {
+            FramePagePatients.Navigate(new page_config_oculus(this));
         }
 
         public void navigateToLogin()

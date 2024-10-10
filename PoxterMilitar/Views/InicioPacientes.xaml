@@ -325,6 +325,21 @@
                             </StackPanel>
                         </Button>
                     </StackPanel>
+                    <StackPanel 
+                        Orientation="Horizontal" 
+                        Margin="0,10,0,0" Width="254" Height="50">
+                        <Button
+                            Style="{StaticResource MenuButtonStyle}" 
+                            FontSize="18" 
+                            Width="254" Height="54" Click="Button_Settings_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" 
+                                    Height="20" Width="45" 
+                                    Margin="0,0,10,0"/>
+                                <TextBlock Text="Configuración" Width="180"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
 
 
