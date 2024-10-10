@@ -69,7 +69,7 @@ namespace PoxterMilitar.Features {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;component/features/maincontent.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;V1.0.0.0;component/features/maincontent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Features\MainContent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

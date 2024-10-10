@@ -53,7 +53,7 @@ namespace PoxterMilitar.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;component/views/survey_view.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;V1.0.0.0;component/views/survey_view.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Survey_View.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

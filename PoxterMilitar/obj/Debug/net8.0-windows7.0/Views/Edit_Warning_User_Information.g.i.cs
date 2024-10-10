@@ -61,7 +61,7 @@ namespace PoxterMilitar.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;component/views/edit_warning_user_information.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;V1.0.0.0;component/views/edit_warning_user_information.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Edit_Warning_User_Information.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

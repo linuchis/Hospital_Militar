@@ -61,7 +61,7 @@ namespace PoxterMilitar.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;component/views/recover_password.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;V1.0.0.0;component/views/recover_password.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Recover_Password.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

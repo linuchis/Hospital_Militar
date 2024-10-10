@@ -61,7 +61,7 @@ namespace PoxterMilitar.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;component/views/login_error.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PoxterMilitar;V1.0.0.0;component/views/login_error.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Login_Error.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
