@@ -333,7 +333,7 @@
                             FontSize="18" 
                             Width="254" Height="54" Click="Button_Settings_Click">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Resources/Inicio/Pacientes_List/pencil.png" 
+                                <Image Source="/Resources/Inicio/setting.png" 
                                     Height="20" Width="45" 
                                     Margin="0,0,10,0"/>
                                 <TextBlock Text="Configuración" Width="180"/>

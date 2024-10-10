@@ -120,7 +120,7 @@
                                 <Button 
                                     x:Name="Reload" 
                                     Content="Iniciar transmisión"
-                                    Style="{StaticResource ButtonReloadExcercise}" 
+                                    Style="{StaticResource ButtonCast}" 
                                     Margin="255,396,0,40" 
                                     HorizontalAlignment="Left" 
                                     Width="210" 

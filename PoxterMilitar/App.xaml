@@ -362,6 +362,43 @@
         </Style>
 
         <!-- Diseño para el buton de recargar ejercicio del paciente-->
+        <Style x:Key="ButtonCast" TargetType="Button">
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="49"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                CornerRadius="10"
+                BorderThickness="1"
+                Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Source="/Resources/Inicio/Pacientes_List/livestreaming.png" Width="19.65" Height="15.72"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="13.63,0,25.72,0"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Diseño para el buton de recargar ejercicio del paciente-->
         <Style x:Key="ButtonCancelExcercise" TargetType="Button">
             <Setter Property="Background" Value="#0078D7"/>
             <Setter Property="Foreground" Value="White"/>
