@@ -19,6 +19,10 @@ using System.Windows.Shapes;
 using PoxterMilitar.DataAccess;
 using PoxterMilitar.Models;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Windows.Interop;
+using System.Text.RegularExpressions;
 
 namespace PoxterMilitar.Views
 {
@@ -27,7 +31,13 @@ namespace PoxterMilitar.Views
     /// </summary>
     public partial class Patient__Information : Page, INotifyPropertyChanged
     {
-        // Colección observable que estará vinculada al DataGrid
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+        private Process scrcpyProcess;
 
         MainContent mainContent;
         private PatientService _userPatients;
@@ -68,9 +78,47 @@ namespace PoxterMilitar.Views
             {
                 Encuesta.Visibility = Visibility.Hidden;
             }
-        }
-        
 
+            var ejercicio = MainContent.ListaEjercicios.Where(l => l.Id == id).FirstOrDefault();
+            if(ejercicio != null)
+            {
+                foreach (ComboBoxItem item in Equipo.Items)
+                {
+                    if (item.Tag != null && item.Tag.ToString() == ejercicio.Dispositivo)
+                    {
+                        Equipo.SelectedItem = item;
+                        break;
+                    }
+                }
+
+                foreach (ComboBoxItem item in ExerciseCombo.Items)
+                {
+                    if (item.Tag != null && item.Tag.ToString() == ejercicio.Ejercicio)
+                    {
+                        ExerciseCombo.SelectedItem = item;
+                        break;
+                    }
+                }
+
+                foreach (ComboBoxItem item in Perfil.Items)
+                {
+                    if (item.Tag != null && item.Tag.ToString() == ejercicio.Extremidad)
+                    {
+                        Perfil.SelectedItem = item;
+                        break;
+                    }
+                }
+
+                PrimerosPasos.IsChecked = ejercicio.PrimerosPasos;
+                Repeticiones.Text = ejercicio.Repeticiones;
+                Repeticiones.Foreground = new SolidColorBrush(Colors.Black);
+
+                if (ejercicio.Estado == "Ejecutando")
+                {
+                    Equipo.IsEnabled = false;
+                }
+            }
+        }
 
         public Patient__Information(MainContent mainContent)
         {
@@ -174,9 +222,9 @@ namespace PoxterMilitar.Views
             if (isValid)
             {
                 mainContent.LoadExercise(
-                    Equipo.SelectionBoxItem.ToString(),
-                    ExerciseCombo.SelectionBoxItem.ToString(),
-                    Perfil.SelectionBoxItem.ToString(),
+                    Equipo.SelectedValue.ToString(),
+                    ExerciseCombo.SelectedValue.ToString(),
+                    Perfil.SelectedValue.ToString(),
                     PrimerosPasos.IsChecked.ToString(),
                     rep
                 );
@@ -201,6 +249,32 @@ namespace PoxterMilitar.Views
             {
                 mainContent.StopExercise(Equipo.SelectionBoxItem.ToString());
             }
+        }
+
+        public void Ejecutando(string senderId)
+        {
+            Equipo.IsEnabled = false;
+
+            var ejercicio = MainContent.ListaEjercicios.Where(l => l.Dispositivo.Equals(senderId)).FirstOrDefault();
+
+            if (ejercicio == null)
+            {
+                MainContent.ListaEjercicios.Add(new dato_ejercicio { Estado = "Ejecutando", Dispositivo = senderId, Id = this.patientId, Ejercicio = ExerciseCombo.SelectedValue.ToString(), Extremidad = Perfil.SelectedValue.ToString(), PrimerosPasos = (bool)PrimerosPasos.IsChecked, Repeticiones = Repeticiones.Text });
+            }
+            else
+            {
+                ejercicio.Id = this.patientId;
+                ejercicio.Ejercicio = ExerciseCombo.SelectedValue.ToString();
+                ejercicio.Extremidad = Perfil.SelectedValue.ToString();
+                ejercicio.PrimerosPasos = (bool)PrimerosPasos.IsChecked;
+                ejercicio.Repeticiones = Repeticiones.Text;
+            }
+        }
+
+        public void Finalizado()
+        {
+            Equipo.IsEnabled = true;
+            EnableSurveyButton();
         }
 
         public void EnableSurveyButton()
@@ -229,9 +303,36 @@ namespace PoxterMilitar.Views
             mainContent.navigateToPatients();
         }
 
-        private void Button_Maximice(object sender, RoutedEventArgs e)
+        private void Button_Cast(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Inicio de transmisión...", "Estado de transmisión", MessageBoxButton.OK, MessageBoxImage.Error);
+            var ejercicio = MainContent.ListaEjercicios.Where(l => l.Id == this.patientId).FirstOrDefault();
+
+            if (ejercicio != null)
+            {
+                var dispositivo = MainWindow.ListaDispositivo.Where(l => l.id.Equals(ejercicio.Dispositivo)).FirstOrDefault();
+                if (dispositivo != null)
+                {
+                    if (scrcpyProcess == null || scrcpyProcess.HasExited)
+                    {
+                        StartScrcpyCast(dispositivo.devideIp);
+                    }
+                    else
+                    {
+                        Alert alert = new Alert("Hay una transmisión en curso");
+                        alert.ShowDialog();
+                    }
+                }
+                else
+                {
+                    Alert alert = new Alert("No se ha configurado el dispositivo");
+                    alert.ShowDialog();
+                }
+            }
+            else
+            {
+                Alert alert = new Alert("Debe ejecutar un ejercicio para iniciar la transmisión");
+                alert.ShowDialog();
+            }
         }
 
         private void Button_SurveyList_Click(object sender, RoutedEventArgs e)
@@ -247,6 +348,116 @@ namespace PoxterMilitar.Views
         private void ExerciseCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void StartScrcpyCast(string deviceIp)
+        {
+            try
+            {
+                // Obtener la resolución del dispositivo
+                var resolution = GetDeviceResolution(deviceIp);
+
+                if (resolution != null)
+                {
+                    int screenWidth = resolution.Item1;
+                    int screenHeight = resolution.Item2;
+
+                    // Recortar solo un lente (lado izquierdo) - se asume que la pantalla está dividida por la mitad
+                    int halfWidth = screenWidth / 2;
+
+                    // Inicializamos scrcpy con el dispositivo seleccionado
+                    scrcpyProcess = new Process();
+                    scrcpyProcess.StartInfo.FileName = @"..\..\..\scrcpy\scrcpy.exe"; // Cambia la ruta a la ubicación de scrcpy
+                    scrcpyProcess.StartInfo.Arguments = $"-s {deviceIp}:5555 --crop {halfWidth}:{screenHeight}:0:0"; // Solo el lado izquierdo
+                    scrcpyProcess.StartInfo.UseShellExecute = false;
+                    scrcpyProcess.StartInfo.CreateNoWindow = true;
+
+                    // Iniciar scrcpy
+                    scrcpyProcess.Start();
+
+                    // Esperar hasta que el proceso tenga un MainWindowHandle válido
+                    IntPtr scrcpyHandle = IntPtr.Zero;
+                    int retryCount = 0;
+
+                    while (scrcpyHandle == IntPtr.Zero && retryCount < 10)
+                    {
+                        Thread.Sleep(500); // Espera 500ms antes de intentar obtener el handle de la ventana
+                        scrcpyHandle = scrcpyProcess.MainWindowHandle;
+                        retryCount++;
+                    }
+
+                    if (scrcpyHandle == IntPtr.Zero)
+                    {
+                        Alert alert = new Alert("No se pudo obtener la ventana de scrcpy");
+                        alert.ShowDialog();
+                        return;
+                    }
+
+                    // Obtener la ventana que contiene la Page
+                    Window parentWindow = Window.GetWindow(this);
+
+                    if (parentWindow != null)
+                    {
+                        // Obtener el handle de la ventana contenedora
+                        IntPtr wpfWindowHandle = new WindowInteropHelper(parentWindow).Handle;
+
+                        // Cambiar el padre de la ventana scrcpy al contenedor de WPF
+                        SetParent(scrcpyHandle, wpfWindowHandle);
+
+                        double containerWidth = scrcpyContainer.ActualWidth;
+                        double containerHeight = scrcpyContainer.ActualHeight;
+
+                        // Convertir las coordenadas del contenedor a coordenadas de pantalla
+                        Point screenPos = scrcpyContainer.PointToScreen(new Point(0, 0));
+
+                        // Obtener las coordenadas x e y de la posición en pantalla
+                        int x = (int)screenPos.X;
+                        int y = (int)screenPos.Y - 20;
+
+                        // Mover la ventana scrcpy a la posición y tamaño del contenedor
+                        MoveWindow(scrcpyHandle, x, y, (int)containerWidth, (int)containerHeight, true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert alert = new Alert("Error al iniciar scrcpy: " + ex.Message);
+                alert.ShowDialog();
+            }
+        }
+
+        // Método para obtener la resolución del dispositivo usando ADB
+        private Tuple<int, int> GetDeviceResolution(string deviceIp)
+        {
+            try
+            {
+                var adbProcess = new Process();
+                adbProcess.StartInfo.FileName = "adb";
+                adbProcess.StartInfo.Arguments = $"-s {deviceIp} shell wm size"; // Obtener el tamaño de pantalla
+                adbProcess.StartInfo.UseShellExecute = false;
+                adbProcess.StartInfo.RedirectStandardOutput = true;
+                adbProcess.StartInfo.CreateNoWindow = true;
+
+                adbProcess.Start();
+                string output = adbProcess.StandardOutput.ReadToEnd();
+                adbProcess.WaitForExit();
+
+                // Buscar la línea que contiene la resolución
+                var match = Regex.Match(output, @"Physical size: (\d+)x(\d+)");
+                if (match.Success)
+                {
+                    int width = int.Parse(match.Groups[1].Value);
+                    int height = int.Parse(match.Groups[2].Value);
+                    return Tuple.Create(width, height);
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert alert = new Alert("Error al obtener la resolución del dispositivo: " + ex.Message);
+                alert.ShowDialog();
+            }
+
+            return null;
         }
     }
 }

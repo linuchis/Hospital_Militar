@@ -60,7 +60,7 @@
                             </Grid>
 
                             <Grid Grid.ColumnSpan="2">
-                                <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="37,33,734,46" Background="Black"/>
+                                <Border Name="scrcpyContainer" Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="37,33,734,46" Background="Black"/>
 
                                 <Grid Grid.Column="0">
                                     <Button 
@@ -71,7 +71,7 @@
                                         Width="76" 
                                         Height="NaN"
                                         Background="Transparent" 
-                                        Click="Button_Maximice" Margin="594,360,0,57" RenderTransformOrigin="0.494,0.514"/>
+                                        Click="Button_Cast" Margin="594,360,0,57" RenderTransformOrigin="0.494,0.514"/>
                                 </Grid>
 
                             </Grid>
@@ -103,29 +103,23 @@
                                           Name="ExerciseCombo" 
                                           HorizontalAlignment="Left" 
                                           Width="292"
+                                          SelectedValuePath="Tag"
                                           FontFamily="Verdana" 
                                           FontSize="17" 
                                           Margin="10,61,0,386"  
                                           HorizontalContentAlignment ="Left" 
-                                          SelectionChanged="ExerciseCombo_SelectionChanged"
-                                          >
-                                    <!--
-                                    <ComboBoxItem Content="Mano: Ejercicio frutas     "/>
-                                    <ComboBoxItem Content="Mano: Ejercicio objetos             "/>
-                                    <ComboBoxItem Content="Pie: Bicicleta"/>
-                                    <ComboBoxItem Content="Pie: Ejercicio"/>
-                                </ComboBox>
-                                    -->
+                                          SelectionChanged="ExerciseCombo_SelectionChanged">
 
-                                    <ComboBoxItem Tag="Mano1" Content="Mano1"/>
-                                    <ComboBoxItem Content="Mano2"/>
-                                    <ComboBoxItem Content="Pie1"/>
-                                    <ComboBoxItem Content="Pie2"/>
+                                    <ComboBoxItem Tag="Mano1">Ejercicio de Mano 1</ComboBoxItem>
+                                    <ComboBoxItem Tag="Mano2">Ejercicio de Mano 2</ComboBoxItem>
+                                    <ComboBoxItem Tag="Pie1">Ejercicio de Pie 1</ComboBoxItem>
+                                    <ComboBoxItem Tag="Pie2">Ejercicio de Pie 2</ComboBoxItem>
                                 </ComboBox>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
                                           Name="Equipo" 
                                           HorizontalAlignment="Left" 
+                                          SelectedValuePath="Tag"
                                           Width="316"
                                           FontFamily="Verdana" 
                                           FontSize="17" Margin="356,61,0,383" 
@@ -134,14 +128,15 @@
                                     <ComboBoxItem Content="VR1                                             "/>
                                     <ComboBoxItem Content="VR2                                             "/>
                                     -->
-                                    <ComboBoxItem Content="VR1"/>
-                                    <ComboBoxItem Content="VR2"/>
+                                    <ComboBoxItem Content="VR1" Tag="VR1"/>
+                                    <ComboBoxItem Content="VR2" Tag="VR2"/>
                                 </ComboBox>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
                                           Name="Perfil" 
                                           HorizontalAlignment="Left" 
                                           Width="292"
+                                          SelectedValuePath="Tag"
                                           FontFamily="Verdana" 
                                           FontSize="17" Margin="10,164,0,283" 
                                           >
@@ -149,8 +144,8 @@
                                     <ComboBoxItem Content="Derecha                                   "/>
                                     <ComboBoxItem Content="Izquierda                                 "/>
                                     -->
-                                    <ComboBoxItem Content="Derecha"/>
-                                    <ComboBoxItem Content="Izquierda"/>
+                                    <ComboBoxItem Content="Derecha" Tag="Derecha"/>
+                                    <ComboBoxItem Content="Izquierda" Tag="Izquierda"/>
                                 </ComboBox>
 
                                 <CheckBox 

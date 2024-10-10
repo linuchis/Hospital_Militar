@@ -13,6 +13,7 @@ namespace PoxterMilitar.Features
     {
         public static List<dato_paciente> ListaPacientes { get; set; }
         public static ObservableCollection<dato_usuario> ListaUsuario { get; set; }
+        public static List<dato_ejercicio> ListaEjercicios { get; set; }
 
         SocketIOClient.SocketIO socket;
 
@@ -26,6 +27,7 @@ namespace PoxterMilitar.Features
 
 
             ListaPacientes = _patientService.GetAllPatients();
+            ListaEjercicios = new List<dato_ejercicio>();
 
             // Navegar el Frame de InicioPacientes a la página InicioPacientes
             FrameInicioPacientes.Navigate(new InicioPacientes(this));
@@ -38,8 +40,6 @@ namespace PoxterMilitar.Features
 
         public void navigateToPatients()
         {
-            //var pagePatients = new Page_Patients(this);
-            //FramePagePatients.Navigate(pagePatients);
             FramePagePatients.Navigate(new Page_Patients(ListaPacientes, this));
         }
 
@@ -95,7 +95,7 @@ namespace PoxterMilitar.Features
                         {
                             if (jsonObject.ContainsKey("senderId"))
                             {
-                                if (jsonObject["senderId"].ToString().Equals("VR1"))
+                                if (jsonObject["senderId"].ToString().Contains("VR"))
                                 {
                                     if (jsonObject.ContainsKey("command"))
                                     {
@@ -105,14 +105,32 @@ namespace PoxterMilitar.Features
                                             {
                                                 switch (jsonObject["state"].ToString())
                                                 {
-                                                    case "Finalizado":
+                                                    case "Ejecutando":
                                                         FramePagePatients.Dispatcher.Invoke(new Action(() =>
                                                         {
                                                             var page = FramePagePatients.Content as Patient__Information;
 
                                                             if (page != null)
                                                             {
-                                                                page.EnableSurveyButton();
+                                                                page.Ejecutando(jsonObject["senderId"].ToString());
+                                                            }
+                                                        }));
+                                                        break;
+                                                    case "Finalizado":
+                                                        var ejercicio = MainContent.ListaEjercicios.Where(l => l.Dispositivo.Equals(jsonObject["senderId"].ToString())).FirstOrDefault();
+
+                                                        if (ejercicio != null)
+                                                        {
+                                                            MainContent.ListaEjercicios.Remove(ejercicio);
+                                                        }
+
+                                                        FramePagePatients.Dispatcher.Invoke(new Action(() =>
+                                                        {
+                                                            var page = FramePagePatients.Content as Patient__Information;
+
+                                                            if (page != null)
+                                                            {
+                                                                page.Finalizado();
                                                             }
                                                         }));
                                                         break;

@@ -13,6 +13,8 @@ namespace PoxterMilitar
         {
             InitializeComponent();
 
+            ListaDispositivo = new List<dato_dispositivo>();
+
             MainFrame.Navigate(new Login());
         }
     }

@@ -70,7 +70,7 @@ namespace PoxterMilitar.Views
 
                         // Agregar el dispositivo a la lista de dispositivos conectados
                         MainWindow.ListaDispositivo.Add(new dato_dispositivo { id = Equipo.SelectedValue.ToString(), devideIp = deviceIp });
-                        deviceList.Items.Add(Equipo.SelectedValue.ToString() + "-" + deviceIp);
+                        deviceList.Items.Add(Equipo.SelectedValue + "-" + deviceIp);
                     }
                 }
                 else
@@ -167,7 +167,8 @@ namespace PoxterMilitar.Views
 
                 adbProcess.Start();
                 adbProcess.WaitForExit();
-                MessageBox.Show("ADB over WiFi habilitado.");
+                Alert alert = new Alert("ADB over WiFi habilitado.");
+                alert.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -190,7 +191,8 @@ namespace PoxterMilitar.Views
 
                 adbProcess.Start();
                 adbProcess.WaitForExit();
-                MessageBox.Show($"Dispositivo conectado por WiFi: {deviceIp}");
+                Alert alert = new Alert($"Dispositivo conectado por WiFi: {deviceIp}");
+                alert.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -207,7 +209,15 @@ namespace PoxterMilitar.Views
                 string[] partes = selectedDeviceIp.Split('-');
                 if (partes.Length > 1)
                 {
-                    StartScrcpyCast(partes[1]);
+                    if (scrcpyProcess == null || scrcpyProcess.HasExited)
+                    {
+                        StartScrcpyCast(partes[1]);
+                    }
+                    else
+                    {
+                        Alert alert = new Alert("Hay una transmisión en curso");
+                        alert.ShowDialog();
+                    }
                 }
             }
             else
@@ -279,7 +289,7 @@ namespace PoxterMilitar.Views
 
                         // Obtener las coordenadas x e y de la posición en pantalla
                         int x = (int)screenPos.X;
-                        int y = (int)screenPos.Y;
+                        int y = (int)screenPos.Y-20;
 
                         // Mover la ventana scrcpy a la posición y tamaño del contenedor
                         MoveWindow(scrcpyHandle, x, y, (int)containerWidth, (int)containerHeight, true);
