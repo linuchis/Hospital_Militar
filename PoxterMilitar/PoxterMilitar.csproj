@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>logo-poxter-128x128.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -51,9 +52,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="logo-poxter-128x128.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
     <PackageReference Include="SocketIOClient" Version="3.1.2" />
   </ItemGroup>
 

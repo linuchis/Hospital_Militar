@@ -16,7 +16,7 @@ public partial class dbpoxterContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=dbpoxter;Username=postgres;Password=John;");
+            optionsBuilder.UseMySql(Settings.Default.ConnectionString, new MySqlServerVersion(new Version(Settings.Default.VersionMajor, Settings.Default.VersionMinor, Settings.Default.VersionBuild)));
         }
     }
 
