@@ -26,9 +26,7 @@ using System.Text.RegularExpressions;
 
 namespace PoxterMilitar.Views
 {
-    /// <summary>
-    /// Lógica de interacción para Patient__Information.xaml
-    /// </summary>
+    
     public partial class Patient__Information : Page, INotifyPropertyChanged
     {
         [DllImport("user32.dll", SetLastError = true)]
@@ -67,12 +65,12 @@ namespace PoxterMilitar.Views
         {
             InitializeComponent();
             this.mainContent = mainContent;
-            this.patientId = id; // Asignar el ID del paciente
+            this.patientId = id; 
             _userPatients = new PatientService();
 
             LoadPatientData();
 
-            this.DataContext = this; // Establecer DataContext a la página misma
+            this.DataContext = this; 
 
             if (!this.mainContent.PrimeraEncuesta)
             {
@@ -153,11 +151,11 @@ namespace PoxterMilitar.Views
             if (textBox.Text == "Digite número")
             {
                 textBox.Text = "";
-                textBox.Foreground = new SolidColorBrush(Colors.Black); // Cambia el color del texto cuando el usuario escribe
+                textBox.Foreground = new SolidColorBrush(Colors.Black); 
             }
 
-            // Restablecer el estado de error
-            textBox.BorderBrush = Brushes.Gray; // O el color de borde predeterminado
+            
+            textBox.BorderBrush = Brushes.Gray;
             ErrorMessage.Visibility = Visibility.Collapsed;
         }
 
@@ -167,21 +165,19 @@ namespace PoxterMilitar.Views
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
                 textBox.Text = "Digite número";
-                textBox.Foreground = new SolidColorBrush(Colors.Gray); // Cambia el color del texto del placeholder
+                textBox.Foreground = new SolidColorBrush(Colors.Gray); 
             }
             else
             {
-                // Validar el número ingresado
+               
                 if (!int.TryParse(textBox.Text, out int rep) || rep <= 0 || rep > 50)
-                {
-                    // Número inválido
+                {                
                     textBox.BorderBrush = Brushes.Red;
                     ErrorMessage.Visibility = Visibility.Visible;
                 }
                 else
-                {
-                    // Número válido
-                    textBox.BorderBrush = Brushes.Gray; // O el color de borde predeterminado
+                {                    
+                    textBox.BorderBrush = Brushes.Gray;
                     ErrorMessage.Visibility = Visibility.Collapsed;
                 }
             }
@@ -192,30 +188,24 @@ namespace PoxterMilitar.Views
         private void IniciarPrograma_Click(object sender, RoutedEventArgs e)
         {
             bool isValid = true;
-            int rep = 0;
-
-            // Resetear estados de error anteriores
-            Repeticiones.BorderBrush = Brushes.Gray; // O el color de borde predeterminado
+            int rep = 0;            
+            Repeticiones.BorderBrush = Brushes.Gray;
             ErrorMessage.Visibility = Visibility.Collapsed;
-
-            // Validar Repeticiones
+            
             if (string.IsNullOrWhiteSpace(Repeticiones.Text) ||
                 !int.TryParse(Repeticiones.Text, out rep) ||
                 rep <= 0 ||
                 rep > 50)
             {
                 isValid = false;
-                Repeticiones.BorderBrush = Brushes.Red; // Poner borde rojo
-                ErrorMessage.Visibility = Visibility.Visible; // Mostrar mensaje de error
-            }
-
-            // Validar otros controles si es necesario
+                Repeticiones.BorderBrush = Brushes.Red; 
+                ErrorMessage.Visibility = Visibility.Visible;
+            }           
             if (ExerciseCombo.SelectionBoxItem == null ||
                 Equipo.SelectionBoxItem == null ||
                 Perfil.SelectionBoxItem == null)
             {
-                isValid = false;
-                // Puedes agregar mensajes de error similares para otros controles
+                isValid = false;                
                 MessageBox.Show("Por favor, completa todos los campos requeridos.");
             }
 
@@ -233,8 +223,7 @@ namespace PoxterMilitar.Views
 
         private void ReiniciarPrograma_Click(object sender, RoutedEventArgs e)
         {
-            if (Equipo.SelectionBoxItem != null
-                //&& Equipo.SelectedIndex != 0
+            if (Equipo.SelectionBoxItem != null               
                 )
             {
                 mainContent.RestartExercise(Equipo.SelectionBoxItem.ToString());
@@ -243,8 +232,7 @@ namespace PoxterMilitar.Views
 
         private void DetenerPrograma_Click(object sender, RoutedEventArgs e)
         {
-            if (Equipo.SelectionBoxItem != null
-                //&& Equipo.SelectedIndex != 0
+            if (Equipo.SelectionBoxItem != null                
                 )
             {
                 mainContent.StopExercise(Equipo.SelectionBoxItem.ToString());

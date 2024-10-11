@@ -848,23 +848,45 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-            <!-- Fondo del Border -->
             <Setter Property="Margin" Value="152,164,80,164"/>
-            <!-- Márgenes -->
             <Setter Property="BorderBrush" Value="#FFCECECE"/>
-            <!-- Color del borde -->
             <Setter Property="BorderThickness" Value="2"/>
-            <!-- Grosor del borde -->
             <Setter Property="CornerRadius" Value="20"/>
-            <!-- Bordes redondeados de 20px -->
-
-            <!-- Triggers para los efectos al pasar el mouse -->
             <Style.Triggers>
-                <!-- Trigger para cuando el mouse está sobre el Border -->
                 <Trigger Property="IsMouseOver" Value="True">
-                    <!-- Cambiar el color del borde al pasar el mouse -->
                     <Setter Property="BorderBrush" Value="#0078D7"/>
-                    <!-- Cambiar el color de fondo al pasar el mouse -->
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="White" Offset="0.19"/>
+                                <GradientStop Color="#E0E0E0" Offset="0.96"/>
+                                <GradientStop Color="#D0D0D0" Offset="0.907"/>
+                                <GradientStop Color="White" Offset="0.847"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Estilo text box con Border y resaltado al pasar el mouse -->
+        <Style x:Key="SimpleDockPanelBorderStyleInformationView" TargetType="Border">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0.19"/>
+                        <GradientStop Color="#FFCFCFCF" Offset="0.96"/>
+                        <GradientStop Color="#FFE6E6E6" Offset="0.907"/>
+                        <GradientStop Color="White" Offset="0.847"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="152,164,80,164"/>
+            <Setter Property="BorderBrush" Value="#FFCECECE"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

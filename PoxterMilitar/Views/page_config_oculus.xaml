@@ -9,9 +9,6 @@
       Title="Patient__Information">
 
 
-
-
-
     <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
