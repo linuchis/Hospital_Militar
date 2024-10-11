@@ -31,7 +31,6 @@
             </Setter>
         </Style>
 
-
         <!-- Boton de ComboBox -->
         <ControlTemplate x:Key="CustomToggleButtonTemplate" TargetType="ToggleButton">
             <!-- Border transparente para eliminar los cambios visuales por defecto -->
@@ -138,7 +137,7 @@
                                         <!-- Imagen de la flecha por defecto (hacia abajo) -->
                                         <Image x:Name="ArrowImage" Source="/Resources/Inicio/Pacientes_List/arrow_down.png" 
                                        Height="8" 
-                                       Width="13.34" 
+                                       Width="23.34" 
                                        HorizontalAlignment="Right" 
                                        VerticalAlignment="Center" Margin="0,0,10,0"/>
                                     </ToggleButton>
@@ -1032,6 +1031,11 @@
             <Setter Property="Foreground" Value="#2C3948"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <!-- Eliminamos el foco visual azul -->
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Focusable" Value="False"/>
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
@@ -1043,49 +1047,59 @@
 
                             <!-- El Border define los bordes redondeados -->
                             <Border x:Name="Border"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="15"
-                    Padding="5" Grid.RowSpan="2">
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="20"
+                                    Padding="5" 
+                                    Grid.RowSpan="2">
+
                                 <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <!-- Columna para el contenido seleccionado -->
+                                        <ColumnDefinition Width="*"/>
+                                        <!-- Columna para el botón desplegable -->
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Mostrar el contenido seleccionado mientras se interactúa -->
                                     <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
-                        Margin="10,0,0,0"
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Left"/>
+                                              Margin="10,0,0,0"
+                                              VerticalAlignment="Center" 
+                                              HorizontalAlignment="Left"
+                                              Grid.Column="0"/>
 
-                                    <!-- El botón cubre todo el área del ComboBox -->
-                                    <ToggleButton 
-                                Focusable="False"
-                                IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                ClickMode="Press"
-                                Background="Transparent"
-                                BorderBrush="Transparent"
-                                Foreground="Gray"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Padding="0">
+                                    <!-- Botón desplegable -->
+                                    <ToggleButton Grid.Column="1"
+                                          Focusable="False"
+                                          IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                          ClickMode="Press"
+                                          Background="Transparent"
+                                          BorderBrush="Transparent"
+                                          Foreground="Gray"
+                                          HorizontalAlignment="Right"
+                                          VerticalAlignment="Center"
+                                          Template="{StaticResource CustomToggleButtonTemplate}">
 
-                                        <!-- Usamos un Grid para alinear la imagen de la flecha a la derecha -->
-                                        <Grid>
-                                            <Image Source="/Resources/Inicio/Pacientes_List/arrow_down.png" 
-                                           Height="8" 
-                                           Width="13.34" 
-                                           HorizontalAlignment="Right" 
-                                           VerticalAlignment="Center"
-                                           Margin="490,0,0,0"/>
-                                        </Grid>
+                                        <!-- Imagen de la flecha (hacia abajo por defecto) -->
+                                        <Image x:Name="ArrowImage" 
+                                       Source="/Resources/Inicio/Pacientes_List/arrow_down.png" 
+                                       Height="8" 
+                                       Width="23.34" 
+                                       HorizontalAlignment="Right" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,10,0"/>
                                     </ToggleButton>
                                 </Grid>
                             </Border>
 
+                            <!-- Popup de la lista desplegable -->
                             <Popup x:Name="PART_Popup"
                            AllowsTransparency="True"
                            Focusable="False"
                            IsOpen="{TemplateBinding IsDropDownOpen}"
                            Placement="Bottom"
                            PopupAnimation="Slide" Grid.RowSpan="2">
-
                                 <Border Background="White"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="1"
@@ -1097,28 +1111,33 @@
                             </Popup>
                         </Grid>
 
-                        <!-- Triggers para cambiar el estilo en eventos como hover y click -->
+                        <!-- Triggers para cambiar la imagen de la flecha según el estado del ComboBox -->
                         <ControlTemplate.Triggers>
-                            <!-- Trigger para el estado IsMouseOver -->
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter TargetName="ArrowImage" Property="Source" Value="/Resources/Inicio/Pacientes_List/arrow_up.png"/>
+                            </Trigger>
+                            <Trigger Property="IsDropDownOpen" Value="False">
+                                <Setter TargetName="ArrowImage" Property="Source" Value="/Resources/Inicio/Pacientes_List/arrow_down.png"/>
+                            </Trigger>
+
+                            <!-- Trigger para eliminar sombreado no deseado -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="{x:Null}"/>
-                                <!-- Cambia este valor al color que desees -->
+                                <!-- Eliminar sombreado modificando el Background o dejándolo transparente -->
+                                <Setter TargetName="Border" Property="Background" Value="White"/>
                             </Trigger>
 
                             <!-- Trigger para el estado IsEnabled -->
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter TargetName="Border" Property="Background" Value="#F0F0F0"/>
-                                <!-- Color de fondo cuando está deshabilitado -->
                                 <Setter TargetName="Border" Property="BorderBrush" Value="#D0D0D0"/>
-                                <!-- Color del borde cuando está deshabilitado -->
                                 <Setter Property="Foreground" Value="#A0A0A0"/>
-                                <!-- Color del texto cuando está deshabilitado -->
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
 
 
 
