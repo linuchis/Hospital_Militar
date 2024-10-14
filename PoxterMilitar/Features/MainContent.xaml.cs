@@ -14,26 +14,35 @@ namespace PoxterMilitar.Features
         public static List<dato_paciente> ListaPacientes { get; set; }
         public static ObservableCollection<dato_usuario> ListaUsuario { get; set; }
         public static List<dato_ejercicio> ListaEjercicios { get; set; }
+       
 
         SocketIOClient.SocketIO socket;
 
         public bool PrimeraEncuesta = true;
         private PatientService _patientService;
 
+
+
+
+
+
+
+
         public MainContent()
         {
             InitializeComponent();
             _patientService = new PatientService(); // Inicializa el servicio
 
-
             ListaPacientes = _patientService.GetAllPatients();
             ListaEjercicios = new List<dato_ejercicio>();
-
+            
             // Navegar el Frame de InicioPacientes a la página InicioPacientes
             FrameInicioPacientes.Navigate(new InicioPacientes(this));
 
             // Navegar el Frame de Page_Patients a la página Page_Patients
             FramePagePatients.Navigate(new Page_Patients(ListaPacientes, this));
+
+            // Asegúrate de que el nombre coincide
 
             InitSocket();
         }
@@ -41,6 +50,12 @@ namespace PoxterMilitar.Features
         public void navigateToPatients()
         {
             FramePagePatients.Navigate(new Page_Patients(ListaPacientes, this));
+        }
+
+        public void navigateToEditPatientInformation(long patientId)
+        {
+            var editPatientPage = new Edit_Patient_Information(this, patientId);
+            FramePagePatients.Navigate(editPatientPage);
         }
 
         public void navigateToUsersList()
@@ -174,4 +189,6 @@ namespace PoxterMilitar.Features
             throw new NotImplementedException();
         }
     }
+
+    
 }

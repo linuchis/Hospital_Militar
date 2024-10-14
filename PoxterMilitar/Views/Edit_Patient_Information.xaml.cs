@@ -1,6 +1,7 @@
 ﻿using PoxterMilitar.classe;
 using PoxterMilitar.DataAccess;
 using PoxterMilitar.Features;
+using PoxterMilitar.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,10 +29,21 @@ namespace PoxterMilitar.Views
         private long patientId;
         private dato_paciente patient;
 
+        public Edit_Patient_Information(MainContent mainContent, long patientId)
+        {
+            this.mainContent = mainContent;
+
+            this.patientId = patientId;
+
+            LoadPatientData();
+        }
+
+
         public Edit_Patient_Information(MainContent mainContent)
         {
             this.mainContent = mainContent;
         }
+
 
         public Edit_Patient_Information(long id_p, MainContent mainContent)
         {
@@ -42,6 +54,8 @@ namespace PoxterMilitar.Views
 
             LoadPatientData();
         }
+
+        
 
         private void LoadPatientData()
         {

@@ -95,8 +95,6 @@ namespace PoxterMilitar.Views
             SavePatientData();
         }
 
-
-
         private void SavePatientData()
         {
             try

@@ -15,5 +15,7 @@
 
         <!-- Frame para Page_Patients -->
         <Frame x:Name="FramePagePatients" NavigationUIVisibility="Hidden"/>
+
+        <Frame x:Name="frameNavigation" NavigationUIVisibility="Hidden" />
     </Grid>
 </Page>

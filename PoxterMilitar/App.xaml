@@ -1206,38 +1206,28 @@
             <Setter Property="BorderThickness" Value="0,0,0,1"/>
             <!-- Solo borde inferior -->
             <Setter Property="BorderBrush" Value="LightGray"/>
+            <!-- Color del borde inferior -->
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
                         <Grid>
-                            <!-- Placeholder TextBlock -->
-                            <TextBlock x:Name="PlaceholderText" 
-                   Text="_________________________________________________________________________"
-                   Foreground="#FFAFAFAF" 
-                   VerticalAlignment="Top" 
-                   IsHitTestVisible="False" 
-                   Margin="0,0"/>
-                            <!-- TextBox Content -->
-                            <ScrollViewer x:Name="PART_ContentHost"/>
+                            <!-- Aquí se muestra el contenido del TextBox -->
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                  VerticalAlignment="Stretch" 
+                                  HorizontalAlignment="Stretch"/>
+
+                            <!-- Borde inferior que siempre se mantiene visible -->
+                            <Border x:Name="Underline"
+                            BorderThickness="0,0,0,1"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            VerticalAlignment="Bottom"/>
                         </Grid>
-
-                        <ControlTemplate.Triggers>
-                            <!-- Ocultar el Placeholder cuando haya texto en el TextBox -->
-                            <Trigger Property="Text" Value="">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                            <!-- Ocultar el placeholder cuando el TextBox tenga texto -->
-                            <Trigger Property="Text" Value="{x:Null}">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-
-
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
 
         <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
         <Style x:Key="Button_StatusTransmision" TargetType="Button">
