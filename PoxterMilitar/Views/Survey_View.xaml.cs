@@ -17,14 +17,13 @@ using PoxterMilitar.Views;
 
 namespace PoxterMilitar.Views
 {
-    /// <summary>
-    /// Lógica de interacción para Survey_View.xaml
-    /// </summary>
+    
     public partial class Survey_View : Page
     {
-        public Survey_View()
+        public Survey_View(surveys_patients survey)
         {
             InitializeComponent();
+            this.DataContext = survey;
             
         }
 
@@ -37,6 +36,21 @@ namespace PoxterMilitar.Views
         {
             NavigationService.Navigate(new Uri("Survey_Patient.xaml", UriKind.Relative));
         }
+        
+        
+        private void Button_Back_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("No hay páginas a las que regresar.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+
 
 
     }

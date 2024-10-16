@@ -25,12 +25,10 @@ namespace PoxterMilitar.Views
         private readonly MainContent mainContent;
         private readonly long patientId;
         private readonly SurveyService surveyService;
-
-        public ObservableCollection<surveys_patients> Surveys { get; set; }
-
+       
         public Survey_List(long patientId, MainContent mainContent)
         {
-            InitializeComponent(); //??????????????????
+            InitializeComponent(); //maldito funciona cuando quiere
             this.mainContent = mainContent;
             this.patientId = patientId;
             this.surveyService = new SurveyService();
@@ -39,20 +37,31 @@ namespace PoxterMilitar.Views
             this.DataContext = this;
         }
 
+        public ObservableCollection<surveys_patients> Surveys { get; set; }
+
         private void LoadSurveys()
         {
             var surveys = surveyService.GetSurveysByPatient(patientId);
             Surveys = new ObservableCollection<surveys_patients>(surveys);
         }
 
+        //Este bot[on es el que va a la encuesta seg[un la encuesta seleccionada mostrada.
+
+        private void ViewSurveyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SurveysDataGrid.SelectedItem is surveys_patients selectedSurvey)
+            {
+                NavigationService.Navigate(new Survey_View(selectedSurvey));
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una encuesta para ver.");
+            }
+        }
+
         private void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
         {
             mainContent.navigateToPatients();
-        }
-
-        private void ViewSurveyButton_Click()
-        {
-
         }
 
 

@@ -590,11 +590,6 @@
             </Setter>
         </Style>
 
-
-
-
-
-
         <!-- Estilo para BUTTON DE INICIO DE SESION EN LOGIN -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Template">
@@ -622,7 +617,6 @@
                     </Setter>
                 </Trigger>
             </Style.Triggers>
-
         </Style>
         
         <!-- Diseño para el buton de Iniciar programa de realidad virtual-->
@@ -632,7 +626,7 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Padding" Value="10,5"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Width" Value="180"/>
+            <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="49"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -769,9 +763,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
-
-
         </Style>
 
         

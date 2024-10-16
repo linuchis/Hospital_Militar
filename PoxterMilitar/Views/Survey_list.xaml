@@ -145,7 +145,7 @@
                                             <DataTemplate>
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                     <!-- Botón de ver encuesta -->
-                                                    <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0" >
+                                                    <Button Width="60" Height="40" Margin="5,0" BorderThickness="0" Background="Transparent" Padding="0" Click="ViewSurveyButton_Click" >
                                                         <Image Source="/Resources/Inicio/Pacientes_List/survey_logo.png" Width="16" Height="16" />
                                                     </Button>
                                                     <!-- Botón de Eliminar -->

@@ -8,12 +8,22 @@
       d:DesignHeight="1000" d:DesignWidth="1920"
       Title="Survey_View">
 
-    <Grid Margin="318,91,10,-457" Background="#FFF9F9F9">
+    <Grid Margin="318,91,10,10" Background="#FFF9F9F9">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Button 
+            x:Name="Button_Back" 
+            Content="" 
+            Style="{StaticResource ButtonComeBackProgram}"
+            HorizontalAlignment="Left" 
+            Width="56" 
+            Background="Transparent" 
+            Click="Button_Back_Click"  
+            Margin="53,68,0,2"/>
 
         <Label 
                 Grid.Row="0"
@@ -27,7 +37,7 @@
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
 
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0" Height="1050"> 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width ="*"/>
                     <ColumnDefinition Width ="*"/>
@@ -44,51 +54,60 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
-                            <DockPanel>
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="50,22,34,22">
+                            <DockPanel LastChildFill="True">
+                                <!-- Elimina restricciones de tamaño en DockPanel -->
                                 <Grid>
-                                    <TextBlock Text="1. ¿Con qué frecuencia experimenta dolor en la extremidad fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
-                                    <TextBlock Text="{Binding surveys_patients._1_survey}" Margin="0,58,0,61" />
+                                    <TextBlock Text="1. ¿Con qué frecuencia experimenta dolor en la extremidad fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="40,25,40,60" Foreground="#FF2C3948"/>
+
+                                    <TextBlock Text="{Binding _1_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Margin="30,60,30,30" Foreground="#FF9C9C9C" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
                                 </Grid>
                             </DockPanel>
                         </Border>
                     </Grid>
 
+
                     <Grid Grid.Row="1">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="50,22,34,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="2. ¿Cuánto dura típicamente un episodio de dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="2. ¿Cuánto dura típicamente un episodio de dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="40,25,40,60" Width="611" Foreground="#FF2C3948" />
+                                    <TextBlock Text="{Binding _2_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Margin="30,60,30,20"  Foreground="#FF9C9C9C"/>
                                 </Grid>
                             </DockPanel>
                         </Border>
                     </Grid>
 
                     <Grid Grid.Row="2">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="50,22,34,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="3. ¿El dolor en la extremidad fantasma aparece en respuesta a algo en particular?" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <Grid>
+                                        <TextBlock Text="3. ¿El dolor en la extremidad fantasma aparece en respuesta a algo en particular?" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Left" Foreground="#FF2C3948" Margin="40,25,40,60" Width="611"/>
+                                        <TextBlock Text="{Binding _3_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Margin="30,70,30,20" Foreground="#FF9C9C9C" />
+                                    </Grid>
                                 </Grid>
                             </DockPanel>
                         </Border>
                     </Grid>
-                    
+
                     <Grid Grid.Row="3">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="50,22,34,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="4. ¿El dolor fantasma le genera alguna alguna emocion o sensación?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="4. ¿El dolor fantasma le genera alguna alguna emocion o sensación?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Foreground="#FF2C3948" Margin="40,25,40,60" Width="611"/>
+                                    <TextBlock Text="{Binding _4_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Margin="30,60,30,20" Foreground="#FF9C9C9C" />
                                 </Grid>
                             </DockPanel>
                         </Border>
                     </Grid>
 
                     <Grid Grid.Row="4">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="50,22,34,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="5. ¿Qué tan efectivo ha sido el tratamiento en reducir su dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="5. ¿Qué tan efectivo ha sido el tratamiento en reducir su dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Foreground="#FF2C3948" Margin="40,25,40,60" Width="611"/>
+                                    <TextBlock Text="{Binding _5_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Foreground="#FF9C9C9C" Margin="30,60,30,20" />
                                 </Grid>
                             </DockPanel>
                         </Border>
@@ -106,50 +125,55 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="40,22,44,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="6. ¿Qué tipo de dolor experimenta en la extremidad fantasma? (Describa su dolor )" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="6. ¿Qué tipo de dolor experimenta en la extremidad fantasma? (Describa su dolor )" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" Foreground="#FF2C3948" HorizontalAlignment="Left" Margin="40,25,40,60" Width="611"/>
+                                    <TextBlock Text="{Binding _6_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Foreground="#FF9C9C9C" Margin="30,70,30,20" />
                                 </Grid>
                             </DockPanel>
                         </Border>
                     </Grid>
 
                     <Grid Grid.Row="1">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="40,22,44,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="7. ¿Cómo describiría la intensidad de su dolor fantasma en una escala de 0 a 10, siendo 0 sin dolor y 10 el peor dolor imaginable?" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="7. ¿Cómo describiría la intensidad de su dolor fantasma en una escala de 0 a 10, siendo 0 sin dolor y 10 el peor dolor imaginable?" Foreground="#FF2C3948" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="40,25,40,60" Width="611"/>
+                                    <TextBlock Text="{Binding _7_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap"  Foreground="#FF9C9C9C" Margin="30,70,30,20" />
                                 </Grid>
                             </DockPanel>
                         </Border>
                     </Grid>
 
                     <Grid Grid.Row="2">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="40,22,44,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="8. ¿El dolor fantasma afecta su sueño?" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="8. ¿El dolor fantasma afecta su sueño?" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Left" Foreground="#FF2C3948" Margin="40,25,40,60" Width="611"/>
+                                    <TextBlock Text="{Binding _8_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Foreground="#FF9C9C9C" Margin="30,60,30,20" />
                                 </Grid>
                             </DockPanel>
                         </Border>
                     </Grid>
 
                     <Grid Grid.Row="3">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="40,22,44,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="9. ¿Ha utilizado algún tratamiento para aliviar el dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="9. ¿Ha utilizado algún tratamiento para aliviar el dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Foreground="#FF2C3948" Margin="40,25,40,60" Width="611"/>
+                                    <TextBlock Text="{Binding _9_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Foreground="#FF9C9C9C" Margin="30,60,30,20" />
                                 </Grid>
                             </DockPanel>
                         </Border>
                     </Grid>
 
                     <Grid Grid.Row="4">
-                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="40,22,44,22">
                             <DockPanel>
                                 <Grid>
-                                    <TextBlock Text="10. ¿Hay algo que usted sienta que empeora o mejora su dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="10. ¿Hay algo que usted sienta que empeora o mejora su dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Foreground="#FF2C3948" Margin="40,25,40,60" Width="611"/>
+                                    <TextBlock Text="{Binding _10_survey}" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" Foreground="#FF9C9C9C" Margin="30,60,30,20" />
                                 </Grid>
                             </DockPanel>
                         </Border>
@@ -159,11 +183,11 @@
 
 
             </Grid>
-            
-            
-            
-            
-            
+
+
+
+
+
         </ScrollViewer>
     </Grid>
 </Page>
