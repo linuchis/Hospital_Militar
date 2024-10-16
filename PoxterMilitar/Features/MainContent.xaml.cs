@@ -21,13 +21,6 @@ namespace PoxterMilitar.Features
         public bool PrimeraEncuesta = true;
         private PatientService _patientService;
 
-
-
-
-
-
-
-
         public MainContent()
         {
             InitializeComponent();
@@ -41,8 +34,6 @@ namespace PoxterMilitar.Features
 
             // Navegar el Frame de Page_Patients a la página Page_Patients
             FramePagePatients.Navigate(new Page_Patients(ListaPacientes, this));
-
-            // Asegúrate de que el nombre coincide
 
             InitSocket();
         }
@@ -61,6 +52,11 @@ namespace PoxterMilitar.Features
         public void navigateToUsersList()
         {
             FramePagePatients.Navigate(new Page_Users(this));
+        }
+
+        public void navigateToSurveyList(long patientId)
+        {
+            FramePagePatients.Navigate(new Survey_List(patientId, this));
         }
 
         public void navigateToSettings()

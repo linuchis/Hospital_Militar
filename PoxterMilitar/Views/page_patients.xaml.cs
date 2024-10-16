@@ -22,16 +22,25 @@ namespace PoxterMilitar.Views
     public partial class Page_Patients : Page
     {
         public List<dato_paciente> ListaPacientes { get; set; }
+
+        private List<dato_paciente> listaPacientes;
         public MainContent mainContent;
+
         private Page_Patients page_Patients;
-        private readonly PatientService _patientService; // Instancia del servicio
+        private readonly PatientService _patientService;
 
         public Page_Patients(List<dato_paciente> listaPacientes, MainContent mainContent)
         {
+            //InitializeComponent();
+            //this.mainContent = mainContent;
+            //ListaPacientes = listaPacientes;
+            //_patientService = new PatientService(); // Inicializa el servicio
+
             InitializeComponent();
+            this.ListaPacientes = listaPacientes;
             this.mainContent = mainContent;
-            ListaPacientes = listaPacientes;
-            _patientService = new PatientService(); // Inicializa el servicio
+            this.DataContext = mainContent;
+
 
             this.DataContext = this;
         }
@@ -40,6 +49,7 @@ namespace PoxterMilitar.Views
         {
             this.page_Patients = page_Patients;
         }
+
         //--------------------------------------------------------------------------------------------------------------------------
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -69,7 +79,12 @@ namespace PoxterMilitar.Views
 
         private void Button_SurveyList_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Survey_list(mainContent));
+            // Obtener el DataContext del botón, que debería ser un dato_paciente
+            if (sender is Button button && button.DataContext is dato_paciente paciente)
+            {
+                long selectedpatientId = paciente.Id;
+                mainContent.navigateToSurveyList(selectedpatientId);
+            }
         }
 
         private void Button_EditPatientinformation_Click(object sender, RoutedEventArgs e)

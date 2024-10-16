@@ -11,280 +11,290 @@
 
     <Grid Margin="318,91,10,0" Background="#FFF9F9F9">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para el título -->
+            <RowDefinition Height="*"/>
+            <!-- Fila para el contenido -->
+        </Grid.RowDefinitions>
+        
+        <Label 
+            Grid.Row="0"
+            Content="ENCUESTA AL PACIENTE" 
+            HorizontalAlignment="Left" 
+            Margin="114,69,0,0" 
+            VerticalAlignment="Top"
+            FontSize="30" 
+            FontWeight="Bold" 
+            FontFamily="Verdana"
+        />
 
-        <Grid Grid.Row="0" Margin="-66,0,0,0">
-            <StackPanel>
-                <Label 
-                     Content="ENCUESTA AL PACIENTE" 
-                     HorizontalAlignment="Left" 
-                     Margin="114,69,0,0" 
-                     VerticalAlignment="Top"
-                     FontSize="30" 
-                     FontWeight="Bold" 
-                     FontFamily="Verdana"
-                />
-            </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <Grid>
+
+                <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2">
+                    <DockPanel>
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.18*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
 
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <Grid>
 
-                    <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Grid.RowSpan="2">
-                        <DockPanel>
-                            <Grid>
+                            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                                <Grid Grid.Column="0">
+                                    <Button 
+                                        x:Name="Button_Back" 
+                                        Content="" 
+                                        Style="{StaticResource ButtonComeBackProgram}"
+                                        HorizontalAlignment="Left" 
+                                        Width="57" 
+                                        Background="Transparent" 
+                                        Click="Button_Patientinformation_Click" Margin="26,20,0,20"/>
+                                </Grid>
+                            </Grid>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" Grid.Row="1">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="0.18*"/>
-                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <TextBlock 
+                                        Text="¿Con qué frecuencia experimenta dolor en la extremidad fantasma?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        HorizontalAlignment="Left" 
+                                        Margin="75,10,10,66" 
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_1"
+                                        Width="595" 
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="75,40,40,25"/>
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <TextBlock 
+                                        Text="¿Cuánto dura típicamente un episodio de dolor fantasma?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        HorizontalAlignment="Left" 
+                                        Margin="75,10,10,66" 
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_2"
+                                        Width="595" 
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="75,40,40,25"/>
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <TextBlock 
+                                        Text="¿El dolor en la extremidad fantasma aparece en respuesta a algo en particular?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        HorizontalAlignment="Left" 
+                                        TextWrapping="Wrap"
+                                        Margin="75,10,10,66" 
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_3"
+                                        Width="595" 
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="75,60,40,25"/>
+                                </Grid>
+
+                                <Grid Grid.Row="3">
+                                    <TextBlock 
+                                        Text="¿El dolor fantasma le genera alguna alguna emocion o sensación?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        HorizontalAlignment="Left" 
+                                        Margin="75,10,10,66"  
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_4"
+                                        Width="595"
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="75,40,40,25"/>
+                                </Grid>
+                                <Grid Grid.Row="4">
+                                    <TextBlock 
+                                        Text="¿Qué tan efectivo ha sido el tratamiento en reducir su dolor fantasma?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        HorizontalAlignment="Left" 
+                                        Margin="75,10,10,66"  
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_5"
+                                        Width="595"
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="75,40,40,25"/>
+                                </Grid>
+                            </Grid>
+
+
+
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="1.5*"/>
                                 </Grid.RowDefinitions>
 
 
-
-                                <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-                                    <Grid Grid.Column="0">
-                                        <Button 
-                                            x:Name="Button_Back" 
-                                            Content="" 
-                                            Style="{StaticResource ButtonComeBackProgram}"
-                                            HorizontalAlignment="Left" 
-                                            Width="57" 
-                                            Background="Transparent" 
-                                            Click="Button_Patientinformation_Click" Margin="26,20,0,20"/>
-                                    </Grid>
+                                <Grid Grid.Row="0">
+                                    <TextBlock 
+                                        Text="¿Qué tipo de dolor experimenta en la extremidad fantasma? (Describa su dolor )" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        TextWrapping="Wrap"
+                                        HorizontalAlignment="Left" 
+                                        Margin="38,10,0,66" 
+                                        Width="596"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_6"
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="38,60,76,25"/>
                                 </Grid>
 
+                                <Grid Grid.Row="1">
+                                    <TextBlock 
+                                        Text="¿Cómo describiría la intensidad de su dolor fantasma en una escala de 0 a 10, siendo 0 sin dolor y 10 el peor dolor imaginable?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        TextWrapping="Wrap"
+                                        HorizontalAlignment="Left" 
+                                        Margin="38,10,0,66"  
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_7"
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="38,60,76,25"/>
+                                </Grid>
 
-                                <Grid Grid.Column="0" Grid.Row="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
+                                <Grid Grid.Row="2">
+                                    <TextBlock 
+                                        Text="¿El dolor fantasma afecta su sueño?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        HorizontalAlignment="Left" 
+                                        Margin="38,10,0,66"  
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_8"
+                                        Width="595" 
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="38,40,76,25"/>
+                                </Grid>
 
-                                    <Grid Grid.Row="0">
-                                        <TextBlock 
-                                            Text="¿Con qué frecuencia experimenta dolor en la extremidad fantasma?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            HorizontalAlignment="Left" 
-                                            Margin="75,10,10,66" 
-                                            Width="580"/>
-                                        <TextBox 
-                                            Width="595" 
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="75,40,40,25"/>
-                                    </Grid>
+                                <Grid Grid.Row="3">
+                                    <TextBlock 
+                                        Text="¿Ha utilizado algún tratamiento para aliviar el dolor fantasma?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        HorizontalAlignment="Left" 
+                                        Margin="38,10,0,66"   
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_9"
+                                        Width="595"
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="38,40,76,25"/>
+                                </Grid>
+                                <Grid Grid.Row="4">
+                                    <TextBlock 
+                                        Text="¿Hay algo que usted sienta que empeora o mejora su dolor fantasma?" 
+                                        FontFamily="Verdana" 
+                                        FontSize="16" 
+                                        HorizontalAlignment="Left" 
+                                        Margin="38,10,0,66"   
+                                        Width="580"/>
+                                    <TextBox 
+                                        x:Name="Encuesta_10"
+                                        Width="595"
+                                        MinHeight="25" 
+                                        TextWrapping="Wrap"  
+                                        AcceptsReturn="True"  
+                                        Style="{StaticResource UnderlinedTextBoxStyle}" 
+                                        Margin="38,40,76,25"/>
+                                </Grid>
 
-                                    <Grid Grid.Row="1">
-                                        <TextBlock 
-                                            Text="¿Cuánto dura típicamente un episodio de dolor fantasma?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            HorizontalAlignment="Left" 
-                                            Margin="75,10,10,66" 
-                                            Width="580"/>
-                                        <TextBox 
-                                            Width="595" 
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="75,40,40,25"/>
-                                    </Grid>
+                                <Grid Grid.Row="5">
+                                    <Button 
+                                            x:Name="Save_Survey" 
+                                            Content="Guardar" 
+                                            Style="{StaticResource ButtonStartProgram}" 
+                                            Margin="370,10,0,20" 
+                                            Width="198" 
+                                            Background="#FF0086BE" 
+                                            VerticalAlignment="Top"
+                                            Click="Button_GuardarEncuesta"/>
 
-                                    <Grid Grid.Row="2">
-                                        <TextBlock 
-                                            Text="¿El dolor en la extremidad fantasma aparece en respuesta a algo en particular?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            HorizontalAlignment="Left" 
-                                            TextWrapping="Wrap"
-                                            Margin="75,10,10,66" 
-                                            Width="580"/>
-                                        <TextBox 
-                                            Width="595" 
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="75,60,40,25"/>
-                                    </Grid>
 
-                                    <Grid Grid.Row="3">
-                                        <TextBlock 
-                                            Text="¿El dolor fantasma le genera alguna alguna emocion o sensación?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            HorizontalAlignment="Left" 
-                                            Margin="75,10,10,66"  
-                                            Width="580"/>
-                                        <TextBox 
-                                            Width="595"
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="75,40,40,25"/>
-                                    </Grid>
-                                    <Grid Grid.Row="4">
-                                        <TextBlock 
-                                            Text="¿Qué tan efectivo ha sido el tratamiento en reducir su dolor fantasma?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            HorizontalAlignment="Left" 
-                                            Margin="75,10,10,66"  
-                                            Width="580"/>
-                                        <TextBox 
-                                            Width="595"
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="75,40,40,25"/>
-                                    </Grid>
                                 </Grid>
 
 
 
-                                <Grid Grid.Column="1" Grid.Row="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="1.5*"/>
-                                    </Grid.RowDefinitions>
 
-
-                                    <Grid Grid.Row="0">
-                                        <TextBlock 
-                                            Text="¿Qué tipo de dolor experimenta en la extremidad fantasma? (Describa su dolor )" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            TextWrapping="Wrap"
-                                            HorizontalAlignment="Left" 
-                                            Margin="38,10,0,66" 
-                                            Width="596"/>
-                                        <TextBox 
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="38,60,76,25"/>
-                                    </Grid>
-
-                                    <Grid Grid.Row="1">
-                                        <TextBlock 
-                                            Text="¿Cómo describiría la intensidad de su dolor fantasma en una escala de 0 a 10, siendo 0 sin dolor y 10 el peor dolor imaginable?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            TextWrapping="Wrap"
-                                            HorizontalAlignment="Left" 
-                                            Margin="38,10,0,66"  
-                                            Width="580"/>
-                                        <TextBox 
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="38,60,76,25"/>
-                                    </Grid>
-
-                                    <Grid Grid.Row="2">
-                                        <TextBlock 
-                                            Text="¿El dolor fantasma afecta su sueño?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            HorizontalAlignment="Left" 
-                                            Margin="38,10,0,66"  
-                                            Width="580"/>
-                                        <TextBox 
-                                            Width="595" 
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="38,40,76,25"/>
-                                    </Grid>
-
-                                    <Grid Grid.Row="3">
-                                        <TextBlock 
-                                            Text="¿Ha utilizado algún tratamiento para aliviar el dolor fantasma?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            HorizontalAlignment="Left" 
-                                            Margin="38,10,0,66"   
-                                            Width="580"/>
-                                        <TextBox 
-                                            Width="595"
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="38,40,76,25"/>
-                                    </Grid>
-                                    <Grid Grid.Row="4">
-                                        <TextBlock 
-                                            Text="¿Hay algo que usted sienta que empeora o mejora su dolor fantasma?" 
-                                            FontFamily="Verdana" 
-                                            FontSize="16" 
-                                            HorizontalAlignment="Left" 
-                                            Margin="38,10,0,66"   
-                                            Width="580"/>
-                                        <TextBox 
-                                            Width="595"
-                                            MinHeight="25" 
-                                            TextWrapping="Wrap"  
-                                            AcceptsReturn="True"  
-                                            Style="{StaticResource UnderlinedTextBoxStyle}" 
-                                            Margin="38,40,76,25"/>
-                                    </Grid>
-                                    
-                                    <Grid Grid.Row="5">
-                                        <Button 
-                                             x:Name="Save_Survey" 
-                                             Content="Guardar" 
-                                             Style="{StaticResource ButtonStartProgram}" 
-                                             Margin="370,10,0,20" 
-                                             Width="198" 
-                                             Background="#FF0086BE" 
-                                             VerticalAlignment="Top"
-                                             Click="Button_GuardarEncuesta"/>
-                                        
-                                        
-                                    </Grid>
-                                          
-                                    
-                                    
-                                    
-                                </Grid>
-
-
-
-                                <Grid Grid.Column="0" Grid.Row="1">
-
-
-                                </Grid>
                             </Grid>
-                        </DockPanel>
-                    </Border>
-                </Grid>
-            </ScrollViewer>
-        </Grid>
+
+
+
+                            <Grid Grid.Column="0" Grid.Row="1">
+
+
+                            </Grid>
+                        </Grid>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
     </Grid>
+    
 </Page>
 

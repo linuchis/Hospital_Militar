@@ -29,15 +29,17 @@ namespace PoxterMilitar.DataAccess
                 Id = p.id_p,
                 Altura = p.height_p,
                 Peso = p.weight_p,
-                Nombre = p.name_p,
+                Nombre = p.name_p ,
                 Apellido = p.lastname_p,
                 Genero = p.gender_p,
-                
+                PrimerAmp = p.amp_first,
+                SegundoAmp = p.amp_sec
+
             }).ToList();
 
             return listaPacientes;
         }
-
+         
         public dato_paciente GetPatientById(long patientId)
         {
             var paciente = _context.patients_poxter.FirstOrDefault(p => p.id_p == patientId);
@@ -51,6 +53,8 @@ namespace PoxterMilitar.DataAccess
                     Nombre = paciente.name_p,
                     Apellido = paciente.lastname_p,
                     Genero = paciente.gender_p,
+                    PrimerAmp = paciente.amp_first,
+                    SegundoAmp = paciente.amp_sec
                 };
             }
             else

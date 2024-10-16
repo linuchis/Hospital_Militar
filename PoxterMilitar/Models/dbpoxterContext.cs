@@ -39,55 +39,99 @@ public partial class dbpoxterContext : DbContext
             entity.ToTable(tb => tb.HasComment("usuarios pacientes"));
 
             entity.Property(e => e.id_p).ValueGeneratedNever();
+
             entity.Property(e => e.gender_p)
                 .IsRequired()
                 .HasMaxLength(100);
+
             entity.Property(e => e.lastname_p)
                 .IsRequired()
                 .HasMaxLength(100);
+
             entity.Property(e => e.name_p)
                 .IsRequired()
                 .HasMaxLength(100);
+
+            entity.Property(e => e.amp_first)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            entity.Property(e => e.amp_sec)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            entity.HasMany(e => e.Surveys)
+                  .WithOne(e => e.Patient)
+                  .HasForeignKey(e => e.id_p)
+                  .OnDelete(DeleteBehavior.Cascade)
+                  .HasConstraintName("FK_survey_patients_patients_poxter");
         });
+
 
         modelBuilder.Entity<surveys_patients>(entity =>
         {
             entity.HasKey(e => e.id_survey).HasName("surveys_patients_pkey");
 
             entity.Property(e => e.id_survey)
-                .ValueGeneratedNever()
-                .HasColumnType("char");
-            entity.Property(e => e._10_survey)
-                .HasMaxLength(255)
-                .HasColumnName("10_survey");
+                .ValueGeneratedOnAdd()
+                .HasColumnType("bigint");
+
+            entity.Property(e => e.hour_survey)
+                .IsRequired()
+                .HasColumnType("datetime");
+
             entity.Property(e => e._1_survey)
                 .HasMaxLength(255)
                 .HasColumnName("1_survey");
+
             entity.Property(e => e._2_survey)
                 .HasMaxLength(255)
                 .HasColumnName("2_survey");
+
             entity.Property(e => e._3_survey)
                 .HasMaxLength(255)
                 .HasColumnName("3_survey");
+
             entity.Property(e => e._4_survey)
                 .HasMaxLength(255)
                 .HasColumnName("4_survey");
+
             entity.Property(e => e._5_survey)
                 .HasMaxLength(255)
                 .HasColumnName("5_survey");
+
             entity.Property(e => e._6_survey)
                 .HasMaxLength(255)
                 .HasColumnName("6_survey");
+
             entity.Property(e => e._7_survey)
                 .HasMaxLength(255)
                 .HasColumnName("7_survey");
+
             entity.Property(e => e._8_survey)
                 .HasMaxLength(255)
                 .HasColumnName("8_survey");
+
             entity.Property(e => e._9_survey)
                 .HasMaxLength(255)
                 .HasColumnName("9_survey");
+
+            entity.Property(e => e._10_survey)
+                .HasMaxLength(255)
+                .HasColumnName("10_survey");
+
+            entity.Property(e => e.id_p)
+                .IsRequired()
+                .HasColumnName("id_p")
+                .HasColumnType("bigint");
+
+            entity.HasOne(e => e.Patient)
+                  .WithMany(p => p.Surveys)
+                  .HasForeignKey(e => e.id_p)
+                  .OnDelete(DeleteBehavior.Cascade)
+                  .HasConstraintName("FK_survey_patients_patients_poxter");
         });
+
 
         modelBuilder.Entity<users_poxter>(entity =>
         {

@@ -42,7 +42,10 @@ namespace PoxterMilitar.Views
         private long patientId;
         private dato_paciente patients;
         private List<dato_paciente> _listaPacientes;
+
         public List<dato_paciente> ListaPacientes
+        
+        
         {
             get { return _listaPacientes; }
             set
@@ -270,11 +273,13 @@ namespace PoxterMilitar.Views
             Encuesta.Visibility = Visibility.Visible;
         }
 
+        // Patient__Information.xaml.cs
         private void EncuestaUsuario_Click(object sender, RoutedEventArgs e)
         {
-            // 
-            this.NavigationService.Navigate(new Survey_Patient(mainContent));
+            this.NavigationService.Navigate(new Survey_Patient(patientId, mainContent));
         }
+
+
 
         private void Button_BackPatients(object sender, RoutedEventArgs e)
         {
@@ -325,7 +330,7 @@ namespace PoxterMilitar.Views
 
         private void Button_SurveyList_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Survey_list(mainContent));
+            this.NavigationService.Navigate(new Survey_List(patientId, mainContent));
         }
 
         private void Button_EditPatientinformation_Click(object sender, RoutedEventArgs e)

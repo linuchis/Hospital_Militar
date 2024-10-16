@@ -3,14 +3,26 @@
 using System;
 using System.Collections.Generic;
 
-namespace PoxterMilitar.Models;
-
-public partial class patients_poxter
+namespace PoxterMilitar.Models
 {
-    public string name_p { get; set; }
-    public string lastname_p { get; set; }
-    public string gender_p { get; set; }
-    public long height_p { get; set; }
-    public long weight_p { get; set; }
-    public long id_p { get; set; }
+    public partial class patients_poxter
+    {
+        public long id_p { get; set; }
+        public string name_p { get; set; }
+        public string lastname_p { get; set; }
+        public string gender_p { get; set; }
+        public long weight_p { get; set; }
+        public long height_p { get; set; }
+        public string amp_first { get; set; }
+        public string amp_sec { get; set; }
+
+        // Colección de encuestas
+        public virtual ICollection<surveys_patients> Surveys { get; set; }
+
+        public patients_poxter()
+        {
+            Surveys = new HashSet<surveys_patients>();
+        }
+    }
+
 }

@@ -5,10 +5,165 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PoxterMilitar.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1000" d:DesignWidth="1920"
       Title="Survey_View">
 
-    <Grid>
-        
+    <Grid Margin="318,91,10,-457" Background="#FFF9F9F9">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label 
+                Grid.Row="0"
+                Content="ENCUESTA AL PACIENTE" 
+                HorizontalAlignment="Left" 
+                Margin="114,69,0,0" 
+                VerticalAlignment="Top"
+                FontSize="30" 
+                FontWeight="Bold" 
+                FontFamily="Verdana"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="*"/>
+                    <ColumnDefinition Width ="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="1. ¿Con qué frecuencia experimenta dolor en la extremidad fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                    <TextBlock Text="{Binding surveys_patients._1_survey}" Margin="0,58,0,61" />
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="2. ¿Cuánto dura típicamente un episodio de dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="3. ¿El dolor en la extremidad fantasma aparece en respuesta a algo en particular?" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                    
+                    <Grid Grid.Row="3">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="4. ¿El dolor fantasma le genera alguna alguna emocion o sensación?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="4">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="5. ¿Qué tan efectivo ha sido el tratamiento en reducir su dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="6. ¿Qué tipo de dolor experimenta en la extremidad fantasma? (Describa su dolor )" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="7. ¿Cómo describiría la intensidad de su dolor fantasma en una escala de 0 a 10, siendo 0 sin dolor y 10 el peor dolor imaginable?" FontFamily="Verdana" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="8. ¿El dolor fantasma afecta su sueño?" FontFamily="Verdana" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="3">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="9. ¿Ha utilizado algún tratamiento para aliviar el dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="4">
+                        <Border Style="{StaticResource SimpleDockPanelBorderStyle}" Margin="54,42,54,39">
+                            <DockPanel>
+                                <Grid>
+                                    <TextBlock Text="10. ¿Hay algo que usted sienta que empeora o mejora su dolor fantasma?" FontFamily="Verdana" FontSize="16" HorizontalAlignment="Left" Margin="39,25,0,110" Width="611"/>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+
+
+            </Grid>
+            
+            
+            
+            
+            
+        </ScrollViewer>
     </Grid>
 </Page>

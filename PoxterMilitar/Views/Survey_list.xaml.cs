@@ -13,27 +13,50 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PoxterMilitar.DataAccess;
+using PoxterMilitar.Models;
+using System.Collections.ObjectModel;
 
 namespace PoxterMilitar.Views
 {
-    /// <summary>
-    /// Lógica de interacción para Survey_list.xaml
-    /// </summary>
-    public partial class Survey_list : Page
+
+    public partial class Survey_List : Page
     {
-        MainContent mainContent;
+        private readonly MainContent mainContent;
+        private readonly long patientId;
+        private readonly SurveyService surveyService;
 
+        public ObservableCollection<surveys_patients> Surveys { get; set; }
 
-        public Survey_list(long id, MainContent mainContent)
+        public Survey_List(long patientId, MainContent mainContent)
         {
-            InitializeComponent();
+            InitializeComponent(); //??????????????????
             this.mainContent = mainContent;
+            this.patientId = patientId;
+            this.surveyService = new SurveyService();
+
+            LoadSurveys();
+            this.DataContext = this;
         }
 
-        public Survey_list(MainContent mainContent)
+        private void LoadSurveys()
         {
-            InitializeComponent();
-            this.mainContent = mainContent;
+            var surveys = surveyService.GetSurveysByPatient(patientId);
+            Surveys = new ObservableCollection<surveys_patients>(surveys);
         }
+
+        private void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
+        {
+            mainContent.navigateToPatients();
+        }
+
+        private void ViewSurveyButton_Click()
+        {
+
+        }
+
+
+
     }
+
 }

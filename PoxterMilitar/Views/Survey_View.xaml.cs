@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PoxterMilitar.Models;
+using PoxterMilitar.Views;
 
 namespace PoxterMilitar.Views
 {
@@ -23,6 +25,19 @@ namespace PoxterMilitar.Views
         public Survey_View()
         {
             InitializeComponent();
+            
         }
+
+        void Button_Patientinformation_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Patient_Information.xaml", UriKind.Relative));
+        }
+
+        void Button_GuardarEncuesta(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Survey_Patient.xaml", UriKind.Relative));
+        }
+
+
     }
 }

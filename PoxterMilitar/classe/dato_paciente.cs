@@ -15,6 +15,8 @@ namespace PoxterMilitar.classe
         public string? Genero { get; set; }
         public long Altura { get; set; }
         public long Peso { get; set; }
-        
+        public string? PrimerAmp { get; set; }
+        public string? SegundoAmp { get; set; }
+
     }
 }
