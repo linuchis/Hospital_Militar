@@ -5,6 +5,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        
+        
+
         <Style TargetType="TextBox" x:Key="RepetitionsButton">
             <Setter Property="FontFamily" Value="Verdana"/>
             <Setter Property="FontSize" Value="17"/>
@@ -71,7 +74,6 @@
         </ControlTemplate>
 
 
-        <!-- Boton de ComboBox -->
         <!-- Boton de ComboBox -->
         <Style TargetType="ComboBox" x:Key="RoundedComboBoxStyle">
             <Setter Property="FontFamily" Value="Verdana"/>

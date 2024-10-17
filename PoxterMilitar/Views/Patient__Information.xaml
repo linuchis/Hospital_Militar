@@ -110,10 +110,10 @@
                                           HorizontalContentAlignment ="Left" 
                                           SelectionChanged="ExerciseCombo_SelectionChanged">
 
-                                    <ComboBoxItem Tag="Mano1">Ejercicio de Mano 1</ComboBoxItem>
-                                    <ComboBoxItem Tag="Mano2">Ejercicio de Mano 2</ComboBoxItem>
-                                    <ComboBoxItem Tag="Pie1">Ejercicio de Pie 1</ComboBoxItem>
-                                    <ComboBoxItem Tag="Pie2">Ejercicio de Pie 2</ComboBoxItem>
+                                    <ComboBoxItem Tag="Mano1">Agarre de frutas   </ComboBoxItem>
+                                    <ComboBoxItem Tag="Mano2">Agarre de cubo   </ComboBoxItem>
+                                    <ComboBoxItem Tag="Pie1">Pista automovilística</ComboBoxItem>
+                                    <ComboBoxItem Tag="Pie2">Elevador            </ComboBoxItem>
                                 </ComboBox>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"

@@ -33,15 +33,21 @@ namespace PoxterMilitar.Views
 
         }
 
+        
+
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             GridAmputacion.Visibility = Visibility.Visible;
+            GridLabelAmp.Visibility = Visibility.Visible;
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             GridAmputacion.Visibility = Visibility.Collapsed;
+            GridLabelAmp.Visibility = Visibility.Collapsed;
+
         }
+
 
         //--------------
         private void Button_Back_Click(object sender, RoutedEventArgs e)
@@ -140,7 +146,12 @@ namespace PoxterMilitar.Views
             CheckAmputacion.IsChecked = false;
             ComboBox1.SelectedIndex = 3; // Seleccionar "Tipo de documento"
             Extremidad1.SelectedIndex = 4; // Seleccionar "Seleccionar extremidad amputada"
-            Extremidad2.SelectedIndex = 4; // Seleccionar "Seleccionar extremidad amputada"
+            Extremidad2.SelectedIndex = 4; // Seleccionar "Seleccionar extremidad amputada" b
+        }
+
+        private void Document_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
     
