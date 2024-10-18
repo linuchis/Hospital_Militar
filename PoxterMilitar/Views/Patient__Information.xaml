@@ -101,7 +101,7 @@
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
                                           Name="ExerciseCombo" 
-                                          HorizontalAlignment="Left" 
+                                          HorizontalAlignment="Left"
                                           Width="292"
                                           SelectedValuePath="Tag"
                                           FontFamily="Verdana" 
@@ -113,7 +113,7 @@
                                     <ComboBoxItem Tag="Mano1">Agarre de frutas   </ComboBoxItem>
                                     <ComboBoxItem Tag="Mano2">Agarre de cubo   </ComboBoxItem>
                                     <ComboBoxItem Tag="Pie1">Pista automovilística</ComboBoxItem>
-                                    <ComboBoxItem Tag="Pie2">Elevador            </ComboBoxItem>
+                                    <ComboBoxItem Tag="Pie2">Elevador</ComboBoxItem>
                                 </ComboBox>
 
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
@@ -156,6 +156,7 @@
                                     Width="295" 
                                     Margin="356,154,0,0" 
                                     FontSize="16" 
+                                    Cursor="Hand"
                                     FontFamily="Verdana" 
                                     Style="{StaticResource LargeCheckBoxStyle}"
                                     Checked="CheckPrimerosPasos_Checked"
@@ -172,6 +173,7 @@
                                      HorizontalAlignment="Right" 
                                     Width="198" 
                                     Background="#FF1AD700" 
+                                    Cursor="Hand"
                                     Click="IniciarPrograma_Click"/>
 
                                 <Button 
@@ -182,6 +184,7 @@
                                      HorizontalAlignment="Center" 
                                      Width="221" 
                                      Background="#FF3383C3" 
+                                    Cursor="Hand"
                                      Click="ReiniciarPrograma_Click"/>
                                 <Button 
                                      x:Name="Cancel" 

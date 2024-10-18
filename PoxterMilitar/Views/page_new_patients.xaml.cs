@@ -33,7 +33,10 @@ namespace PoxterMilitar.Views
 
         }
 
-        
+        private void Document_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Implementa lógica si es necesario para manejar cambios en el campo de documento
+        }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -62,97 +65,95 @@ namespace PoxterMilitar.Views
 
         private void Button_SavePatient_Click(object sender, RoutedEventArgs e)
         {
-            SavePatientData();
-        }
-
-        private void SavePatientData()
-        {
             try
             {
-                // Obtener los datos de los controles
+                // Obtener y validar los datos de los controles de entrada
+                long id_p;
+                if (!long.TryParse(ID.Text, out id_p))
+                {
+                    MessageBox.Show("Por favor, ingresa un número de cédula válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 string nombre = Nombre.Text.Trim();
                 string apellidos = Apellidos.Text.Trim();
-                string genero = (Sexo.SelectedItem as ComboBoxItem)?.Content.ToString().Trim();
-                string idText = ID.Text.Trim();
-                string pesoText = Weight.Text.Trim();
-                string alturaText = Height.Text.Trim();
-
-                // Validaciones
-                if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellidos) || string.IsNullOrEmpty(genero) || string.IsNullOrEmpty(idText))
+                long peso;
+                if (!long.TryParse(Weight.Text, out peso))
                 {
-                    MessageBox.Show("Por favor, completa todos los campos obligatorios.", "Campos Vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Por favor, ingresa un peso válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                if (!long.TryParse(idText, out long id_p))
+                long altura;
+                if (!long.TryParse(Height.Text, out altura))
                 {
-                    MessageBox.Show("ID inválido. Por favor, ingrese un número válido.", "Error de Validación", MessageBoxButton.OK, MessageBoxImage.Error);
-                    ID.BorderBrush = Brushes.Red;
+                    MessageBox.Show("Por favor, ingresa una estatura válida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                if (!double.TryParse(pesoText, out double peso))
+                string genero = (Sexo.SelectedItem as ComboBoxItem)?.Content.ToString();
+                string tipoDocumento = (ComboBox1.SelectedItem as ComboBoxItem)?.Content.ToString();
+                string extremidadAmputada = (Extremidad1.SelectedItem as ComboBoxItem)?.Content.ToString();
+                string segundoAmputado = null;
+                
+                if (CheckAmputacion.IsChecked == false)
                 {
-                    MessageBox.Show("Peso inválido. Por favor, ingrese un número válido.", "Error de Validación", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Weight.BorderBrush = Brushes.Red;
-                    return;
+                    segundoAmputado = "No aplica";
+                }
+                else
+                {
+                    // Si el checkbox está marcado, pero no se seleccionó una opción, también asignar "No aplica"
+                    segundoAmputado = (Extremidad2.SelectedItem as ComboBoxItem)?.Content.ToString();
+                    if (string.IsNullOrEmpty(segundoAmputado))
+                    {
+                        segundoAmputado = "No aplica";
+                    }
                 }
 
-                if (!double.TryParse(alturaText, out double altura))
-                {
-                    MessageBox.Show("Altura inválida. Por favor, ingrese un número válido.", "Error de Validación", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Height.BorderBrush = Brushes.Red;
-                    return;
-                }
-
-                // Crear un nuevo objeto dato_paciente
-                dato_paciente newPatient = new dato_paciente
+                // Crear una instancia de dato_paciente
+                var nuevoPaciente = new dato_paciente
                 {
                     Id = id_p,
                     Nombre = nombre,
                     Apellido = apellidos,
+                    Peso = peso,
+                    Altura = altura,
                     Genero = genero,
-                    Peso = (long)peso,
-                    Altura = (long)altura
-                    // Ignoramos extremidades amputadas y tipo de documento según la solicitud
+                    PrimerAmp = extremidadAmputada,
+                    SegundoAmp = segundoAmputado
                 };
 
-                // Agregar el paciente a la base de datos
-                _patientService.AddPatient(newPatient);
+                // Agregar el nuevo paciente
+                _patientService.AddPatient(nuevoPaciente);
 
-                MessageBox.Show("Paciente guardado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Paciente agregado exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                // Limpiar los campos después de guardar (opcional)
-                ClearFields();
-
-                // Navegar de vuelta a la lista de pacientes
+                // Limpiar los campos después de guardar
                 mainContent.navigateToPatients();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar el paciente: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error al agregar el paciente: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         // Método Opcional para Limpiar los Campos
-        private void ClearFields()
+        private void LimpiarCampos()
         {
-            Nombre.Text = string.Empty;
-            Apellidos.Text = string.Empty;
-            Sexo.SelectedIndex = 3; // Seleccionar "No se identifica"
-            ID.Text = string.Empty;
-            Weight.Text = string.Empty;
-            Height.Text = string.Empty;
+            Nombre.Text = "";
+            Apellidos.Text = "";
+            Weight.Text = "";
+            Height.Text = "";
+            ComboBox1.SelectedIndex = -1;
+            Sexo.SelectedIndex = -1;
+            Extremidad1.SelectedIndex = -1;
+            Extremidad2.SelectedIndex = -1;
             CheckAmputacion.IsChecked = false;
-            ComboBox1.SelectedIndex = 3; // Seleccionar "Tipo de documento"
-            Extremidad1.SelectedIndex = 4; // Seleccionar "Seleccionar extremidad amputada"
-            Extremidad2.SelectedIndex = 4; // Seleccionar "Seleccionar extremidad amputada" b
+            GridAmputacion.Visibility = Visibility.Collapsed;
+            ID.Text = "";
         }
 
-        private void Document_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
     }
     
 }

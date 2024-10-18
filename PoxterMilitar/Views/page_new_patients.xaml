@@ -479,7 +479,7 @@
                             </Grid>
 
                             <Grid  Grid.Row="3" Grid.Column="0">
-                                <TextBlock Text="Tipo de Documento"  Style="{StaticResource TextBlockStyleCommon}" Margin="22,20,0,20" Width="252"/>
+                                <TextBlock Text="Tipo de documento"  Style="{StaticResource TextBlockStyleCommon}" Margin="22,20,0,20" Width="252"/>
                             </Grid>
 
                             <Grid  Grid.Row="3" Grid.Column="1">
@@ -500,9 +500,9 @@
                                         Width="294" 
                                         Height="55"
                                         FontFamily="Verdana" 
-                                        FontSize="19" Margin="10,0,0,0" >
-                                    <ComboBoxItem Content="Masculino"/>
-                                    <ComboBoxItem Content="Femenino"/>
+                                        FontSize="19" Margin="22,0,0,0" >
+                                    <ComboBoxItem Tag="Masculino">Masculino</ComboBoxItem>
+                                    <ComboBoxItem Tag="Femenino">Femenino</ComboBoxItem>
                                     <ComboBoxItem IsSelected="True"></ComboBoxItem>
                                 </ComboBox>
                             </Grid>
@@ -511,7 +511,7 @@
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
                                         x:Name="ComboBox1" 
                                         HorizontalAlignment="Center" 
-                                        Width="288"
+                                        Width="294"
                                         FontFamily="Verdana" 
                                         FontSize="19">
                                     <ComboBoxItem Content="Tarjeta de Identidad"/>
@@ -523,17 +523,17 @@
 
                             <Grid Grid.Row="4" Grid.Column="2">
                                 <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
-                                          Name="Extremidad1" 
+                                          x:Name="Extremidad1" 
                                           HorizontalAlignment="Left" 
-                                          Width="270" 
+                                          Width="294" 
                                           Height="55"
                                           FontFamily="Verdana" 
-                                          FontSize="19" Margin="10,0,0,0" 
+                                          FontSize="19" Margin="22,0,0,0" 
                                           >
-                                    <ComboBoxItem Content="brazo derecho"/>
-                                    <ComboBoxItem Content="brazo izquierdo"/>
-                                    <ComboBoxItem Content="pierna derecha"/>
-                                    <ComboBoxItem Content="pierna izquierda"/>
+                                    <ComboBoxItem Content="Brazo derecho"/>
+                                    <ComboBoxItem Content="Brazo izquierdo"/>
+                                    <ComboBoxItem Content="Pierna derecha"/>
+                                    <ComboBoxItem Content="Pierna izquierda"/>
                                     <ComboBoxItem IsSelected="True"></ComboBoxItem>
                                 </ComboBox>
                             </Grid>
@@ -560,7 +560,7 @@
                             </Grid>
 
                             <Grid  Grid.Row="5" Grid.Column="0">
-                                <TextBlock Text="N° de Documento" Style="{StaticResource TextBlockStyleCommon}" Margin="22,24,0,15" Width="265" />
+                                <TextBlock Text="N° de documento" Style="{StaticResource TextBlockStyleCommon}" Margin="22,24,0,15" Width="265" />
                             </Grid>
 
                             <Grid  Grid.Row="6" Grid.Column="0" >
@@ -593,117 +593,7 @@
                                     Margin="84,30,53,2"
                                     />
                             </Grid>
-
-
-
-
-                            <!-- <Grid Grid.Row="3" Grid.Column="0" Margin="35,112,0,120">
-                                <StackPanel Margin="0,0,0,-78">
-                                    <StackPanel Orientation="Vertical" Margin="10">
-                                        <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
-                                            Name="Sexo" 
-                                            HorizontalAlignment="Left" 
-                                            Width="283" 
-                                            Height="55"
-                                            FontFamily="Verdana" 
-                                            FontSize="19" >
-                                            <ComboBoxItem Content="Masculino"/>
-                                            <ComboBoxItem Content="Femenino"/>
-                                            <ComboBoxItem Content="No se identifica"/>
-                                            <ComboBoxItem IsSelected="True">Seleccione sexo</ComboBoxItem>
-                                        </ComboBox>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Grid>
-
-                            <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,24,0,0">
-                                <CheckBox 
-                                    x:Name="CheckAmputacion"
-                                    Content="El paciente cuenta con amputación en tren superior y tren inferior." 
-                                    HorizontalAlignment="Left" 
-                                    VerticalAlignment="Top" 
-                                    Width="742" 
-                                    Margin="-285,308,0,0" 
-                                    FontSize="20" 
-                                    FontFamily="Verdana" 
-                                    Style="{StaticResource LargeCheckBoxStyle}"
-                                    Checked="CheckBox_Checked"
-                                    Unchecked="CheckBox_Unchecked"
-                                    Height="48"/>
-                                <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
-                                              x:Name="ComboBox1" 
-                                              HorizontalAlignment="Left" 
-                                              Width="283"
-                                              FontFamily="Verdana" 
-                                              FontSize="19" Margin="20,22,0,311" 
-                                              >
-                                    <ComboBoxItem Content="Tarjeta de Identidad"/>
-                                    <ComboBoxItem Content="Cédula"/>
-                                    <ComboBoxItem Content="Pasaporte"/>
-                                    <ComboBoxItem IsSelected="True" Content="Tipo de documento"/>
-                                </ComboBox>
-                                <TextBox x:Name="ID" Style="{StaticResource UnderlinedTextBoxStyle}" Margin="25,97,719,247"/>
-                            </Grid>
-
-                            <Grid  Grid.Row="3" Grid.Column="0" Margin="0,219,0,138" Grid.ColumnSpan="3" Grid.RowSpan="4">
-                                <StackPanel Margin="54,0,28,20">
-                                    <TextBlock Text="Extremidad amputada" 
-                                               FontSize="22" 
-                                               Foreground="Gray" 
-                                               FontFamily="Verdana" 
-                                               Width="262" 
-                                               Height="31" 
-                                               HorizontalAlignment="Left"/>
-                                </StackPanel>
-                                
-
-
-                            </Grid>
-
-                            <Grid Grid.Column="3" Grid.Row="3">
-
-                                <Button
-                                    x:Name="SavePatient"
-                                    Content="Guardar Paciente"
-                                    Style="{StaticResource ButtonSaveNewPatient}"
-                                    Background="#FF3383C3" Margin="78,316,78,46" Click="Button_SavePatient_Click" FontSize="16"
-                                    />
-                                <TextBox x:Name="Height" Style="{StaticResource UnderlinedTextBoxStyle}" Margin="0,2,48,367"/>
-
-                            </Grid>
-
-                             Este es el Grid que será ocultado o mostrado según el estado del CheckBox 
-                            <Grid x:Name="GridAmputacion" 
-                                  Grid.Row="4" Grid.Column="0" Margin="0,219,0,138" Grid.ColumnSpan="3" Grid.RowSpan="4" Visibility="Collapsed">
-                                <StackPanel Margin="50,72,32,-52">
-                                    <TextBlock Text="Extremidad amputada" 
-                                               FontSize="22" 
-                                               Foreground="Gray" 
-                                               FontFamily="Verdana" 
-                                               Width="262" Height="31" 
-                                               HorizontalAlignment="Left"/>
-                                </StackPanel>
-                                <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
-                                          Name="Extremidad2" 
-                                          HorizontalAlignment="Left" 
-                                          Width="421" 
-                                          Height="55"
-                                          FontFamily="Verdana" 
-                                          FontSize="19" Margin="352,59,0,-59" 
-                                          >
-                                    <ComboBoxItem Content="Tren superior brazo derecho"/>
-                                    <ComboBoxItem Content="Tren superior brazo izquierdo"/>
-                                    <ComboBoxItem Content="Tren inferior pierna derecha"/>
-                                    <ComboBoxItem Content="Tren inferior pierna izquierda"/>
-                                    <ComboBoxItem IsSelected="True">Seleccionar extremidad amputada</ComboBoxItem>
-                                </ComboBox>
-                            </Grid>-->
-
-
-
-
-                            <Grid  Grid.Row="2" Grid.Column="3">
-                            </Grid>
+                            
                         </Grid>
                     </StackPanel>
                 </DockPanel>

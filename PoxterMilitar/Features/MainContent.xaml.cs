@@ -24,15 +24,12 @@ namespace PoxterMilitar.Features
         public MainContent()
         {
             InitializeComponent();
-            _patientService = new PatientService(); // Inicializa el servicio
+            _patientService = new PatientService();
 
             ListaPacientes = _patientService.GetAllPatients();
             ListaEjercicios = new List<dato_ejercicio>();
             
-            // Navegar el Frame de InicioPacientes a la página InicioPacientes
             FrameInicioPacientes.Navigate(new InicioPacientes(this));
-
-            // Navegar el Frame de Page_Patients a la página Page_Patients
             FramePagePatients.Navigate(new Page_Patients(ListaPacientes, this));
 
             InitSocket();

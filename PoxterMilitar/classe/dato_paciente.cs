@@ -8,7 +8,7 @@ namespace PoxterMilitar.classe
 {
     public class dato_paciente
     {
-        public long Id { get; set; }
+        public long Id { get; set; } //cedulaaa
         public string? Foto { get; set; }
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }

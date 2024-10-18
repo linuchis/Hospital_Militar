@@ -86,6 +86,8 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
 
+
+
             <!-- Desactivar FocusVisual para eliminar el cuadro azul en selección o hover -->
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="Focusable" Value="False"/>
@@ -100,15 +102,14 @@
                             </Grid.RowDefinitions>
 
                             <!-- El Border define los bordes redondeados -->
-                            <Border x:Name="Border"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="15"
-                                    Padding="5" 
-                                    Grid.RowSpan="2">
+                                <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="15"
+                                Padding="5" 
+                                Grid.RowSpan="2">
 
-                                <!-- Cambiamos el DockPanel por un Grid para un mejor control de alineaciones -->
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <!-- Columna para el contenido -->
@@ -117,14 +118,12 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <!-- Espacio reservado para evitar que el texto se superponga a la flecha -->
                                     <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
-                                      Margin="10,0,0,0"
-                                      VerticalAlignment="Center" 
-                                      HorizontalAlignment="Left"
-                                      Grid.Column="0"/>
+                                          Margin="10,0,0,0"
+                                          VerticalAlignment="Center" 
+                                          HorizontalAlignment="Left"
+                                          Grid.Column="0"/>
 
-                                    <!-- Botón de despliegue personalizado, usando Grid.Column="1" para controlar el espacio -->
                                     <ToggleButton Grid.Column="1"
                                           Focusable="False"
                                           IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
@@ -134,29 +133,35 @@
                                           Foreground="Gray"
                                           FocusVisualStyle="{x:Null}"
                                           HorizontalAlignment="Right"
-                                          Template="{StaticResource CustomToggleButtonTemplate}">
+                                          Template="{StaticResource CustomToggleButtonTemplate}"
+                                                  Cursor="Hand">
 
                                         <!-- Imagen de la flecha por defecto (hacia abajo) -->
                                         <Image x:Name="ArrowImage" Source="/Resources/Inicio/Pacientes_List/arrow_down.png" 
-                                       Height="8" 
-                                       Width="23.34" 
-                                       HorizontalAlignment="Right" 
-                                       VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                               Height="8" 
+                                               Width="23.34" 
+                                               HorizontalAlignment="Right" 
+                                               VerticalAlignment="Center" Margin="0,0,10,0"/>
                                     </ToggleButton>
                                 </Grid>
                             </Border>
 
                             <!-- Popup de los items -->
                             <Popup x:Name="PART_Popup"
-                   AllowsTransparency="True"
-                   Focusable="False"
-                   IsOpen="{TemplateBinding IsDropDownOpen}"
-                   Placement="Bottom"
-                   PopupAnimation="Slide" Grid.RowSpan="2">
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   Placement="Bottom"
+                                   PopupAnimation="Slide" 
+                                   Grid.RowSpan="2"
+                                   Width="{Binding ActualWidth, ElementName=Border}"
+                                >
                                 <Border Background="White"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="1"
-                        CornerRadius="10">
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="10"
+                                        Padding="0">
+
                                     <ScrollViewer CanContentScroll="True">
                                         <ItemsPresenter/>
                                     </ScrollViewer>
@@ -177,6 +182,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
 
 
 
