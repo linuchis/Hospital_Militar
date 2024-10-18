@@ -12,30 +12,20 @@ namespace PoxterMilitar.DataAccess
 {
     public class PatientService
     {
-        // Implementación Singleton para compartir una única instancia
-        private static PatientService _instance;
-        public static PatientService Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new PatientService();
-                return _instance;
-            }
-        }
-
         private readonly dbpoxterContext _context;
-        public ObservableCollection<dato_paciente> ListaPacientes { get; set; }
 
-        private PatientService()
+
+        public PatientService()
         {
             _context = new dbpoxterContext();
-            ListaPacientes = new ObservableCollection<dato_paciente>(GetAllPatients());
         }
 
-        private List<dato_paciente> GetAllPatients()
+
+        public List<dato_paciente> GetAllPatients()
         {
-            return _context.patients_poxter.ToList().Select(p => new dato_paciente
+            var patients = _context.patients_poxter.ToList();
+
+            var listaPacientes = patients.Select(p => new dato_paciente
             {
                 Id = p.id_p,
                 Altura = p.height_p,
@@ -45,7 +35,33 @@ namespace PoxterMilitar.DataAccess
                 Genero = p.gender_p,
                 PrimerAmp = p.amp_first,
                 SegundoAmp = p.amp_sec
+
             }).ToList();
+
+            return listaPacientes;
+        }
+
+        public dato_paciente GetPatientById(long patientId)
+        {
+            var paciente = _context.patients_poxter.FirstOrDefault(p => p.id_p == patientId);
+            if (paciente != null)
+            {
+                return new dato_paciente
+                {
+                    Id = paciente.id_p,
+                    Altura = paciente.height_p,
+                    Peso = paciente.weight_p,
+                    Nombre = paciente.name_p,
+                    Apellido = paciente.lastname_p,
+                    Genero = paciente.gender_p,
+                    PrimerAmp = paciente.amp_first,
+                    SegundoAmp = paciente.amp_sec
+                };
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void AddPatient(dato_paciente newPatient)
@@ -61,7 +77,7 @@ namespace PoxterMilitar.DataAccess
 
                 var paciente = new patients_poxter
                 {
-                    id_p = newPatient.Id, // Cédula proporcionada por el usuario
+                    id_p = newPatient.Id, // Ahora es la cédula proporcionada por el usuario
                     name_p = newPatient.Nombre,
                     lastname_p = newPatient.Apellido,
                     gender_p = newPatient.Genero,
@@ -73,9 +89,6 @@ namespace PoxterMilitar.DataAccess
 
                 _context.patients_poxter.Add(paciente);
                 _context.SaveChanges();
-
-                // Agregar al ObservableCollection para actualizar la UI automáticamente
-                ListaPacientes.Add(newPatient);
             }
             catch (Exception ex)
             {
@@ -83,7 +96,8 @@ namespace PoxterMilitar.DataAccess
             }
         }
 
-        // Métodos para actualizar y eliminar pacientes también deben actualizar la ObservableCollection
+
+        //este metodo care picha es el que sube los datos a la base de datos
         public void UpdatePatient(dato_paciente updatedPatient)
         {
             var paciente = _context.patients_poxter.FirstOrDefault(p => p.id_p == updatedPatient.Id);
@@ -94,29 +108,17 @@ namespace PoxterMilitar.DataAccess
                 paciente.gender_p = updatedPatient.Genero;
                 paciente.weight_p = updatedPatient.Peso;
                 paciente.height_p = updatedPatient.Altura;
-                paciente.amp_first = updatedPatient.PrimerAmp;
-                paciente.amp_sec = updatedPatient.SegundoAmp;
+                // Actualiza otras propiedades según sea necesario
 
                 _context.SaveChanges();
-
-                // Actualizar en la ObservableCollection
-                var pacienteEnLista = ListaPacientes.FirstOrDefault(p => p.Id == updatedPatient.Id);
-                if (pacienteEnLista != null)
-                {
-                    pacienteEnLista.Nombre = updatedPatient.Nombre;
-                    pacienteEnLista.Apellido = updatedPatient.Apellido;
-                    pacienteEnLista.Genero = updatedPatient.Genero;
-                    pacienteEnLista.Peso = updatedPatient.Peso;
-                    pacienteEnLista.Altura = updatedPatient.Altura;
-                    pacienteEnLista.PrimerAmp = updatedPatient.PrimerAmp;
-                    pacienteEnLista.SegundoAmp = updatedPatient.SegundoAmp;
-                }
             }
             else
             {
                 throw new Exception("Paciente no encontrado.");
             }
         }
+
+
 
         public void DeletePatient(long patientId)
         {
@@ -127,13 +129,6 @@ namespace PoxterMilitar.DataAccess
                 {
                     _context.patients_poxter.Remove(paciente);
                     _context.SaveChanges();
-
-                    // Eliminar de la ObservableCollection
-                    var pacienteEnLista = ListaPacientes.FirstOrDefault(p => p.Id == patientId);
-                    if (pacienteEnLista != null)
-                    {
-                        ListaPacientes.Remove(pacienteEnLista);
-                    }
                 }
                 else
                 {
